@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nikuneko Studio</title>
+  <meta name="description" content="Nikuneko Studio official website.">
+  <link rel="canonical" href="https://nikunekostudio.github.io/">
+  <style>
+    *{box-sizing:border-box} html,body{margin:0;min-height:100%;background:#fbfaf5;color:#111;font-family:Arial,sans-serif}
+    .hero{position:relative;min-height:100vh;overflow:hidden;background:#fbfaf5 url('assets/hero-bg.png') center bottom/cover no-repeat}
+    nav{position:absolute;z-index:2;top:34px;right:6vw;display:flex;gap:42px;font:600 14px/1.2 monospace;letter-spacing:.08em}
+    nav a{color:#111;text-decoration:none} nav a:first-child{border-bottom:3px solid #d52b2b;padding-bottom:9px}
+    .logo{position:absolute;z-index:2;left:50%;top:42%;transform:translate(-50%,-50%);width:min(46vw,560px);height:auto;mix-blend-mode:multiply}
+    @media(max-width:700px){nav{left:0;right:0;top:22px;justify-content:center;gap:18px;font-size:11px}.logo{top:40%;width:min(78vw,500px)}.hero{background-size:auto 100%;background-position:center bottom}}
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <nav aria-label="Main navigation">
+      <a href="/">HOME</a><a href="#games">GAMES</a><a href="#about">ABOUT</a><a href="#blog">BLOG</a><a href="#contact">CONTACT</a>
+    </nav>
+    <img class="logo" src="assets/logo.png" alt="NIKUNEKO STUDIO">
+  </main>
+</body>
+</html>
