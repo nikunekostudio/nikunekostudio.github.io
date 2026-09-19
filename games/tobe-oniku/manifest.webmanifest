@@ -1,0 +1,84 @@
+{
+  "name": "飛べ！おにく！",
+  "short_name": "飛べ！おにく！",
+  "id": "com.oniku.flyoniku",
+  "description": "",
+  "orientation": "portrait",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": [{
+        "src": "32_3.png",
+        "sizes": "20x20"
+      },{
+        "src": "32_3.png",
+        "sizes": "29x29"
+      },{
+        "src": "32_3.png",
+        "sizes": "36x36"
+      },{
+        "src": "32_3.png",
+        "sizes": "40x40"
+      },{
+        "src": "32_3.png",
+        "sizes": "48x48"
+      },{
+        "src": "32_3.png",
+        "sizes": "50x50"
+      },{
+        "src": "32_3.png",
+        "sizes": "57x57"
+      },{
+        "src": "32_3.png",
+        "sizes": "58x58"
+      },{
+        "src": "32_3.png",
+        "sizes": "60x60"
+      },{
+        "src": "32_3.png",
+        "sizes": "72x72"
+      },{
+        "src": "32_3.png",
+        "sizes": "76x76"
+      },{
+        "src": "32_3.png",
+        "sizes": "80x80"
+      },{
+        "src": "32_3.png",
+        "sizes": "87x87"
+      },{
+        "src": "32_3.png",
+        "sizes": "96x96"
+      },{
+        "src": "32_3.png",
+        "sizes": "100x100"
+      },{
+        "src": "32_3.png",
+        "sizes": "114x114"
+      },{
+        "src": "32_3.png",
+        "sizes": "120x120"
+      },{
+        "src": "32_3.png",
+        "sizes": "144x144"
+      },{
+        "src": "32_3.png",
+        "sizes": "152x152"
+      },{
+        "src": "32_3.png",
+        "sizes": "167x167"
+      },{
+        "src": "32_3.png",
+        "sizes": "180x180"
+      },{
+        "src": "32_3.png",
+        "sizes": "192x192"
+      },{
+        "src": "32_3.png",
+        "sizes": "512x512"
+      },{
+        "src": "32_3.png",
+        "sizes": "1024x1024"
+      }]
+}
