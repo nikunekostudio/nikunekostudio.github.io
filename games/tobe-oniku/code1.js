@@ -477,13 +477,13 @@ gdjs.GameCode.GDstockObjects3.length = 0;
 {gdjs.evtTools.object.createObjectOnScene(runtimeScene, gdjs.GameCode.mapOfGDgdjs_9546GameCode_9546GDTopPillarObjects3Objects, 450, gdjs.randomInRange(30, 110), "");
 }
 {for(var i = 0, len = gdjs.GameCode.GDTopPillarObjects3.length ;i < len;++i) {
-    gdjs.GameCode.GDTopPillarObjects3[i].getBehavior("Resizable").setHeight(254);
+    gdjs.GameCode.GDTopPillarObjects3[i].getBehavior("Resizable").setHeight(250);
 }
 }
-{gdjs.evtTools.object.createObjectOnScene(runtimeScene, gdjs.GameCode.mapOfGDgdjs_9546GameCode_9546GDBottomPillarObjects3Objects, 450, (( gdjs.GameCode.GDTopPillarObjects3.length === 0 ) ? 0 :gdjs.GameCode.GDTopPillarObjects3[0].getPointY("")) + 335, "");
+{gdjs.evtTools.object.createObjectOnScene(runtimeScene, gdjs.GameCode.mapOfGDgdjs_9546GameCode_9546GDBottomPillarObjects3Objects, 450, (( gdjs.GameCode.GDTopPillarObjects3.length === 0 ) ? 0 :gdjs.GameCode.GDTopPillarObjects3[0].getPointY("")) + 344, "");
 }
 {for(var i = 0, len = gdjs.GameCode.GDBottomPillarObjects3.length ;i < len;++i) {
-    gdjs.GameCode.GDBottomPillarObjects3[i].getBehavior("Resizable").setHeight(254);
+    gdjs.GameCode.GDBottomPillarObjects3[i].getBehavior("Resizable").setHeight(250);
 }
 }
 {for(var i = 0, len = gdjs.GameCode.GDBottomPillarObjects3.length ;i < len;++i) {
