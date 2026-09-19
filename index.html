@@ -3,28 +3,99 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Nikuneko Studio</title>
-  <meta name="description" content="Nikuneko Studio official website.">
+  <title>にくねこスタジオ | おにく氏デザインのゲームとショップ</title>
+  <meta name="description" content="にくねこスタジオの公式サイト。おにく氏がデザインするゲームやオリジナルアイテムを紹介します。ショップとお問い合わせ先はこちら。">
   <link rel="canonical" href="https://nikunekostudio.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="にくねこスタジオ">
+  <meta property="og:title" content="にくねこスタジオ | おにく氏デザインのゲームとショップ">
+  <meta property="og:description" content="おにく氏がデザインするゲームやオリジナルアイテムを公開していく、にくねこスタジオの公式サイト。">
+  <meta property="og:url" content="https://nikunekostudio.github.io/">
+  <meta property="og:image" content="https://nikunekostudio.github.io/assets/hero-bg.png">
+  <meta property="og:image:alt" content="にくねこスタジオのドット絵の風景">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#fbfaf5">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "にくねこスタジオ",
+      "alternateName": "NIKUNEKO STUDIO",
+      "url": "https://nikunekostudio.github.io/",
+      "logo": "https://nikunekostudio.github.io/assets/logo.png",
+      "description": "おにく氏デザインのゲームやオリジナルアイテムを公開するスタジオ。",
+      "sameAs": [
+        "https://x.com/nikunekokikaku",
+        "https://suzuri.jp/nikuneko"
+      ]
+    }
+  </script>
   <style>
+    :root{color-scheme:light;scroll-behavior:smooth}
     *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:#fbfaf5;color:#111;font-family:Arial,sans-serif}
+    html,body{margin:0;min-height:100%;background:#fbfaf5;color:#181817;font-family:Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
+    a{color:inherit}
+    a:focus-visible{outline:2px solid #ca2528;outline-offset:4px}
     .hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:#fbfaf5 url('assets/hero-bg.png') center bottom/cover no-repeat}
-    nav{position:absolute;z-index:2;top:34px;right:6vw;display:flex;align-items:center;gap:clamp(16px,3vw,42px);font:600 14px/1.2 monospace;letter-spacing:.08em;white-space:nowrap}
-    nav a{color:#111;text-decoration:none;padding-bottom:9px;border-bottom:3px solid transparent}
-    nav a[aria-current="page"]{border-bottom-color:#d52b2b}
-    nav a:focus-visible{outline:2px solid #d52b2b;outline-offset:4px}
+    nav{position:absolute;z-index:2;top:34px;right:6vw;display:flex;align-items:center;gap:clamp(12px,3vw,42px);font:600 14px/1.2 monospace;letter-spacing:.08em;white-space:nowrap}
+    nav a{text-decoration:none;padding-bottom:9px;border-bottom:3px solid transparent}
+    nav a[aria-current="page"],nav a:hover{border-bottom-color:#d52b2b}
     h1{margin:0}
     .logo{position:absolute;z-index:1;left:50%;top:42%;transform:translate(-50%,-50%);width:min(60vw,720px);height:auto;mix-blend-mode:multiply}
-    @media(max-width:700px){nav{left:12px;right:12px;top:22px;justify-content:center;gap:clamp(8px,3vw,18px);font-size:clamp(10px,2.4vw,12px)}.logo{top:40%;width:min(90vw,560px)}.hero{background-size:auto 100%}}
+    .content{max-width:920px;margin:0 auto;padding:72px 24px 88px}
+    .intro{margin:0 0 48px;font-size:clamp(18px,2.4vw,23px);font-weight:700;line-height:1.8}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .card{min-height:240px;padding:30px;border:2px solid #242424;background:#fffefa;box-shadow:6px 6px 0 #dce8d6}
+    .card h2,.about h2{margin:0 0 18px;font:700 22px/1.3 monospace;letter-spacing:.09em}
+    .card p,.about p{margin:0 0 20px;line-height:1.9}
+    .button{display:inline-block;padding:11px 18px;border:2px solid #242424;background:#fff;color:#181817;text-decoration:none;font-weight:700;box-shadow:4px 4px 0 #d52b2b}
+    .button:hover{background:#f8eaea}
+    .about{margin-top:64px;padding-top:38px;border-top:2px solid #242424}
+    footer{padding:25px 24px 38px;text-align:center;font-size:13px}
+    @media(max-width:700px){
+      nav{left:10px;right:10px;top:22px;justify-content:center;gap:clamp(7px,2.5vw,18px);font-size:clamp(10px,2.4vw,12px)}
+      .logo{top:40%;width:min(90vw,560px)}
+      .hero{background-size:auto 100%}
+      .content{padding:56px 20px 70px}
+      .grid{grid-template-columns:1fr}
+      .card{min-height:0;padding:24px}
+    }
+    @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}}
   </style>
 </head>
 <body>
-  <main class="hero">
-    <nav aria-label="Main navigation">
-      <a href="/" aria-current="page">HOME</a><a href="#games">GAMES</a><a href="#about">ABOUT</a><a href="#blog">BLOG</a><a href="#contact">CONTACT</a>
+  <header class="hero" id="home">
+    <nav aria-label="メインメニュー">
+      <a href="#home" aria-current="page">HOME</a>
+      <a href="#games">GAMES</a>
+      <a href="https://suzuri.jp/nikuneko" target="_blank" rel="noopener noreferrer">SHOP</a>
+      <a href="#about">ABOUT</a>
+      <a href="https://x.com/nikunekokikaku" target="_blank" rel="noopener noreferrer">CONTACT</a>
     </nav>
-    <h1><img class="logo" src="assets/logo.png" alt="NIKUNEKO STUDIO"></h1>
+    <h1><img class="logo" src="assets/logo.png" alt="にくねこスタジオ（NIKUNEKO STUDIO）" width="1984" height="1984"></h1>
+  </header>
+
+  <main class="content">
+    <p class="intro">にくねこスタジオは、おにく氏デザインのゲームやオリジナルアイテムを公開していきます。</p>
+    <div class="grid">
+      <section class="card" id="games" aria-labelledby="games-title">
+        <h2 id="games-title">GAMES</h2>
+        <p>制作したゲームはこちらで紹介していきます。</p>
+      </section>
+      <section class="card" id="shop" aria-labelledby="shop-title">
+        <h2 id="shop-title">SHOP</h2>
+        <p>にくねこスタジオのショップは SUZURI でご覧いただけます。</p>
+        <a class="button" href="https://suzuri.jp/nikuneko" target="_blank" rel="noopener noreferrer">ショップを見る ↗</a>
+      </section>
+    </div>
+    <section class="about" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">ABOUT</h2>
+      <p>にくねこスタジオは、おにく氏がデザインするゲームやショップのアイテムを公開していきます。</p>
+      <p>本サイトに掲載されたコンテンツの著作権は、にくねこスタジオに帰属します。</p>
+      <p>お問い合わせは <a href="https://x.com/nikunekokikaku" target="_blank" rel="noopener noreferrer">公式 X（@nikunekokikaku）</a> までご連絡ください。</p>
+    </section>
   </main>
+  <footer>© 2026 にくねこスタジオ</footer>
 </body>
 </html>

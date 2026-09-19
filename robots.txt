@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nikunekostudio.github.io/sitemap.xml
