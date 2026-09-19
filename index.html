@@ -43,8 +43,14 @@
     nav a[aria-current="page"],nav a:hover{border-bottom-color:#d52b2b}
     h1{margin:0}
     .logo{position:absolute;z-index:1;left:50%;top:42%;transform:translate(-50%,-50%);width:min(60vw,720px);height:auto;mix-blend-mode:multiply}
+    .hero-action{position:absolute;z-index:2;left:50%;top:60%;transform:translateX(-50%);white-space:nowrap}
+    .hero-characters{position:absolute;z-index:1;bottom:4.5%;left:50%;transform:translateX(-50%);display:flex;align-items:end;justify-content:center;gap:clamp(0px,1.5vw,22px);width:min(92vw,600px);pointer-events:none}
+    .hero-characters img{display:block;width:32%;height:auto;image-rendering:pixelated;filter:drop-shadow(0 4px 0 #3d4e2c50)}
+    .hero-characters img:nth-child(2){width:35%;margin-bottom:2%}
     .content{max-width:920px;margin:0 auto;padding:72px 24px 88px}
-    .intro{margin:0 0 48px;font-size:clamp(18px,2.4vw,23px);font-weight:700;line-height:1.8}
+    .welcome{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:48px}
+    .intro{margin:0;font-size:clamp(18px,2.4vw,23px);font-weight:700;line-height:1.8}
+    .walking-cat{display:block;flex:none;width:116px;height:116px;object-fit:contain;image-rendering:pixelated;mix-blend-mode:multiply}
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
     .card{min-height:240px;padding:30px;border:2px solid #242424;background:#fffefa;box-shadow:6px 6px 0 #dce8d6}
     .card h2,.about h2{margin:0 0 18px;font:700 22px/1.3 monospace;letter-spacing:.09em}
@@ -56,8 +62,12 @@
     @media(max-width:700px){
       nav{left:10px;right:10px;top:22px;justify-content:center;gap:clamp(7px,2.5vw,18px);font-size:clamp(10px,2.4vw,12px)}
       .logo{top:40%;width:min(90vw,560px)}
+      .hero-action{top:58%}
+      .hero-characters{bottom:5%;width:min(96vw,440px)}
       .hero{background-size:auto 100%}
       .content{padding:56px 20px 70px}
+      .welcome{gap:8px}
+      .walking-cat{width:76px;height:76px}
       .grid{grid-template-columns:1fr}
       .card{min-height:0;padding:24px}
     }
@@ -68,22 +78,31 @@
   <header class="hero" id="home">
     <nav aria-label="メインメニュー">
       <a href="#home" aria-current="page">HOME</a>
-      <a href="#games">GAMES</a>
+      <a href="games/">GAMES</a>
       <a href="https://suzuri.jp/nikuneko" target="_blank" rel="noopener noreferrer">SHOP</a>
       <a href="https://note.com/niku_kabu" target="_blank" rel="noopener noreferrer">NOTE</a>
       <a href="#about">ABOUT</a>
       <a href="https://x.com/nikunekokikaku" target="_blank" rel="noopener noreferrer">CONTACT</a>
     </nav>
     <h1><img class="logo" src="assets/logo.png" alt="にくねこスタジオ（NIKUNEKO STUDIO）" width="1984" height="1984"></h1>
+    <a class="button hero-action" href="games/">ゲームを見る ↗</a>
+    <div class="hero-characters" aria-label="にくねこスタジオのキャラクター">
+      <img src="assets/shiitake.png" alt="しいたけ" width="1280" height="1280">
+      <img src="assets/oniku.png" alt="おにく" width="1280" height="1280">
+      <img src="assets/kani.png" alt="かに" width="1280" height="1280">
+    </div>
   </header>
 
   <main class="content">
-    <p class="intro">にくねこスタジオは、おにく氏デザインのゲームやオリジナルアイテムを公開していきます。</p>
+    <div class="welcome">
+      <p class="intro">にくねこスタジオは、おにく氏デザインのゲームやオリジナルアイテムを公開していきます。</p>
+      <img class="walking-cat" src="assets/arukuneko.GIF" alt="歩くねこのドット絵アニメーション" width="384" height="384" loading="lazy">
+    </div>
     <div class="grid">
       <section class="card" id="games" aria-labelledby="games-title">
         <h2 id="games-title">GAMES</h2>
-        <p>飛べ！おにく！</p>
-        <a class="button" href="games/tobe-oniku/">ゲームで遊ぶ ↗</a>
+        <p>公開中のゲームはこちら。新しい作品も追加していきます。</p>
+        <a class="button" href="games/">ゲーム一覧を見る ↗</a>
       </section>
       <section class="card" id="shop" aria-labelledby="shop-title">
         <h2 id="shop-title">SHOP</h2>
