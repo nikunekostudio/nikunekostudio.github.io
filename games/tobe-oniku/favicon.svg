@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <title>にくねこスタジオの猫</title>
+  <path fill="#493a35" d="M2 2h8v5h12V2h8v7h2v17h-3v3H3v-3H0V9h2z"/>
+  <path fill="#d68d70" d="M4 4h4v8H4zm20 0h4v8h-4zM4 10h24v15h-3v2H7v-2H4z"/>
+  <path fill="#f4b5a6" d="M6 5h2v5H6zm18 0h2v5h-2z"/>
+  <path fill="#eab494" d="M8 10h16v3H8z"/>
+  <path fill="#fff2d9" d="M6 18h9v6H6zm11 0h9v6h-9z"/>
+  <path fill="#493a35" d="M8 14h3v4H8zm13 0h3v4h-3zM15 21h2v2h-2zM12 24h8v2h-8z"/>
+  <path fill="#57758a" d="M8 27h16v2H8z"/>
+</svg>
