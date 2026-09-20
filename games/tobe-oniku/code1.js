@@ -1322,6 +1322,7 @@ runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(0.1)
 
 
 };gdjs.GameCode.eventsList15 = function(runtimeScene) {
+window.nikunekoSubmitMonthly?.(runtimeScene);
 
 {
 
