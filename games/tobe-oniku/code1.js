@@ -1301,6 +1301,7 @@ gdjs.copyArray(runtimeScene.getObjects("HighScoreChanged"), gdjs.GameCode.GDHigh
 
 { //Subevents
 gdjs.GameCode.eventsList13(runtimeScene, asyncObjectsList);} //End of subevents
+window.nikunekoShowShare?.(runtimeScene);
 gdjs.GameCode.localVariables.length = 0;
 }
 gdjs.GameCode.idToCallbackMap.set(12723228, gdjs.GameCode.asyncCallback12723228);
@@ -1435,6 +1436,7 @@ gdjs.GameCode.GDRestartButtonObjects2.length = k;
 if (isConditionTrue_0) {
 {gdjs.playerAuthentication.removeAuthenticationBanner(runtimeScene);
 }
+window.nikunekoHideShare?.();
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Game", false);
 }
 }
@@ -1459,6 +1461,7 @@ gdjs.GameCode.GDTitleButtonObjects2.length = k;
 if (isConditionTrue_0) {
 {gdjs.playerAuthentication.removeAuthenticationBanner(runtimeScene);
 }
+window.nikunekoHideShare?.();
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Menu", false);
 }
 }
@@ -1502,6 +1505,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.leaderboards.hasBeenSaved("a399e39c-3075-4d51-a27d-d514f16a9faa");
 }
 if (isConditionTrue_0) {
+window.nikunekoHideShare?.();
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Game", true);
 }
 }
