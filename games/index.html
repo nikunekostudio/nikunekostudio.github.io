@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ゲーム一覧 | にくねこスタジオ</title>
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="にくねこスタジオのゲーム一覧。『飛べ！おにく！』をブラウザで遊べます。">
+  <meta name="description" content="にくねこスタジオのゲーム一覧。『飛べ！おにく！』『走れ！おにく！』をブラウザで遊べます。">
   <link rel="canonical" href="https://nikunekostudio.github.io/games/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
@@ -37,9 +37,12 @@
     .section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:25px}
     .section-heading h2{margin:0;font:700 21px/1.3 monospace;letter-spacing:.08em}
     .section-heading p{margin:0;color:#d9d3e8;font-size:14px}
+    .game-list{display:grid;gap:26px}
     .game-card{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(270px,.9fr);overflow:hidden;border:1px solid #7d70ba;border-radius:12px;background:#15142ae8;box-shadow:0 16px 50px #06051b99,5px 5px 0 #a847af66}
     .game-art{background:#125db7}
     .game-art img{display:block;width:100%;height:100%;object-fit:contain;aspect-ratio:712/648}
+    .game-art.run{display:grid;place-items:center;overflow:hidden;background:linear-gradient(#72ceff 0 62%,#f2c955 62%)}
+    .game-art.run img{width:58%;height:auto;filter:drop-shadow(0 10px 0 #945c3633)}
     .game-info{display:flex;flex-direction:column;align-items:start;justify-content:center;padding:36px}
     .game-info .status{margin:0 0 12px;padding:5px 9px;border:1px solid #4994a5;background:#12313e;color:#a8f5ff;font:700 12px/1.4 monospace}
     .game-info h3{margin:0 0 16px;font-size:clamp(25px,3vw,35px)}
@@ -93,6 +96,7 @@
       <h2>公開中のゲーム</h2>
       <p>作品が増えたらここに追加していきます。</p>
     </div>
+    <div class="game-list">
     <article class="game-card">
       <div class="game-art"><img src="../assets/tobe-oniku-preview.png" alt="飛べ！おにく！のタイトル画面" width="712" height="648"></div>
       <div class="game-info">
@@ -102,6 +106,16 @@
         <a class="button" href="tobe-oniku/" aria-label="飛べ！おにく！をプレイ">ゲームで遊ぶ ↗</a>
       </div>
     </article>
+    <article class="game-card">
+      <div class="game-art run"><img src="hashire-oniku/oniku10.png" alt="走れ！おにく！の主人公、おにく" width="2048" height="2048"></div>
+      <div class="game-info">
+        <p class="status">PLAY IN BROWSER</p>
+        <h3>走れ！おにく！</h3>
+        <p>ジャンプとしゃがみで障害物をよけて走る、ブラウザゲーム。</p>
+        <a class="button" href="hashire-oniku/" aria-label="走れ！おにく！をプレイ">ゲームで遊ぶ ↗</a>
+      </div>
+    </article>
+    </div>
     <section class="monthly" aria-labelledby="monthly-heading">
       <h2 id="monthly-heading">今月のハイスコア</h2>
       <p id="monthly-status" role="status">ランキングは公開準備中です。</p>
