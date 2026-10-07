@@ -14,6 +14,6 @@ window.nikunekoSubmitMonthly = function (scene) {
   } catch { return; }
   fetch(base + '/scores', {method: 'POST', keepalive: true,
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({name: name.slice(0, 20), score, playerId: id}),
+    body: JSON.stringify({game: 'tobe-oniku', name: name.slice(0, 20), score, playerId: id}),
   }).catch(() => {});
 };
