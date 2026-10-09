@@ -1,4 +1,5 @@
 {
   "shareUrl": "https://nikunekostudio.github.io/games/orega-utta/",
-  "promotionUrl": ""
+  "promotionUrl": "",
+  "rankingApi": "https://nikuneko-monthly-scores-api.nikunekokikaku.workers.dev"
 }

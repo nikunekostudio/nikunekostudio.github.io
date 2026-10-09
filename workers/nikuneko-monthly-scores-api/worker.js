@@ -9,7 +9,7 @@ const previousMonth = () => {
   return now.toISOString().slice(0, 7);
 };
 
-const games = new Set(['tobe-oniku', 'hashire-oniku']);
+const games = new Set(['tobe-oniku', 'hashire-oniku', 'orega-utta']);
 const allowed = new Set([
   'https://nikunekostudio.github.io',
   'http://127.0.0.1:4173',
@@ -78,7 +78,7 @@ export default {
       const playerId = String(body.playerId || '').slice(0, 80);
       const score = Number(body.score);
       if (!games.has(game) || !name || !playerId ||
-          !Number.isSafeInteger(score) || score < 0 || score > 10_000_000)
+          !Number.isSafeInteger(score) || score < (game === 'orega-utta' ? -3_000_000 : 0) || score > (game === 'orega-utta' ? 20_000_000 : 10_000_000))
         return reply({error: 'Invalid score'}, 400, origin);
       const result = await env.DB.prepare(`INSERT INTO scores_v2
         (game, month, player_id, player_name, score, updated_at)

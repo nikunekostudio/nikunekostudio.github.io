@@ -108,7 +108,7 @@
       <p>作品が増えたらここに追加していきます。</p>
     </div>
     <div class="game-list">
-    <article class="game-entry">
+    <article class="game-entry" data-monthly-game="orega-utta">
       <div class="game-card">
         <div class="game-art" style="background:#10151b"><img src="orega-utta/mini/thumbnail.jpg" alt="俺が売ったら、あがった。の案内役の猫" width="730" height="590"></div>
         <div class="game-info">
@@ -118,7 +118,16 @@
           <a class="button" href="orega-utta/" aria-label="俺が売ったら、あがった。をプレイ">ゲームで遊ぶ ↗</a>
         </div>
       </div>
-    </article>
+          <section class="monthly" aria-label="俺が売ったら、あがった。の月間利益ランキング">
+        <div><h4>今月の利益TOP 3</h4><p data-monthly-status role="status">ランキングを読み込み中です。</p></div>
+        <div>
+          <div class="monthly-board"><ol data-monthly-list></ol></div>
+          <div class="monthly-board">
+            <div class="monthly-board-title"><h5>先月の確定利益TOP 3</h5><p data-previous-status role="status">読み込み中…</p></div>
+            <ol data-previous-list></ol>
+          </div>
+        </div>
+      </section></article>
     <article class="game-entry" data-monthly-game="tobe-oniku">
       <div class="game-card">
         <div class="game-art"><img src="../assets/tobe-oniku-preview.png" alt="飛べ！おにく！のタイトル画面" width="712" height="648"></div>
@@ -163,7 +172,7 @@
     </article>
     </div>
     <section class="monthly-share" aria-labelledby="monthly-share-title">
-      <div><h3 id="monthly-share-title">先月のランキングを公開</h3><p id="monthly-share-status" role="status">2つのゲームの確定結果を読み込み中です。</p></div>
+      <div><h3 id="monthly-share-title">先月のランキングを公開</h3><p id="monthly-share-status" role="status">各ゲームの確定結果を読み込み中です。</p></div>
       <button class="button share-button" id="share-previous-ranking" type="button" disabled>Xで先月の結果を共有 ↗</button>
     </section>
     <div class="more">
