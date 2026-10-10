@@ -43,7 +43,7 @@ const feedback=document.querySelector('#feedback');
 const feedbackMark=document.querySelector('#feedback-mark');
 const feedbackTitle=document.querySelector('#feedback-title');
 const feedbackCopy=document.querySelector('#feedback-copy');
-let round=[];let index=0;let score=0;
+let round=[];let index=0;let score=0;let answered=false;
 
 function shuffle(items){
   const copy=[...items];
@@ -59,6 +59,7 @@ function begin(){
 }
 function renderQuestion(){
   const current=round[index];
+  answered=false;
   image.src=current.src;
   image.alt=`第${index+1}問の判定画像`;
   progressText.textContent=`QUESTION ${index+1} / ${round.length}`;
@@ -67,6 +68,8 @@ function renderQuestion(){
   feedback.hidden=true;feedback.classList.remove('wrong');answerButtons.hidden=false;
 }
 function answer(choice){
+  if(answered)return;
+  answered=true;
   const current=round[index];
   const correct=(choice==='ai')===current.ai;
   if(correct)score++;
