@@ -1,14 +1,34 @@
 const questions = [
-  {src:'images/q01.jpg',ai:false,copy:'AIではありません。実際に撮影されたスニーカーの写真です。'},
-  {src:'images/q02.jpg',ai:false,copy:'AIではありません。人の手で描かれた古典的な挿絵です。'},
-  {src:'images/q03.png',ai:false,copy:'AIではありません。人の手で制作されたティーカップのイラストです。'},
-  {src:'images/q04.png',ai:true,copy:'AI画像です。雨の日のカフェを描くよう指示して生成されています。'},
-  {src:'images/q05.png',ai:true,copy:'AI画像です。手描き風のコーヒーカップとして生成されています。'},
-  {src:'images/q06.png',ai:true,copy:'AI画像です。青いスニーカーのイラストとして生成されています。'},
-  {src:'images/q07.jpg',ai:false,copy:'AIではありません。人の手で描かれた古典的な挿絵です。'},
-  {src:'images/q08.jpg',ai:false,copy:'AIではありません。人の手で制作された靴の線画です。'},
-  {src:'images/q09.jpg',ai:false,copy:'AIではありません。人の手で描かれた古典的な挿絵です。'},
-  {src:'images/q10.png',ai:true,copy:'AI画像です。窓辺の植物をペン画風に生成しています。'},
+  {src:'images/q01.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q02.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q03.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q04.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q05.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q06.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q07.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q08.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q09.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q10.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q11.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q12.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q13.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q14.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q15.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q16.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q17.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q18.png',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q19.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q20.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q21.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q22.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q23.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q24.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q25.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q26.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q27.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q28.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q29.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q30.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
 ];
 
 const startScreen=document.querySelector('#start-screen');
@@ -31,7 +51,12 @@ function shuffle(items){
   return copy;
 }
 function show(screen){[startScreen,quizScreen,resultScreen].forEach(item=>item.hidden=item!==screen)}
-function begin(){round=shuffle(questions);index=0;score=0;show(quizScreen);renderQuestion()}
+function begin(){
+  const aiQuestions=shuffle(questions.filter(question=>question.ai)).slice(0,5);
+  const humanQuestions=shuffle(questions.filter(question=>!question.ai)).slice(0,5);
+  round=shuffle([...aiQuestions,...humanQuestions]);
+  index=0;score=0;show(quizScreen);renderQuestion();
+}
 function renderQuestion(){
   const current=round[index];
   image.src=current.src;
