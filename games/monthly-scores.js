@@ -2,14 +2,20 @@ const base = window.NIKUNEKO_MONTHLY_API;
 const games = {
   'tobe-oniku': '飛べ！おにく！',
   'hashire-oniku': '走れ！おにく！',
+  'orega-utta': '俺が売ったら、あがった。',
 };
 const previousResults = new Map();
+
+function formatScore(value, game) {
+  const score = Number(value);
+  return game === 'orega-utta' ? `${score >= 0 ? '+' : '−'}${Math.abs(score).toLocaleString('ja-JP')} 円` : `${score.toLocaleString('ja-JP')} 点`;
+}
 
 function validRanking(data) {
   return Array.isArray(data.entries) && /^20\d{2}-(0[1-9]|1[0-2])$/.test(data.month);
 }
 
-function renderEntries(list, entries) {
+function renderEntries(list, entries, game) {
   list.replaceChildren();
   if (!entries.length) {
     const item = document.createElement('li');
@@ -22,7 +28,7 @@ function renderEntries(list, entries) {
     const item = document.createElement('li');
     item.append(document.createTextNode(String(entry.name).slice(0, 20)));
     const score = document.createElement('span');
-    score.textContent = Number(entry.score).toLocaleString('ja-JP') + ' 点';
+    score.textContent = formatScore(entry.score, game);
     item.append(score);
     list.append(item);
   }
@@ -42,7 +48,7 @@ function enableShareWhenReady() {
   const status = document.querySelector('#monthly-share-status');
   const month = previousResults.values().next().value.month;
   button.disabled = false;
-  status.textContent = `${month.replace('-', '年')}月の2ゲーム分を、投稿文にまとめます。`;
+  status.textContent = `${month.replace('-', '年')}月の3ゲーム分を、投稿文にまとめます。`;
   button.addEventListener('click', () => {
     const lines = [`【${month.replace('-', '年')}月 月間ランキング】`];
     for (const [game, title] of Object.entries(games)) {
@@ -50,7 +56,7 @@ function enableShareWhenReady() {
       const entries = previousResults.get(game).entries.slice(0, 3);
       if (!entries.length) lines.push('記録なし');
       entries.forEach((entry, index) => {
-        lines.push(`${index + 1}位 ${String(entry.name).slice(0, 20)} ${Number(entry.score).toLocaleString('ja-JP')}点`);
+        lines.push(`${index + 1}位 ${String(entry.name).slice(0, 20)} ${formatScore(entry.score, game)}`);
       });
     }
     lines.push('', '#にくねこスタジオ');
@@ -71,8 +77,8 @@ if (/^https:\/\/[^/]+$/.test(base || '')) {
       ]);
       currentStatus.textContent = `${current.month.replace('-', '年')}月のランキング（日本時間）`;
       previousStatus.textContent = `${previous.month.replace('-', '年')}月（確定）`;
-      renderEntries(section.querySelector('[data-monthly-list]'), current.entries);
-      renderEntries(section.querySelector('[data-previous-list]'), previous.entries);
+      renderEntries(section.querySelector('[data-monthly-list]'), current.entries, game);
+      renderEntries(section.querySelector('[data-previous-list]'), previous.entries, game);
       previousResults.set(game, previous);
       enableShareWhenReady();
     } catch {
