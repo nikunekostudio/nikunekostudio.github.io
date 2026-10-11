@@ -29,6 +29,20 @@ const questions = [
   {src:'images/q28.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q29.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q30.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q31.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q32.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q33.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q34.jpg',ai:false,copy:'AIではありません。写真または人の手で制作された画像です。'},
+  {src:'images/q35.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q36.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q37.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q38.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q39.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q40.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q41.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q42.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q43.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q44.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
 ];
 
 const startScreen=document.querySelector('#start-screen');
