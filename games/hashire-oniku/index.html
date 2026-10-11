@@ -13,7 +13,7 @@
     .game-wrap{width:min(100%,960px)}.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 8px}.bar a{color:#fff;text-decoration:none;font-weight:700;font-size:14px}.bar button{border:1px solid #aaa;border-radius:5px;background:#272727;color:#fff;padding:7px 11px;font-weight:700;cursor:pointer}
     .stage{position:relative;overflow:hidden;border:2px solid #eee;background:#b3d8f8;box-shadow:0 8px 28px #000b;touch-action:none}canvas{display:block;width:100%;height:auto;aspect-ratio:16/9}
     .result-panel[hidden]{display:none}.result-panel{position:absolute;inset:8% 18% 7%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;text-shadow:0 2px 0 #fff;color:#241d18}.result-score{margin:0;font-size:clamp(28px,5vw,48px);font-weight:900}.result-best{margin:0 0 4px;font-size:clamp(16px,2.4vw,24px);font-weight:900;color:#8a3f22}.result-actions,.score-submit{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.result-panel button,.result-panel a{min-height:42px;padding:9px 16px;border:2px solid #fff;border-radius:7px;background:#333;color:#fff;font:800 15px/1 Arial,sans-serif;text-decoration:none;text-shadow:none;cursor:pointer;box-shadow:0 3px 0 #1118}.result-panel input{width:min(220px,45vw);min-height:42px;border:2px solid #fff;border-radius:7px;padding:8px 10px;font:700 15px Arial,sans-serif;color:#222;background:#fffffff2}.result-panel .share-x{background:#111}.result-panel .submit-score{background:#e84242}.score-status{min-height:18px;margin:0;font-size:13px;font-weight:800}.ranking-link{font-size:13px;background:#2875a8!important}
-    .touch{display:none;grid-template-columns:1.35fr .65fr;gap:8px;margin-top:8px}.touch button{min-height:58px;border:2px solid #fff;border-radius:6px;background:#333;color:#fff;font-size:17px;font-weight:800;touch-action:none}.help{margin:9px 0 0;text-align:center;color:#bbb;font-size:13px;line-height:1.5}@media(max-width:760px){.touch{display:grid}.help{font-size:12px}}
+    .touch{display:none;grid-template-columns:1.35fr .65fr;gap:8px;margin-top:8px}.touch button{min-height:58px;border:2px solid #fff;border-radius:6px;background:#333;color:#fff;font-size:17px;font-weight:800;touch-action:none}.help{margin:9px 0 0;text-align:center;color:#bbb;font-size:13px;line-height:1.5}.legal{margin:7px 0 0;text-align:center;color:#999;font-size:11px}.legal a{color:inherit}@media(max-width:760px){.touch{display:grid}.help{font-size:12px}}
   </style>
 </head>
 <body>
@@ -31,6 +31,7 @@
     </div>
     <div class="touch" aria-label="タッチ操作"><button id="jump" type="button">↑ ジャンプ</button><button id="shoot" type="button">↓ しいたけ</button></div>
     <p class="help">↑ / Space：ジャンプ　　↓：しいたけを投げる　　タイトルではおにくを押してスタート</p>
+    <p class="legal"><a href="../../terms/">利用規約</a> · <a href="../../privacy/">プライバシーポリシー</a></p>
   </main>
   <audio id="stage-bgm" src="stage.mp3" loop preload="auto"></audio><audio id="result-bgm" src="result.mp3" loop preload="auto"></audio><audio id="jump-sound" src="jump.mp3" preload="auto"></audio><audio id="coin-sound" src="gold.aac" preload="auto"></audio><audio id="dead-sound" src="dead.aac" preload="auto"></audio><audio id="hit-sound" src="impact.aac" preload="auto"></audio>
   <script src="game.js"></script>
