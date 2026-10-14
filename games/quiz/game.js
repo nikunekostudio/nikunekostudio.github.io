@@ -1,8 +1,8 @@
 const isEnglish=new URLSearchParams(location.search).get('lang')==='en';
 const text=isEnglish?{
-  count:n=>`All ${n} beginner questions are presented in random order.`,start:'START QUIZ',next:'NEXT QUESTION',result:'VIEW RESULTS',correct:'Correct!',wrong:'Not quite!',retry:'TRY AGAIN',share:'SHARE ON X',perfect:['Quiz Master!','A perfect score—nothing gets past you!'],great:['Excellent!','That was an impressive result.'],good:['Nice Work!','You are getting the hang of it.'],again:['Good Try!','Review the answers and try again!']
+  count:n=>`10 questions are randomly selected from ${n} beginner questions.`,start:'START QUIZ',next:'NEXT QUESTION',result:'VIEW RESULTS',correct:'Correct!',wrong:'Not quite!',retry:'TRY AGAIN',share:'SHARE ON X',perfect:['Quiz Master!','A perfect score—nothing gets past you!'],great:['Excellent!','That was an impressive result.'],good:['Nice Work!','You are getting the hang of it.'],again:['Good Try!','Review the answers and try again!']
 }:{
-  count:n=>`初級編・全${n}問をランダムな順番で出題します。`,start:'クイズスタート',next:'次の問題へ',result:'結果を見る',correct:'正解！',wrong:'不正解…',retry:'もう一度挑戦',share:'Xで結果を共有',perfect:['クイズマスター！','全問正解！すばらしい知識です。'],great:['かなりの物知り！','とてもよい成績です。'],good:['いい調子！','コツをつかんできました。'],again:['ナイスチャレンジ！','解説を見直して、もう一度挑戦しよう！']
+  count:n=>`初級編・全${n}問からランダムに10問を出題します。`,start:'クイズスタート',next:'次の問題へ',result:'結果を見る',correct:'正解！',wrong:'不正解…',retry:'もう一度挑戦',share:'Xで結果を共有',perfect:['クイズマスター！','全問正解！すばらしい知識です。'],great:['かなりの物知り！','とてもよい成績です。'],good:['いい調子！','コツをつかんできました。'],again:['ナイスチャレンジ！','解説を見直して、もう一度挑戦しよう！']
 };
 const questions=window.QUIZ_QUESTIONS||[];
 const $=selector=>document.querySelector(selector);
@@ -11,7 +11,7 @@ let round=[],index=0,score=0,answered=false;
 function shuffle(items){const copy=[...items];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
 function show(name){Object.entries(screens).forEach(([key,el])=>el.hidden=key!==name)}
 function localized(item){return isEnglish&&item.en?{...item,...item.en}:item}
-function start(){round=shuffle(questions);index=0;score=0;show('quiz');render()}
+function start(){round=shuffle(questions).slice(0,10);index=0;score=0;show('quiz');render()}
 function render(){answered=false;const item=localized(round[index]);$('#progress-text').textContent=`QUESTION ${index+1} / ${round.length}`;$('#score-text').textContent=`SCORE ${score}`;$('#progress-bar').style.width=`${(index+1)/round.length*100}%`;$('#category').textContent=item.category;$('#question').textContent=item.question;$('#feedback').hidden=true;const choices=$('#choices');choices.innerHTML='';item.choices.forEach((choice,i)=>{const button=document.createElement('button');button.type='button';button.className='choice';button.textContent=choice;button.addEventListener('click',()=>answer(i));choices.append(button)})}
 function answer(choice){if(answered)return;answered=true;const original=round[index];const item=localized(original);const correct=choice===original.answer;if(correct)score++;[...$('#choices').children].forEach((button,i)=>{button.disabled=true;if(i===original.answer)button.classList.add('correct');else if(i===choice)button.classList.add('wrong')});$('#score-text').textContent=`SCORE ${score}`;$('#feedback-title').textContent=correct?text.correct:text.wrong;$('#explanation').textContent=item.explanation;$('#next-button').textContent=index===round.length-1?text.result:text.next;$('#feedback').hidden=false}
 function next(){index++;if(index<round.length)render();else finish()}
