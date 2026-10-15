@@ -46,8 +46,9 @@
     .game-art.run img{width:100%;height:100%;object-fit:cover;aspect-ratio:215/139}
     .game-art.quiz{background:#130b2b}
     .game-art.quiz img{width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
-    .game-art.personality{background:#0d1a26}
+    .game-art.personality{position:relative;overflow:hidden;background:#0d1a26}
     .game-art.personality img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
+    .game-art.personality .thumb-cat{position:absolute;left:7.5%;top:13%;width:28%;aspect-ratio:1;background:url('kabukura225/cat-sprites.png') 0 0/400% 300% no-repeat;image-rendering:pixelated;filter:drop-shadow(7px 7px 0 #0009)}
     .game-info{display:flex;flex-direction:column;align-items:start;justify-content:center;padding:36px}
     .game-info .status{margin:0 0 12px;padding:5px 9px;border:1px solid #4994a5;background:#12313e;color:#a8f5ff;font:700 12px/1.4 monospace}
     .game-info h3{margin:0 0 16px;font-size:clamp(25px,3vw,35px)}
@@ -115,7 +116,7 @@
     <div class="game-list">
     <article class="game-entry">
       <div class="game-card">
-        <div class="game-art personality"><img src="kabukura225/thumbnail.svg" alt="株225性格診断のタイトル画面" width="712" height="420"></div>
+        <div class="game-art personality"><img src="kabukura225/thumbnail.svg?v=20261016c" alt="株225性格診断のタイトル画面" width="712" height="420"><span class="thumb-cat" aria-hidden="true"></span></div>
         <div class="game-info">
           <p class="status">NEW · 32 PERSONALITY TYPES</p>
           <h3>株225<br>性格診断</h3>
