@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>株クラ225性格診断 | にくねこスタジオ</title>
+  <meta name="description" content="10〜15問で、あなたの株クラタイプを32種類から診断する無料ミニゲーム。">
+  <link rel="canonical" href="https://nikunekostudio.github.io/games/kabukura225/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="style.css?v=20261015a">
+  <script type="module" src="app.js?v=20261015a"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="../">← ゲーム一覧</a>
+    <span>KABUKURA PERSONALITY TEST</span>
+  </header>
+
+  <main>
+    <section id="loading" class="screen card loading" aria-live="polite">
+      <div class="ticker">225</div>
+      <p>診断データを読み込み中…</p>
+    </section>
+
+    <section id="start" class="screen card start" hidden>
+      <p class="eyebrow">全32タイプ · 株クラ性格診断</p>
+      <div class="hero-mark" aria-hidden="true"><span>株</span><b>225</b></div>
+      <h1>あなたはどの<br><em>株クラタイプ？</em></h1>
+      <p class="lead">相場での考え方や過ごし方から、あなたに近いタイプを診断します。</p>
+      <div class="intro-grid">
+        <div><strong>まず10問</strong><span>答えが分かれた傾向だけ追加</span></div>
+        <div><strong>最大15問</strong><span>所要時間 約2〜3分</span></div>
+        <div><strong>32タイプ</strong><span>5つの傾向から分類</span></div>
+      </div>
+      <p class="notice">娯楽目的の性格分類です。投資能力・心理学的な確度を測るものではありません。</p>
+      <button id="start-button" class="button primary" type="button">診断をはじめる</button>
+      <button id="resume-button" class="button secondary" type="button" hidden>前回の続きから</button>
+    </section>
+
+    <section id="quiz" class="screen quiz" hidden>
+      <div class="quiz-head">
+        <div>
+          <p id="progress-label" class="eyebrow">第1問（最大15問）</p>
+          <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+        </div>
+        <button id="restart-small" class="text-button" type="button">最初から</button>
+      </div>
+      <article class="question-card">
+        <div id="question-number" class="question-number">01</div>
+        <h1 id="question-text"></h1>
+        <p id="followup-note" class="followup-note" hidden>回答が分かれた傾向を、別の場面でもう少し確認します。</p>
+        <div id="answer-options" class="answers"></div>
+      </article>
+      <p class="save-note">回答はこの端末に自動保存されます。</p>
+    </section>
+
+    <section id="result" class="screen result" hidden>
+      <p class="eyebrow">YOUR KABUKURA TYPE</p>
+      <article class="result-hero">
+        <div class="result-rank"><span>あなたは</span><strong id="company-label"></strong></div>
+        <h1 id="type-name"></h1>
+        <p id="tagline" class="tagline"></p>
+      </article>
+
+      <div class="result-grid">
+        <section class="result-copy card"><h2>こんな人</h2><p id="personality"></p></section>
+        <section class="result-copy card good"><h2>強み</h2><p id="strength"></p></section>
+        <section class="result-copy card caution"><h2>気をつけたいこと</h2><p id="weakness"></p></section>
+        <section class="result-copy card"><h2>株クラでのあなた</h2><p id="community"></p></section>
+      </div>
+
+      <section class="axes card" aria-labelledby="axes-heading">
+        <h2 id="axes-heading">5つの傾向</h2>
+        <div id="axes-list"></div>
+        <p id="result-note" class="result-note"></p>
+      </section>
+
+      <p id="question-total" class="question-total"></p>
+      <div class="actions">
+        <a id="share-button" class="button primary" href="#" target="_blank" rel="noopener noreferrer">Xで結果をシェア</a>
+        <button id="retry-button" class="button secondary" type="button">もう一度診断する</button>
+      </div>
+    </section>
+
+    <section id="error" class="screen card error" hidden>
+      <h1>読み込めませんでした</h1>
+      <p id="error-message">ページを再読み込みして、もう一度お試しください。</p>
+      <button class="button primary" type="button" onclick="location.reload()">再読み込み</button>
+    </section>
+  </main>
+
+  <footer>© 2026 にくねこスタジオ · <a href="https://www.youtube.com/@user-nikunekokikaku" target="_blank" rel="noopener noreferrer">公式YouTube</a> · <a href="../../terms/">利用規約</a> · <a href="../../privacy/">プライバシーポリシー</a></footer>
+</body>
+</html>

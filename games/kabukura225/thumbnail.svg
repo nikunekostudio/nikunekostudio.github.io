@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 712 420" role="img" aria-labelledby="title desc">
+  <title id="title">株クラ225性格診断</title><desc id="desc">株価チャートを背景に、32タイプの株クラ性格診断を案内する画像</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101b30"/><stop offset="1" stop-color="#09211d"/></linearGradient><filter id="shadow"><feDropShadow dx="8" dy="8" stdDeviation="0" flood-color="#000" flood-opacity=".7"/></filter></defs>
+  <rect width="712" height="420" fill="url(#bg)"/>
+  <path d="M0 310L70 282 125 296 190 215 250 245 320 167 390 199 450 115 520 151 580 82 712 113" fill="none" stroke="#64e3a4" stroke-width="9" opacity=".8"/>
+  <g opacity=".24" stroke="#9db3cc"><path d="M0 80H712M0 160H712M0 240H712M0 320H712"/><path d="M110 0V420M230 0V420M350 0V420M470 0V420M590 0V420"/></g>
+  <g transform="translate(61 62) rotate(-4 105 95)" filter="url(#shadow)"><rect width="210" height="190" rx="42" fill="#ffd369"/><text x="105" y="102" text-anchor="middle" font-family="sans-serif" font-size="84" font-weight="900" fill="#111a2a">株</text><text x="105" y="151" text-anchor="middle" font-family="monospace" font-size="38" font-weight="900" fill="#111a2a">225</text></g>
+  <text x="316" y="120" fill="#64e3a4" font-family="monospace" font-size="20" font-weight="900" letter-spacing="3">32 TYPES</text>
+  <text x="310" y="189" fill="#fff" font-family="sans-serif" font-size="47" font-weight="900">株クラ225</text>
+  <text x="310" y="251" fill="#ffd369" font-family="sans-serif" font-size="47" font-weight="900">性格診断</text>
+  <rect x="310" y="286" width="284" height="49" rx="25" fill="#fff"/><text x="452" y="318" text-anchor="middle" fill="#111a2a" font-family="sans-serif" font-size="19" font-weight="900">10〜15問で診断！</text>
+</svg>

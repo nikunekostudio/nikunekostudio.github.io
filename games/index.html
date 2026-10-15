@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ゲーム一覧 | にくねこスタジオ</title>
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="にくねこスタジオのゲーム一覧。アクション、株ゲーム、AI画像クイズ、株の常識クイズをブラウザで遊べます。">
+  <meta name="description" content="にくねこスタジオのゲーム一覧。アクション、株ゲーム、AI画像クイズ、株の常識クイズ、株クラ性格診断をブラウザで遊べます。">
   <link rel="canonical" href="https://nikunekostudio.github.io/games/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
@@ -46,6 +46,8 @@
     .game-art.run img{width:100%;height:100%;object-fit:cover;aspect-ratio:215/139}
     .game-art.quiz{background:#130b2b}
     .game-art.quiz img{width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
+    .game-art.personality{background:#0d1a26}
+    .game-art.personality img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
     .game-info{display:flex;flex-direction:column;align-items:start;justify-content:center;padding:36px}
     .game-info .status{margin:0 0 12px;padding:5px 9px;border:1px solid #4994a5;background:#12313e;color:#a8f5ff;font:700 12px/1.4 monospace}
     .game-info h3{margin:0 0 16px;font-size:clamp(25px,3vw,35px)}
@@ -98,6 +100,7 @@
         <a href="../blog/">BLOG</a>
         <a href="../gallery/">GALLERY</a>
         <a href="https://suzuri.jp/nikuneko" target="_blank" rel="noopener noreferrer">SHOP</a>
+        <a href="https://www.youtube.com/@user-nikunekokikaku" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
         <a href="../#about">ABOUT</a>
       </nav>
     </div>
@@ -110,6 +113,17 @@
       <p>作品が増えたらここに追加していきます。</p>
     </div>
     <div class="game-list">
+    <article class="game-entry">
+      <div class="game-card">
+        <div class="game-art personality"><img src="kabukura225/thumbnail.svg" alt="株クラ225性格診断のタイトル画面" width="712" height="420"></div>
+        <div class="game-info">
+          <p class="status">NEW · 32 PERSONALITY TYPES</p>
+          <h3>株クラ225<br>性格診断</h3>
+          <p>相場での考え方や過ごし方から、あなたに近い株クラタイプを診断。まず10問、回答が分かれた傾向だけ最大5問追加します。</p>
+          <a class="button" href="kabukura225/" aria-label="株クラ225性格診断をプレイ">診断してみる ↗</a>
+        </div>
+      </div>
+    </article>
     <article class="game-entry" data-monthly-game="orega-utta">
       <div class="game-card">
         <div class="game-art" style="background:#10151b"><img src="orega-utta/mini/thumbnail.jpg" alt="俺が売ったら、あがった。の案内役の猫" width="730" height="590"></div>
@@ -204,7 +218,7 @@
       <p>次のゲームも準備中。ときどきのぞきに来てくださいね。</p>
     </div>
   </main>
-  <footer>© 2026 にくねこスタジオ · <a href="../">HOME</a> · <a href="../terms/">利用規約</a> · <a href="../privacy/">プライバシーポリシー</a></footer>
+  <footer>© 2026 にくねこスタジオ · <a href="../">HOME</a> · <a href="https://www.youtube.com/@user-nikunekokikaku" target="_blank" rel="noopener noreferrer">公式YouTube</a> · <a href="../terms/">利用規約</a> · <a href="../privacy/">プライバシーポリシー</a></footer>
   <script src="../assets/monthly-config.js"></script>
   <script src="monthly-scores.js?v=profit-ranking-1" defer></script>
   <script src="../i18n.js"></script>

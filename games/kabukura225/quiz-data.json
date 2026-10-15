@@ -1,0 +1,2236 @@
+{
+  "schema_version": "1.0.0",
+  "data_version": "2026-10-15-short-v1",
+  "title": "株クラ225性格診断",
+  "axes": [
+    {
+      "id": "risk",
+      "label": "挑戦への姿勢",
+      "positive": "冒険",
+      "negative": "慎重"
+    },
+    {
+      "id": "judgment",
+      "label": "判断の入口",
+      "positive": "根拠",
+      "negative": "感覚"
+    },
+    {
+      "id": "motivation",
+      "label": "満足の基準",
+      "positive": "競争",
+      "negative": "自分基準"
+    },
+    {
+      "id": "interaction",
+      "label": "考えの扱い方",
+      "positive": "交流",
+      "negative": "自己完結"
+    },
+    {
+      "id": "adaptation",
+      "label": "方針への向き合い方",
+      "positive": "継続",
+      "negative": "更新"
+    }
+  ],
+  "answer_options": [
+    {
+      "id": "A",
+      "label": "かなり自分に近い",
+      "value": 0.3,
+      "value_units": 3
+    },
+    {
+      "id": "B",
+      "label": "少し自分に近い",
+      "value": 0.2,
+      "value_units": 2
+    },
+    {
+      "id": "C",
+      "label": "あまり自分に近くない",
+      "value": -0.2,
+      "value_units": -2
+    },
+    {
+      "id": "D",
+      "label": "まったく自分に近くない",
+      "value": -0.3,
+      "value_units": -3
+    }
+  ],
+  "config": {
+    "base_questions": 10,
+    "max_questions": 15,
+    "base_per_axis": 2,
+    "max_per_axis": 3,
+    "integer_scale": 10,
+    "base_directions_per_axis": [
+      1,
+      -1
+    ],
+    "max_per_similar_group": 1,
+    "max_per_scene": 2,
+    "secondary_axis_scoring": false,
+    "followup_trigger": "initial_two_contributions_have_opposite_signs",
+    "followup_limit_per_axis": 1,
+    "followup_order": "smallest_absolute_sum_then_seeded_axis_order",
+    "answer_order": "fixed_A_B_C_D",
+    "seeded_randomization": true,
+    "tie_policy": "followup_before_final; never_randomize_type",
+    "boundary_policy": "mixed_contribution_signs_are_labeled_context_dependent",
+    "ui_intro": "まず10問。回答の傾向が分かれた場合のみ、最大5問追加します。",
+    "ui_progress": "第{answered_plus_one}問（最大15問）",
+    "ui_followup": "回答が分かれた傾向を、別の場面でもう少し確認します。",
+    "notice": "娯楽目的の性格分類です。投資能力・心理学的な確度を測るものではありません。"
+  },
+  "questions": [
+    {
+      "id": "q001",
+      "number": 1,
+      "text": "決算発表を今夜に控えた保有株。明日の値動きを想像すると、不安よりワクワクが勝つ。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "earnings_gap",
+      "scene": "earnings",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q002",
+      "number": 2,
+      "text": "決算発表をまたぐなら、大幅上昇を逃しても、まず持ち株を減らして落ち着きたい。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "earnings_gap",
+      "scene": "earnings",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q003",
+      "number": 3,
+      "text": "日経平均が急落し、タイムラインが悲鳴だらけ。少しだけ「面白くなってきた」と思う。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "crash",
+      "scene": "market_turbulence",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q004",
+      "number": 4,
+      "text": "急落した銘柄を見つけても、「底を逃していいから、落ち着いてから考えたい」と思う。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "crash",
+      "scene": "market_turbulence",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q005",
+      "number": 5,
+      "text": "上場したばかりで評価が定まらない会社。未知の部分が多いこと自体に惹かれる。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "ipo",
+      "scene": "ipo",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q006",
+      "number": 6,
+      "text": "IPOの抽選に当選した。喜ぶ前に、公募価格を下回る場合のことが頭に浮かぶ。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "ipo",
+      "scene": "ipo",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q007",
+      "number": 7,
+      "text": "聞いたことのない業界の銘柄が話題になった。「わからないからこそ調べてみたい」と思う。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "new_sector",
+      "scene": "unfamiliar_sector",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q008",
+      "number": 8,
+      "text": "友人に新しい金融商品を勧められたら、利益の話より「どういうときに損するか」を先に聞きたい。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "risk_terms",
+      "scene": "new_product",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q009",
+      "number": 9,
+      "text": "なくなっても生活に影響しない資金を渡されたら、普段なら買わない銘柄を試したい。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "future_experiment",
+      "scene": "future_opportunity",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q010",
+      "number": 10,
+      "text": "注目していた株が、自分が買う前に急騰した。乗り遅れた悔しさより、無理に買わなかった安心感が強い。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "rally_entry",
+      "scene": "sharp_rally",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q011",
+      "number": 11,
+      "text": "誰も買いたがらない銘柄に好材料を見つけると、「自分が最初に気づいたかも」と胸が躍る。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "contrarian",
+      "scene": "contrarian",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q012",
+      "number": 12,
+      "text": "保有株が気になって仕事中に何度も株価を見るなら、利益を逃しても保有額を減らしたい。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "mental_load",
+      "scene": "screen_distance",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q013",
+      "number": 13,
+      "text": "値動きの小さい相場が何日も続くと、刺激のある銘柄を探したくなる。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "volatility",
+      "scene": "market_turbulence",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q014",
+      "number": 14,
+      "text": "信用取引を始めるとしたら、利益を増やす方法より先に、追証になる条件を調べたい。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "risk_terms",
+      "scene": "new_product",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q015",
+      "number": 15,
+      "text": "強気派と弱気派が真っ二つに割れている銘柄は、意見が一致している銘柄より気になる。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "contrarian",
+      "scene": "contrarian",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q016",
+      "number": 16,
+      "text": "海外市場が荒れた週末。月曜日のチャンスより、保有株への影響が先に気になる。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "volatility",
+      "scene": "market_turbulence",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q017",
+      "number": 17,
+      "text": "初めて買う業種の銘柄は、注文ボタンを押す瞬間もちょっと楽しい。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "new_sector",
+      "scene": "unfamiliar_sector",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q018",
+      "number": 18,
+      "text": "急騰銘柄に入るなら、買値を考える前に「どこまで下がったらやめるか」を決めておきたい。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "rally_entry",
+      "scene": "sharp_rally",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q019",
+      "number": 19,
+      "text": "「この会社が化けたら世の中が変わる」と感じると、不確実さも含めて魅力に思える。",
+      "axis_id": "risk",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "future_experiment",
+      "scene": "future_opportunity",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q020",
+      "number": 20,
+      "text": "含み益が大きく増える可能性より、週末に株価を忘れて過ごせる状態を選びたい。",
+      "axis_id": "risk",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "mental_load",
+      "scene": "screen_distance",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q021",
+      "number": 21,
+      "text": "「この株は割安」と紹介されたら、まず何と比べて割安なのか知りたい。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "valuation",
+      "scene": "valuation",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q022",
+      "number": 22,
+      "text": "新商品を実際に使って「これ、みんな欲しがるだろうな」と感じると、会社まで気になってくる。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "product_feel",
+      "scene": "product_experience",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q023",
+      "number": 23,
+      "text": "保有株が決算後に急騰したら、喜びながらも、どの数字が評価されたのか確認したい。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "earnings_numbers",
+      "scene": "earnings",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q024",
+      "number": 24,
+      "text": "決算説明会を見て、細かい数字より経営者の言葉や熱量が印象に残ることがある。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "company_story",
+      "scene": "earnings",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q025",
+      "number": 25,
+      "text": "SNSで目標株価を見かけると、その価格を出した計算や前提を追いたくなる。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "social_evidence",
+      "scene": "social_thesis",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q026",
+      "number": 26,
+      "text": "街でその会社の商品を見かける回数が増えると、「何か来ている」と感じる。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "everyday_signal",
+      "scene": "product_experience",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q027",
+      "number": 27,
+      "text": "買いたい銘柄が二つあるなら、売上や利益、株価などを並べて比較したい。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "valuation",
+      "scene": "valuation",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q028",
+      "number": 28,
+      "text": "同じように魅力的な二社なら、最後は「未来が想像できる方」を選びたい。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "final_choice",
+      "scene": "decision",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q029",
+      "number": 29,
+      "text": "自分の予想どおりに株価が上がっても、理由が想定と違ったら分析はやり直したい。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "review_evidence",
+      "scene": "trade_review",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q030",
+      "number": 30,
+      "text": "チャートを眺めていて、言葉にはしにくいけれど「雰囲気が変わった」と感じることがある。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "intuition",
+      "scene": "idea_generation",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q031",
+      "number": 31,
+      "text": "好材料のニュースを読んだら、業績にどのくらい影響するのか数字で考えたい。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "earnings_numbers",
+      "scene": "earnings",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q032",
+      "number": 32,
+      "text": "新サービスの紹介を見て、収益の計算より先に「これは生活に入り込む」と感じることがある。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "everyday_signal",
+      "scene": "product_experience",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q033",
+      "number": 33,
+      "text": "銘柄を買う前に、買う理由を三つくらい書き出せると落ち着く。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "thesis_check",
+      "scene": "social_thesis",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q034",
+      "number": 34,
+      "text": "決算資料を全部読む前に、事業の説明だけで惹かれる会社がある。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "company_story",
+      "scene": "earnings",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q035",
+      "number": 35,
+      "text": "「大口が買っているらしい」と聞いても、何を根拠にそう言っているのか確かめたい。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "social_evidence",
+      "scene": "social_thesis",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q036",
+      "number": 36,
+      "text": "商品や店舗のセンスを見ると、そこで働く人や会社の勢いまで想像してしまう。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "product_feel",
+      "scene": "product_experience",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q037",
+      "number": 37,
+      "text": "売買を振り返るときは、その日の気分より、注文履歴や当時のメモを見たい。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "review_evidence",
+      "scene": "trade_review",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q038",
+      "number": 38,
+      "text": "投資アイデアは、資料を読んでいるときより、買い物や雑談の途中で浮かぶことが多い。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "intuition",
+      "scene": "idea_generation",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q039",
+      "number": 39,
+      "text": "強気な投稿を読んで気分が盛り上がっても、反対の材料を一度探しておきたい。",
+      "axis_id": "judgment",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "thesis_check",
+      "scene": "social_thesis",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q040",
+      "number": 40,
+      "text": "条件を比較しても決め手がないときは、「どうしても気になる」という感覚を大切にしたい。",
+      "axis_id": "judgment",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "final_choice",
+      "scene": "decision",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q041",
+      "number": 41,
+      "text": "自分も利益が出ているのに、タイムラインが自分以上の爆益報告だらけだと少し負けた気になる。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "profit_comparison",
+      "scene": "profit_comparison",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q042",
+      "number": 42,
+      "text": "周囲が倍になった銘柄の話で盛り上がっていても、自分の年間目標を達成していれば満足できる。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "profit_comparison",
+      "scene": "profit_comparison",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q043",
+      "number": 43,
+      "text": "同じ時期に投資を始めた友人が先に大台へ到達したら、素直に悔しい。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "peer_assets",
+      "scene": "peer_comparison",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q044",
+      "number": 44,
+      "text": "配当で欲しかったものが買えたら、他人の利益額はしばらくどうでもよくなる。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "life_reward",
+      "scene": "life_reward",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q045",
+      "number": 45,
+      "text": "年間成績を発表するなら、「市場平均を上回った」と言えるかが気になる。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "ranking",
+      "scene": "ranking",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q046",
+      "number": 46,
+      "text": "誰にも報告しなくても、自分で決めた運用方針を守れた一年には達成感がある。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "own_standard",
+      "scene": "own_standard",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q047",
+      "number": 47,
+      "text": "自分が早くから注目していた銘柄が話題になると、「前から言っていた」と一言添えたくなる。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "discovery_credit",
+      "scene": "recognition",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q048",
+      "number": 48,
+      "text": "自分が先に見つけた銘柄でも、誰の手柄になるかにはあまり興味がない。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "discovery_credit",
+      "scene": "recognition",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q049",
+      "number": 49,
+      "text": "株の話で意見が割れた相手には、後で自分の見立てが正しかったと認めてほしくなる。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "prediction_credit",
+      "scene": "recognition",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q050",
+      "number": 50,
+      "text": "自分の見立てが当たっても、反対していた人に知らせたいとは特に思わない。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "prediction_credit",
+      "scene": "recognition",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q051",
+      "number": 51,
+      "text": "資産が大台に乗ったら、一度はスクリーンショット付きで報告してみたい。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "asset_milestone",
+      "scene": "milestone",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q052",
+      "number": 52,
+      "text": "資産が大台に乗っても、暮らしが変わらなければ特別な発表はしなくてよい。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "asset_milestone",
+      "scene": "milestone",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q053",
+      "number": 53,
+      "text": "自分より利益が少ないと思っていた知人が実は大きく儲けていたら、妙に気になる。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "peer_assets",
+      "scene": "peer_comparison",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q054",
+      "number": 54,
+      "text": "投資仲間に「地味な銘柄ばかりだね」と言われても、自分が気に入っていれば気にならない。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "own_standard",
+      "scene": "own_standard",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q055",
+      "number": 55,
+      "text": "銘柄分析の投稿が大きく拡散されると、利益が出たときとは別のうれしさがある。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "post_reaction",
+      "scene": "posting",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q056",
+      "number": 56,
+      "text": "時間をかけた分析に「いいね」がつかなくても、自分の理解が深まったなら満足できる。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "post_reaction",
+      "scene": "posting",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q057",
+      "number": 57,
+      "text": "月間成績ランキングに参加したら、上位の人の数字を何度も見てしまいそうだ。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "ranking",
+      "scene": "ranking",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q058",
+      "number": 58,
+      "text": "投資成績を比べる集まりでも、自分の順位にはあまり興味がない。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "ranking",
+      "scene": "ranking",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q059",
+      "number": 59,
+      "text": "利益目標を達成した直後でも、友人がもっと上を目指していると知ると目標を上げたくなる。",
+      "axis_id": "motivation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "raised_target",
+      "scene": "peer_comparison",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q060",
+      "number": 60,
+      "text": "相場を追う時間を減らして趣味を楽しめるなら、他人より利益が少なくても構わない。",
+      "axis_id": "motivation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "life_reward",
+      "scene": "life_reward",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q061",
+      "number": 61,
+      "text": "決算資料で面白い記述を見つけたら、スクリーンショットを撮って誰かに送りたくなる。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "share_research",
+      "scene": "research_sharing",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q062",
+      "number": 62,
+      "text": "面白い記述を見つけても、まずは自分のメモに残して一人で考えたい。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "share_research",
+      "scene": "research_sharing",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q063",
+      "number": 63,
+      "text": "保有株がストップ高になったら、その喜びをわかってくれる人にすぐ話したい。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "share_profit",
+      "scene": "profit_sharing",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q064",
+      "number": 64,
+      "text": "保有株が急騰した日は、誰かに話すより、一人で証券口座を眺めてにやにやしたい。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "share_profit",
+      "scene": "profit_sharing",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q065",
+      "number": 65,
+      "text": "相場が大きく動いているときは、投資仲間と「今の見た？」と言い合いたい。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "market_live",
+      "scene": "market_turbulence",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q066",
+      "number": 66,
+      "text": "相場が大きく動いているときほど、SNSを閉じて自分の画面に集中したい。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "market_live",
+      "scene": "market_turbulence",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q067",
+      "number": 67,
+      "text": "含み損が膨らんだ日は、「やられた」と誰かに話せると少し楽になる。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "share_loss",
+      "scene": "loss_sharing",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q068",
+      "number": 68,
+      "text": "大きく損をした日は、心配されるより一人にしておいてほしい。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "share_loss",
+      "scene": "loss_sharing",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q069",
+      "number": 69,
+      "text": "買うか迷っている銘柄は、誰かと話しているうちに自分の考えが見えてくる。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "talk_decision",
+      "scene": "decision",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q070",
+      "number": 70,
+      "text": "買うか迷っているときに意見をたくさん聞くと、かえって自分の考えがわからなくなる。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "talk_decision",
+      "scene": "decision",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q071",
+      "number": 71,
+      "text": "投資家向けイベントでは、講演だけでなく、隣の人が何を買っているかも聞いてみたい。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "investor_event",
+      "scene": "events",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q072",
+      "number": 72,
+      "text": "投資家向けイベントでは、資料と講演だけ持ち帰れれば十分だ。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "investor_event",
+      "scene": "events",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q073",
+      "number": 73,
+      "text": "自分の分析は、まだ途中でも投稿して、他の人の視点を聞いてみたい。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "publish_draft",
+      "scene": "posting",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q074",
+      "number": 74,
+      "text": "自分の分析は、質問されても説明できるところまで固めてから出したい。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "publish_draft",
+      "scene": "posting",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q075",
+      "number": 75,
+      "text": "株主総会に行くなら、参加した人と感想を話す時間も楽しみだ。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "agm",
+      "scene": "events",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q076",
+      "number": 76,
+      "text": "株主総会の帰り道は、誰かと話すより、一人で内容を整理したい。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "agm",
+      "scene": "events",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q077",
+      "number": 77,
+      "text": "株を始めた知人がいたら、おすすめの資料や便利な機能をつい教えたくなる。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "teach_others",
+      "scene": "teaching",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q078",
+      "number": 78,
+      "text": "自分の売買や勉強の方法は、聞かれない限りあまり人に話さない。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "teach_others",
+      "scene": "teaching",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q079",
+      "number": 79,
+      "text": "取引のない休日でも、投資仲間との雑談がないと少し物足りない。",
+      "axis_id": "interaction",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "investor_company",
+      "scene": "companionship",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q080",
+      "number": 80,
+      "text": "同じ銘柄について語れる人がいなくても、一人で追い続けることは十分楽しい。",
+      "axis_id": "interaction",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "investor_company",
+      "scene": "companionship",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q081",
+      "number": 81,
+      "text": "「半年試す」と決めた銘柄選びの方法は、最初の一か月が地味でも、予定の期間まで確かめたい。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "method_trial",
+      "scene": "methods",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q082",
+      "number": 82,
+      "text": "銘柄選びの方法を試している途中でも、より納得できる方法に出会ったら組み替えたい。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "method_trial",
+      "scene": "methods",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q083",
+      "number": 83,
+      "text": "得意な業界があるなら、新しい業界を次々見るより、そこをさらに深く理解したい。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "sector_focus",
+      "scene": "unfamiliar_sector",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q084",
+      "number": 84,
+      "text": "今まで見ていなかった業界に面白い変化が起きたら、調べる対象を大きく入れ替えたい。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "sector_focus",
+      "scene": "unfamiliar_sector",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q085",
+      "number": 85,
+      "text": "長く見てきた会社の決算は、今は株を持っていなくても、その後が気になって確認する。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "past_holding",
+      "scene": "watchlist",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q086",
+      "number": 86,
+      "text": "保有しなくなった会社より、これから候補になりそうな会社に調査時間を使いたい。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "past_holding",
+      "scene": "watchlist",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q087",
+      "number": 87,
+      "text": "新しい投資法が話題でも、まずは今の方法に改善できるところがないか考える。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "method_switch",
+      "scene": "methods",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q088",
+      "number": 88,
+      "text": "新しい投資法の考え方に納得したら、自分のルールに取り入れることに抵抗はない。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "method_switch",
+      "scene": "methods",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q089",
+      "number": 89,
+      "text": "長年使っている証券アプリは、多少不便でも操作に慣れたものを使い続けたい。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "tools",
+      "scene": "tools",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q090",
+      "number": 90,
+      "text": "より使いやすい証券アプリを見つけたら、設定をやり直す手間があっても乗り換えてみたい。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "tools",
+      "scene": "tools",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q091",
+      "number": 91,
+      "text": "相場の流行が変わっても、毎週確認している銘柄や資料は追い続けたい。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "watchlist_change",
+      "scene": "watchlist",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q092",
+      "number": 92,
+      "text": "相場の流行が変わったら、ウォッチリストも今の関心に合わせて大胆に入れ替えたい。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "watchlist_change",
+      "scene": "watchlist",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q093",
+      "number": 93,
+      "text": "売買記録は、同じ形式で長くためていくことに気持ちよさを感じる。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "record_format",
+      "scene": "trade_review",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q094",
+      "number": 94,
+      "text": "売買記録の書き方は、気づきがあるたびに項目や形式を変えていきたい。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "record_format",
+      "scene": "trade_review",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q095",
+      "number": 95,
+      "text": "休日に「この会社を調べる」と決めたら、途中で別の話題が気になっても、まず予定した調査を終えたい。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "research_detour",
+      "scene": "research_focus",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q096",
+      "number": 96,
+      "text": "会社を調べている途中で別の面白い銘柄を見つけたら、そのままそちらを掘り下げたい。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "research_detour",
+      "scene": "research_focus",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q097",
+      "number": 97,
+      "text": "自分の投資スタイルを聞かれたら、「ずっとこれでやっている」と言える軸が欲しい。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "investing_style",
+      "scene": "style",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q098",
+      "number": 98,
+      "text": "自分の投資スタイルが去年と違っていても、今の自分が納得していれば自然なことだと思う。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "investing_style",
+      "scene": "style",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    },
+    {
+      "id": "q099",
+      "number": 99,
+      "text": "自分と反対の銘柄分析を読んだら、今の見立てとどこが違うのか、一つずつ検証したくなる。",
+      "axis_id": "adaptation",
+      "direction": 1,
+      "weight": 1,
+      "similar_group": "opposing_thesis",
+      "scene": "social_thesis",
+      "score_units": {
+        "A": 3,
+        "B": 2,
+        "C": -2,
+        "D": -3
+      }
+    },
+    {
+      "id": "q100",
+      "number": 100,
+      "text": "自分と反対の銘柄分析に納得したら、昨日までの強気な見方を変えることにも抵抗はない。",
+      "axis_id": "adaptation",
+      "direction": -1,
+      "weight": 1,
+      "similar_group": "opposing_thesis",
+      "scene": "social_thesis",
+      "score_units": {
+        "A": -3,
+        "B": -2,
+        "C": 2,
+        "D": 3
+      }
+    }
+  ],
+  "types": [
+    {
+      "id": "type_01",
+      "company_label": "三菱重工業型",
+      "type_name": "不屈の司令塔",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": 1,
+        "motivation": 1,
+        "interaction": 1,
+        "adaptation": 1
+      },
+      "tagline": "壮大な計画に、撤退のページだけ見当たらない。",
+      "personality": "大きな目標ほど、段取りを考えたくなるあなた。勢いだけで飛び込まず、材料と仲間を集めて挑む人です。簡単には実現できない話にも、実現までの道筋を描きます。",
+      "strength": "難しい課題を分解し、周囲の力を借りながら粘り強く進められます。困ったときほど頼られる存在です。",
+      "weakness": "自分が耐えられる負荷を、周囲も耐えられると思いがち。「あと少し頑張ろう」が何回目か、ときどき数えてみて。",
+      "community_behavior": "注目銘柄の材料と今後の日程を整理して共有。軽い雑談のつもりが、気づけば決算までの作戦会議を開いています。"
+    },
+    {
+      "id": "type_02",
+      "company_label": "リクルート型",
+      "type_name": "機会をつなぐ仕掛け人",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": 1,
+        "motivation": 1,
+        "interaction": 1,
+        "adaptation": -1
+      },
+      "tagline": "その雑談、もう次のチャンスにつながっている。",
+      "personality": "人の話から可能性を拾い、別の情報と結びつけるあなた。答えを一人で完成させるより、会話と検証を重ねながら勝ち筋を探します。状況が変われば、組む相手や方法も柔軟に変えられます。",
+      "strength": "人それぞれの得意分野を見つけ、協力するきっかけをつくれます。情報を行動に移すのも速い人です。",
+      "weakness": "何気ない会話にも成果を求めがち。相手は銘柄発掘ではなく、ただ昼ごはんの話をしているかもしれません。",
+      "community_behavior": "「この業界に詳しい人いない？」から分析会を開催。昨日初めて聞いたテーマなのに、今日はもう情報交換の中心にいます。"
+    },
+    {
+      "id": "type_03",
+      "company_label": "レーザーテック型",
+      "type_name": "一点突破の研究者",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": 1,
+        "motivation": 1,
+        "interaction": -1,
+        "adaptation": 1
+      },
+      "tagline": "その一銘柄の話なら、朝までできます。",
+      "personality": "広く浅く知るより、一つの領域で誰にも負けない理解を目指すあなた。まだ評価されていない可能性にも、自分で根拠を積み上げて挑みます。専門性が自信の源です。",
+      "strength": "難しいテーマを掘り下げ続け、他の人が見落とす細部に気づけます。積み上げた知識には厚みがあります。",
+      "weakness": "詳しい分野ほど、理解の浅い意見を流せなくなりがち。訂正するつもりが、相手には口頭試験に感じられることも。",
+      "community_behavior": "決算資料の脚注や専門用語まで確認。「簡単に説明すると」で始めた投稿が、連続投稿の十本目に突入します。"
+    },
+    {
+      "id": "type_04",
+      "company_label": "東京エレクトロン型",
+      "type_name": "機を読む戦術家",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": 1,
+        "motivation": 1,
+        "interaction": -1,
+        "adaptation": -1
+      },
+      "tagline": "昨日の自分にも、遠慮なく反論する。",
+      "personality": "仮説を持って挑み、新しい材料で組み直すあなた。自分の予想を守ること以上に、状況を読み直して先へ進むことを重視します。判断の主導権は、自分の手に置いておきたい人です。",
+      "strength": "見方が外れたときも、次の条件を考えられます。過去の発言に縛られず、方針を更新できるのが強みです。",
+      "weakness": "考えを変えた過程を省略しがち。周囲からは「昨日と言っていることが違う」と見えてしまいます。",
+      "community_behavior": "決算を読んで強気の理由を修正し、翌朝には別のシナリオを検討。本人の中では筋が通っていますが、フォロワーには解説が必要です。"
+    },
+    {
+      "id": "type_05",
+      "company_label": "ホンダ型",
+      "type_name": "仲間と走る開拓者",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": 1,
+        "motivation": -1,
+        "interaction": 1,
+        "adaptation": 1
+      },
+      "tagline": "儲かる話のはずが、技術の話で二時間。",
+      "personality": "自分が面白いと思える挑戦を、仲間と形にしたいあなた。順位や肩書きより、「どうすれば実現できるか」に心が動きます。難しい課題も、仕組みを理解しながらじっくり試します。",
+      "strength": "人の工夫を面白がり、一緒に試す空気をつくれます。すぐに成果が出なくても、挑戦そのものから学べる人です。",
+      "weakness": "好きなテーマになると、目的より検証が楽しくなりがち。結論を出す前に、新しい実験が増えていきます。",
+      "community_behavior": "企業の新技術を見つけて仲間に共有。株価の話で集まったはずが、製品の仕組みや開発秘話で盛り上がっています。"
+    },
+    {
+      "id": "type_06",
+      "company_label": "日立製作所型",
+      "type_name": "共創の改革者",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": 1,
+        "motivation": -1,
+        "interaction": 1,
+        "adaptation": -1
+      },
+      "tagline": "相談に乗ったら、仕組みごと改善していた。",
+      "personality": "人の困りごとを聞くと、改善の方法を考えたくなるあなた。今あるやり方を絶対視せず、知識や道具を組み合わせます。目立つ成果より、実際に使いやすくなることが喜びです。",
+      "strength": "異なる意見を取り込み、実用的な形へまとめられます。一人では気づかなかった選択肢を、周囲に示せる人です。",
+      "weakness": "頼まれた範囲を越えて改善したくなりがち。相手は助言を一つ欲しかっただけなのに、改革案が届くことも。",
+      "community_behavior": "仲間の売買記録を見て、見やすい集計表を提案。その日のうちに、みんなで使える分析フォーマットまで作り始めます。"
+    },
+    {
+      "id": "type_07",
+      "company_label": "ディスコ型",
+      "type_name": "孤高の探究者",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": 1,
+        "motivation": -1,
+        "interaction": -1,
+        "adaptation": 1
+      },
+      "tagline": "誰も見ていなくても、検証は終わらない。",
+      "personality": "褒められることより、自分が納得できる理解を求めるあなた。難しい問いにも一人で取り組み、わずかな違いを確かめ続けます。未知への好奇心と、地道な作業への集中力が同居しています。",
+      "strength": "目立たない作業にも手を抜かず、考えの精度を高められます。他人の反応がなくても、学びを続けられる人です。",
+      "weakness": "確認したい点が増え続け、区切りをつけるのが苦手。「あと一つ調べたら」が、翌日の予定まで埋めます。",
+      "community_behavior": "同じ指標を期間や条件を変えて検証。投稿は少ないのに、手元には誰にも見せていない表やメモが大量にあります。"
+    },
+    {
+      "id": "type_08",
+      "company_label": "富士フイルム型",
+      "type_name": "越境する発明家",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": 1,
+        "motivation": -1,
+        "interaction": -1,
+        "adaptation": -1
+      },
+      "tagline": "一社を調べていたら、別の業界に着いた。",
+      "personality": "ある分野で得た知識を、別の問題へ持ち込むのが好きなあなた。自分の関心に従って調べ、納得できれば古いやり方も変えます。分野の境目に、新しい可能性を見つける人です。",
+      "strength": "一見関係のない情報をつなぎ、違う角度から考えられます。これまでの経験を、新しい挑戦に生かせます。",
+      "weakness": "面白い関連を見つけるたびに、調べる範囲が広がりがち。最初の疑問が未解決のまま、資料だけ増えることも。",
+      "community_behavior": "一社の決算から原材料、取引先、別業界の用途へと調査が進行。週末の終わりには、監視リストがまるごと変わっています。"
+    },
+    {
+      "id": "type_09",
+      "company_label": "ソフトバンクグループ型",
+      "type_name": "夢を掲げる旗手",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": -1,
+        "motivation": 1,
+        "interaction": 1,
+        "adaptation": 1
+      },
+      "tagline": "含み損より、夢を手放す方がつらい。",
+      "personality": "まだ実現していない未来を思い描き、その熱量で人を動かすあなた。大きな成功を目指す気持ちが強く、「そんなの無理」と言われると、むしろ燃えるところがあります。",
+      "strength": "遠い目標を魅力的に語り、周囲が挑戦するきっかけをつくれます。うまくいかない時期も、目指す意味を見失いにくい人です。",
+      "weakness": "思い入れが強いほど、期待と現状を分けて考えにくくなります。夢を大事にすることと、同じ手段に固執することは別です。",
+      "community_behavior": "保有企業が変える未来を、熱く長く語ります。短期の株価を聞かれたはずなのに、返ってくるのは十年後の世界の話です。"
+    },
+    {
+      "id": "type_10",
+      "company_label": "メルカリ型",
+      "type_name": "流れをつくる革命児",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": -1,
+        "motivation": 1,
+        "interaction": 1,
+        "adaptation": -1
+      },
+      "tagline": "みんなが慣れた頃、もう次を始めている。",
+      "personality": "新しい動きにいち早く反応し、人を誘って試すあなた。完成された正解を待つより、自分たちで流れをつくりたい人です。反応を見ながら、進む方向も軽やかに変えます。",
+      "strength": "変化を恐れず、周囲の最初の一歩を後押しできます。新しいものに人が集まる場をつくるのが得意です。",
+      "weakness": "次の面白さへ移る速さに、仲間が追いつけないことも。始める熱量と同じくらい、引き継ぐ配慮があると頼もしさが増します。",
+      "community_behavior": "新テーマの話題で仲間を集め、すぐ情報交換を開始。グループ名が定着した頃、本人は次のテーマにも夢中になっています。"
+    },
+    {
+      "id": "type_11",
+      "company_label": "フジクラ型",
+      "type_name": "覚醒を信じる野心家",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": -1,
+        "motivation": 1,
+        "interaction": -1,
+        "adaptation": 1
+      },
+      "tagline": "いつか来る自分の番に、ドヤ顔だけ準備済み。",
+      "personality": "今の評価より、これから化ける可能性に惹かれるあなた。人知れず大きな成功を思い描き、関心を持った対象を追い続けます。静かに見えても、内側には強い対抗心があります。",
+      "strength": "周囲が注目していない段階でも、自分の関心を育てられます。反応の薄い時期を耐え、準備を続けられる人です。",
+      "weakness": "「認められる瞬間」を待つ気持ちが、現状の見直しを遅らせることも。評価が変わらない理由にも、目を向ける余地を残したいところです。",
+      "community_behavior": "お気に入り銘柄の昔のメモをひそかに保存。話題になった日には、「ようやく気づかれたか」と投稿する指が少し弾みます。"
+    },
+    {
+      "id": "type_12",
+      "company_label": "アドバンテスト型",
+      "type_name": "機先を制する勝負師",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": -1,
+        "motivation": 1,
+        "interaction": -1,
+        "adaptation": -1
+      },
+      "tagline": "相場が休んでいても、勝負勘は休まない。",
+      "personality": "空気の変化を感じると、自分の判断で動きたくなるあなた。勝つことへの意欲が強く、流れが変わったと感じれば方針も切り替えます。決断する瞬間そのものに、手応えを感じる人です。",
+      "strength": "変化への反応が速く、迷ったまま立ち止まりにくいタイプ。前の判断を引きずらず、次の展開へ気持ちを向けられます。",
+      "weakness": "刺激の少ない時間に、無理に勝負どころを探しがち。「何もしない」も選択肢に残せると、持ち味を使う場面が明確になります。",
+      "community_behavior": "チャートや話題の温度を見ながら、一人で次の展開を想像。休日にも海外市場や先物の話を探し、頭の中では相場が開いています。"
+    },
+    {
+      "id": "type_13",
+      "company_label": "バンダイナムコ型",
+      "type_name": "熱狂を分かち合う夢想家",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": -1,
+        "motivation": -1,
+        "interaction": 1,
+        "adaptation": 1
+      },
+      "tagline": "銘柄紹介のつもりが、推しの布教になっていた。",
+      "personality": "好きなものの魅力を、誰かと分かち合いたいあなた。順位や損得だけでは測れない楽しさを大切にします。新しい面白さにも手を伸ばし、気に入ったものとは長く付き合う人です。",
+      "strength": "人の「好き」を尊重し、一緒に楽しむ空気をつくれます。数字だけでは伝わらない魅力を、自分の言葉で語れます。",
+      "weakness": "好きな対象への指摘を、自分への否定のように受け止めることも。愛着を持つことと、評価に同意することは分けても大丈夫です。",
+      "community_behavior": "保有企業の商品やコンテンツを語り始めると止まりません。「株としてどう？」と聞かれても、まず体験してほしい作品を三つ挙げます。"
+    },
+    {
+      "id": "type_14",
+      "company_label": "ソニーグループ型",
+      "type_name": "多才なエンターテイナー",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": -1,
+        "motivation": -1,
+        "interaction": 1,
+        "adaptation": -1
+      },
+      "tagline": "監視銘柄より、やりたいことが増えていく。",
+      "personality": "新しい面白さを見つけ、人に届けるのが好きなあなた。ひとつの肩書きに収まるより、いろいろな表現や体験を楽しみます。周囲の反応も取り込みながら、関心を広げていく人です。",
+      "strength": "異なる分野の魅力を伝え、相手の興味を引き出せます。変化する状況にも、楽しみを見つけながら対応できます。",
+      "weakness": "面白いことを増やすのが得意な分、使える時間を超えがち。着手したもの全部に、同じ熱量を注ぐ必要はありません。",
+      "community_behavior": "新製品、決算、イベントの感想を次々に共有。銘柄の話を見に来た人が、気づけばゲームや映画のおすすめまで持ち帰っています。"
+    },
+    {
+      "id": "type_15",
+      "company_label": "任天堂型",
+      "type_name": "孤高のクリエイター",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": -1,
+        "motivation": -1,
+        "interaction": -1,
+        "adaptation": 1
+      },
+      "tagline": "みんなの正解より、自分の面白い。",
+      "personality": "多くの人が評価するものより、自分の心が動くものを深く育てるあなた。まだ理解されていない発想でも、面白いと感じたら簡単には手放しません。一人の時間から独自の世界をつくる人です。",
+      "strength": "流行に引っ張られすぎず、自分の視点を保てます。すぐに説明できない可能性も、時間をかけて形にできます。",
+      "weakness": "自分には当然の魅力を、相手にも伝わっていると思いがち。「見ればわかる」の前に、一言説明があると味方が増えます。",
+      "community_behavior": "注目ランキングにはいない会社を、自分なりの理由で追っています。購入理由を聞かれると、株価より先に「ここの発想が好き」と話します。"
+    },
+    {
+      "id": "type_16",
+      "company_label": "ヤマハ発動機型",
+      "type_name": "自由な冒険家",
+      "axis_signs": {
+        "risk": 1,
+        "judgment": -1,
+        "motivation": -1,
+        "interaction": -1,
+        "adaptation": -1
+      },
+      "tagline": "寄り道のつもりが、そっちが本命になった。",
+      "personality": "心が動いた方向へ、自分の足で確かめに行くあなた。予定どおりの成功より、知らなかった景色に出会うことを楽しみます。周囲のペースに合わせすぎず、行き先を変えられる人です。",
+      "strength": "初めての体験に踏み出し、関心の変化を素直に認められます。過去に選んだ道だけに、自分を縛りません。",
+      "weakness": "次の体験が気になると、前の振り返りが後回しになりがち。楽しかった理由を残しておくと、経験がつながりやすくなります。",
+      "community_behavior": "旅行先で見つけた商品から、知らない会社を調べ始めます。最初は優待を見ていたのに、いつの間にか別業界を探索しています。"
+    },
+    {
+      "id": "type_17",
+      "company_label": "トヨタ自動車型",
+      "type_name": "堅実な王者",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": 1,
+        "motivation": 1,
+        "interaction": 1,
+        "adaptation": 1
+      },
+      "tagline": "爆益の裏技より、昨日の自分を改善する。",
+      "personality": "大きく勝ちたいからこそ、準備と積み重ねを大切にするあなた。人の知恵を借り、問題を一つずつ直しながら成果を目指します。華やかな一発より、繰り返し力を出せる状態に自信を持つ人です。",
+      "strength": "振り返りを次の行動につなげ、周囲と安定した協力関係を築けます。調子がよいときにも、確認を怠りにくいタイプです。",
+      "weakness": "改善への意欲が強く、休む時間まで反省会になりがち。一緒にいる人は、今日の楽しさだけを話したいこともあります。",
+      "community_behavior": "月末には売買を振り返り、仲間と気づきを交換。「今月よかったね」で終わらず、来月の改善点まできっちり整理します。"
+    },
+    {
+      "id": "type_18",
+      "company_label": "三菱商事型",
+      "type_name": "布陣を変える戦略家",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": 1,
+        "motivation": 1,
+        "interaction": 1,
+        "adaptation": -1
+      },
+      "tagline": "飲み会の席順にも、最適解を探してしまう。",
+      "personality": "全体を見渡し、人や情報をどう組み合わせるか考えるあなた。目標への意欲は強くても、一つの案に全てを託すより、選択肢を確かめます。条件が変われば、計画も役割分担も見直せる人です。",
+      "strength": "異なる意見の利点を拾い、実行できる形にまとめられます。状況を整理し、次に誰が何をするか示せます。",
+      "weakness": "全体を整えようとするあまり、人の気分や寄り道まで管理しがち。効率よく決まらない時間にも、意味があるかもしれません。",
+      "community_behavior": "勉強会で各人の得意分野を聞き、資料を持ち寄る段取りを作成。気づけば連絡係から議事進行まで担っています。"
+    },
+    {
+      "id": "type_19",
+      "company_label": "ファナック型",
+      "type_name": "精度を極める完璧主義者",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": 1,
+        "motivation": 1,
+        "interaction": -1,
+        "adaptation": 1
+      },
+      "tagline": "「だいたい合ってる」が、いちばん気になる。",
+      "personality": "偶然の成功より、確かな手順で高い成果を出したいあなた。自分で確認し、同じ精度を保てるように方法を磨きます。競争心は派手な言葉より、準備の細かさに表れる人です。",
+      "strength": "見落としや作業のばらつきを減らし、地道に質を上げられます。約束した基準を守ろうとする誠実さがあります。",
+      "weakness": "自分への厳しさが、そのまま他人にも向きがち。目的に十分な精度と、自分が求める最高精度は違うこともあります。",
+      "community_behavior": "分析表の数値や参照先を細かく確認。大筋では同じ結論でも、計算の小さな誤差が気になって、そのまま読み進められません。"
+    },
+    {
+      "id": "type_20",
+      "company_label": "キーエンス型",
+      "type_name": "無駄を見抜く合理主義者",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": 1,
+        "motivation": 1,
+        "interaction": -1,
+        "adaptation": -1
+      },
+      "tagline": "その趣味、費用対効果で考えてませんか？",
+      "personality": "限られた時間や資源から、よりよい成果を出したいあなた。方法を比較し、役立つと判断すれば慣れたやり方も変えます。自分で納得できる根拠を持ち、無駄を減らすのが得意な人です。",
+      "strength": "手間と得られるものを整理し、力を使う場所を選べます。過去に時間をかけた方法でも、改善の余地を認められます。",
+      "weakness": "成果を測りにくい楽しみや交流を、無駄と感じてしまうことも。説明できる利益がなくても、心が満たされる時間はあります。",
+      "community_behavior": "情報源を整理し、読む資料や通知を厳選。優待の話でも、使うまでの交通費と手間を含めた検討が始まります。"
+    },
+    {
+      "id": "type_21",
+      "company_label": "NTT型",
+      "type_name": "安心をつなぐ守護者",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": 1,
+        "motivation": -1,
+        "interaction": 1,
+        "adaptation": 1
+      },
+      "tagline": "自分の含み益より、仲間の無事が気になる。",
+      "personality": "自分も周囲も、落ち着いて過ごせる状態を大切にするあなた。大きく目立つより、確かな情報と丁寧なやり取りで人を支えます。関係も学びも、時間をかけて積み上げる人です。",
+      "strength": "相手を急かさず、わからないことを一緒に整理できます。継続して気にかけてくれる安心感があります。",
+      "weakness": "相談に応じ続けて、自分の時間まで差し出してしまいがち。頼られることと、全部を引き受けることは同じではありません。",
+      "community_behavior": "初心者の質問に、確認先を添えて丁寧に回答。急落した日には、自分の銘柄を見る合間に、仲間が無理していないか気にしています。"
+    },
+    {
+      "id": "type_22",
+      "company_label": "KDDI型",
+      "type_name": "暮らしを整える調整役",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": 1,
+        "motivation": -1,
+        "interaction": 1,
+        "adaptation": -1
+      },
+      "tagline": "みんなの困りごとで、自分の予定が埋まっていく。",
+      "personality": "誰かの不便を聞くと、その人に合う改善方法を探したくなるあなた。正解を押しつけるより、事情を聞いて選択肢を調整します。無理なく使えることを重視し、方法の変更にも柔軟です。",
+      "strength": "人によって違う条件を整理し、実用的な手助けができます。詳しくない相手にも、わかる言葉で説明できる人です。",
+      "weakness": "相手の都合に合わせるうちに、自分の希望が後回しになりがち。親切に対応できる時間にも、上限を決めてよさそうです。",
+      "community_behavior": "証券アプリの操作で困る仲間に、画面の見方を案内。「そこだけ教えて」から始まり、通知設定まで一緒に整えています。"
+    },
+    {
+      "id": "type_23",
+      "company_label": "花王型",
+      "type_name": "静かな積み上げ職人",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": 1,
+        "motivation": -1,
+        "interaction": -1,
+        "adaptation": 1
+      },
+      "tagline": "誰にも気づかれない改善で、今日もちょっと満足。",
+      "personality": "小さな違いを見つけ、日々の質を少しずつ高めるあなた。他人の評価を急がず、自分が納得できる習慣や知識を育てます。落ち着いた環境で、丁寧な作業を続けるのが好きな人です。",
+      "strength": "地味な確認や記録を続け、変化の兆しに気づけます。派手な反応がなくても、自分の進歩を楽しめます。",
+      "weakness": "わずかな違いの修正に、時間を使いすぎることも。改善した量だけでなく、そこで得られた余裕にも目を向けたいところです。",
+      "community_behavior": "配当や売買の記録をこまめに整理。誰にも見せない集計表の並びを直し、「前より見やすい」と一人で満足しています。"
+    },
+    {
+      "id": "type_24",
+      "company_label": "オリックス型",
+      "type_name": "身軽な現実主義者",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": 1,
+        "motivation": -1,
+        "interaction": -1,
+        "adaptation": -1
+      },
+      "tagline": "愛着はあっても、見直しの対象には入れます。",
+      "personality": "自分に必要なものを見極め、無理の少ない状態を選ぶあなた。大きく見せることには執着せず、条件が変われば方法を見直します。安心を重視しながらも、昔の選択だけには縛られない人です。",
+      "strength": "現状の負担と利点を整理し、暮らしに合う形へ調整できます。「続けてきたから」という理由だけで、無理を重ねにくいタイプです。",
+      "weakness": "自分の中で判断が済むと、説明も短くなりがち。周囲には、気持ちまで急に離れたように見えることがあります。",
+      "community_behavior": "口座や情報源を定期的に整理。長く追った銘柄でも、関心や条件が変わった理由をメモして、静かに監視対象を入れ替えます。"
+    },
+    {
+      "id": "type_25",
+      "company_label": "三越伊勢丹型",
+      "type_name": "美学を守る社交家",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": -1,
+        "motivation": 1,
+        "interaction": 1,
+        "adaptation": 1
+      },
+      "tagline": "平静を装う投稿ほど、下書きが長い。",
+      "personality": "人との関係も、自分の見せ方も丁寧に育てるあなた。場の雰囲気を感じ取りながら、自分なりの品やこだわりを保ちます。派手に押し出すより、「あの人はいいね」と認められたい人です。",
+      "strength": "相手や場面に配慮し、安心して付き合える印象をつくれます。長く築いてきた信頼や、自分の美学を大切にします。",
+      "weakness": "ちゃんとして見えることに気を使い、弱音を出しにくいところがあります。整っていない気持ちを見せても、魅力が消えるわけではありません。",
+      "community_behavior": "利益報告は控えめに、言葉を選んで投稿。大きく値動きした日ほど、落ち着いた一文の裏で推敲を重ねています。"
+    },
+    {
+      "id": "type_26",
+      "company_label": "ZOZO型",
+      "type_name": "空気を読む演出家",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": -1,
+        "motivation": 1,
+        "interaction": 1,
+        "adaptation": -1
+      },
+      "tagline": "株価より先に、タイムラインの温度を読む。",
+      "personality": "周囲が何に反応するかを感じ取り、自分の伝え方を変えられるあなた。いきなり飛び込むより、場の空気を確かめてから動きます。人からの反応を、次の工夫につなげる人です。",
+      "strength": "相手に届く言葉や見せ方を考えられます。前のやり方が合わなくなっても、柔軟に表現を変えられます。",
+      "weakness": "反応をよく見ている分、静かな日まで自分の評価と結びつけがち。投稿の伸びと、自分の価値は切り離してよさそうです。",
+      "community_behavior": "同じ分析でも、図やタイトルを変えて伝え方を工夫。投稿後は株価の更新と同じくらい、反応の通知が気になります。"
+    },
+    {
+      "id": "type_27",
+      "company_label": "カプコン型",
+      "type_name": "勝負作を磨く表現者",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": -1,
+        "motivation": 1,
+        "interaction": -1,
+        "adaptation": 1
+      },
+      "tagline": "百のいいねより、一つのダメ出しが残る。",
+      "personality": "自分の得意な表現を磨き、「これはすごい」と思ってもらいたいあなた。むやみに手を広げず、見せたいものをじっくり作り込みます。内側の美意識と、人に認められたい気持ちが原動力です。",
+      "strength": "伝えたい内容の形や流れにこだわり、完成度を高められます。反応を見ても、核になる自分らしさを守れます。",
+      "weakness": "多くの好意的な反応より、一つの否定を重く受け止めがち。すべての人を満足させることが、完成の条件でなくてもよいはずです。",
+      "community_behavior": "銘柄分析の図や文章を、一人で何度も練り直します。投稿が好評でも、夜には一件の指摘への修正案を考えています。"
+    },
+    {
+      "id": "type_28",
+      "company_label": "資生堂型",
+      "type_name": "感性を磨く変身家",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": -1,
+        "motivation": 1,
+        "interaction": -1,
+        "adaptation": -1
+      },
+      "tagline": "理想の自分が、完成前にアップデートされる。",
+      "personality": "なりたい姿を思い描き、少しずつ自分を変えていくあなた。人の評価にも敏感ですが、変化は自分の中で確かめながら進めます。新しい感覚を取り入れ、より納得できる自分を目指す人です。",
+      "strength": "憧れを具体的な工夫に変え、自分の表現を磨けます。以前の自分を否定せず、新しいやり方を試す柔軟さがあります。",
+      "weakness": "理想の基準まで更新されるため、進歩を実感しにくいことも。次の目標と同じくらい、すでに変わった部分を認めたいところです。",
+      "community_behavior": "憧れる投資家の発信を見て、自分の分析や投稿を改良。少し慣れた頃には、また別の魅力的なスタイルが気になっています。"
+    },
+    {
+      "id": "type_29",
+      "company_label": "キリン型",
+      "type_name": "日常を愛する仲間思い",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": -1,
+        "motivation": -1,
+        "interaction": 1,
+        "adaptation": 1
+      },
+      "tagline": "爆益自慢より、いつもの仲間と乾杯したい。",
+      "personality": "気の合う人と安心して過ごす時間に、豊かさを感じるあなた。他人との競争より、慣れた関係や日常の楽しさを大切にします。ちょっとした空気の変化にも気づく、温かな人です。",
+      "strength": "成績や肩書きで相手への態度を変えにくく、長い付き合いを育てられます。緊張した場を和らげる力があります。",
+      "weakness": "居心地のよい関係を大切にするあまり、新しい意見に触れる機会が減ることも。いつもの場所を保ちつつ、窓を一つ増やす余地はありそうです。",
+      "community_behavior": "金曜日の引け後には、仲間の一週間をねぎらいます。誰が一番儲かったかより、次の集まりで何を食べるかが楽しみです。"
+    },
+    {
+      "id": "type_30",
+      "company_label": "イオン型",
+      "type_name": "気配り上手な世話役",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": -1,
+        "motivation": -1,
+        "interaction": 1,
+        "adaptation": -1
+      },
+      "tagline": "「何でもいいよ」で、自分の希望が迷子になる。",
+      "personality": "人の様子を見て、その場に合う動き方を考えるあなた。自分を目立たせるより、みんなが無理なく過ごせることを重視します。予定や役割も、相手に合わせて柔らかく変えられる人です。",
+      "strength": "言葉にされていない困りごとに気づき、自然に手助けできます。前に決めたことにも固執せず、場を整えられます。",
+      "weakness": "相手に合わせることが続くと、自分が何をしたかったのか見えにくくなります。小さな希望から口にしても、場の調和は壊れません。",
+      "community_behavior": "会話に入れていない人へ話を振り、初心者が戸惑えば説明を補います。勉強会が終わる頃、自分の質問だけ聞きそびれています。"
+    },
+    {
+      "id": "type_31",
+      "company_label": "良品計画型",
+      "type_name": "静けさを愛する審美家",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": -1,
+        "motivation": -1,
+        "interaction": -1,
+        "adaptation": 1
+      },
+      "tagline": "「こだわりはない」という、強いこだわり。",
+      "personality": "世間のにぎわいより、自分にしっくりくるものを選ぶあなた。多くを持つことや目立つことを急がず、慣れた心地よさを育てます。静かでも、好みの境界ははっきりしている人です。",
+      "strength": "周囲の熱気に流されすぎず、自分に合うペースを守れます。派手ではない満足を見つけ、長く味わえます。",
+      "weakness": "好みが自然に固まっている分、違う選択の魅力を見落とすことも。「自分には合わない」と「よくない」は分けておきたいところです。",
+      "community_behavior": "話題の銘柄が次々変わっても、お気に入りを静かに確認。情報画面をすっきりさせる作業には、意外なほど時間をかけます。"
+    },
+    {
+      "id": "type_32",
+      "company_label": "ヤマハ型",
+      "type_name": "気分を奏でる自由人",
+      "axis_signs": {
+        "risk": -1,
+        "judgment": -1,
+        "motivation": -1,
+        "interaction": -1,
+        "adaptation": -1
+      },
+      "tagline": "相場は開いているけど、今日は自分が休場。",
+      "personality": "自分の気分や疲れに耳を傾け、無理のない楽しみ方を選ぶあなた。刺激を追い続けるより、今の自分に合う距離を探します。関心が変わることも自然に受け止め、静かに調整できる人です。",
+      "strength": "周囲の勢いだけで無理を重ねず、自分のペースへ戻れます。以前の予定に縛られず、心地よい方法を試せます。",
+      "weakness": "気分が乗るのを待っていると、必要な作業まで先延ばしになることも。楽しさとは別に、最低限の区切りがあると動きやすくなります。",
+      "community_behavior": "にぎやかな相場の日でも、疲れていたら画面を閉じます。一方、ふと関心が湧いた夜には、一人で気になる会社を調べています。"
+    }
+  ]
+}
