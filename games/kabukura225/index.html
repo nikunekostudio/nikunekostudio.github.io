@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>株クラ225性格診断 | にくねこスタジオ</title>
+  <title>株225性格診断 | にくねこスタジオ</title>
   <meta name="description" content="10〜15問で、あなたの株クラタイプを32種類から診断する無料ミニゲーム。">
   <link rel="canonical" href="https://nikunekostudio.github.io/games/kabukura225/">
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-  <link rel="stylesheet" href="style.css?v=20261015a">
-  <script type="module" src="app.js?v=20261015a"></script>
+  <link rel="stylesheet" href="style.css?v=20261016a">
+  <script type="module" src="app.js?v=20261016a"></script>
 </head>
 <body>
   <header class="topbar">
     <a href="../">← ゲーム一覧</a>
-    <span>KABUKURA PERSONALITY TEST</span>
+    <span>STOCK 225 PERSONALITY TEST</span>
   </header>
 
   <main>
@@ -23,16 +23,13 @@
     </section>
 
     <section id="start" class="screen card start" hidden>
-      <p class="eyebrow">全32タイプ · 株クラ性格診断</p>
-      <div class="hero-mark" aria-hidden="true"><span>株</span><b>225</b></div>
+      <div class="cat-sprite cat-start" role="img" aria-label="ドット絵のにくねこ"></div>
       <h1>あなたはどの<br><em>株クラタイプ？</em></h1>
       <p class="lead">相場での考え方や過ごし方から、あなたに近いタイプを診断します。</p>
       <div class="intro-grid">
-        <div><strong>まず10問</strong><span>答えが分かれた傾向だけ追加</span></div>
         <div><strong>最大15問</strong><span>所要時間 約2〜3分</span></div>
         <div><strong>32タイプ</strong><span>5つの傾向から分類</span></div>
       </div>
-      <p class="notice">娯楽目的の性格分類です。投資能力・心理学的な確度を測るものではありません。</p>
       <button id="start-button" class="button primary" type="button">診断をはじめる</button>
       <button id="resume-button" class="button secondary" type="button" hidden>前回の続きから</button>
     </section>
@@ -51,12 +48,12 @@
         <p id="followup-note" class="followup-note" hidden>回答が分かれた傾向を、別の場面でもう少し確認します。</p>
         <div id="answer-options" class="answers"></div>
       </article>
-      <p class="save-note">回答はこの端末に自動保存されます。</p>
     </section>
 
     <section id="result" class="screen result" hidden>
-      <p class="eyebrow">YOUR KABUKURA TYPE</p>
+      <p class="eyebrow">YOUR STOCK TYPE</p>
       <article class="result-hero">
+        <div class="cat-sprite cat-result" role="img" aria-label="笑顔のドット絵のにくねこ"></div>
         <div class="result-rank"><span>あなたは</span><strong id="company-label"></strong></div>
         <h1 id="type-name"></h1>
         <p id="tagline" class="tagline"></p>

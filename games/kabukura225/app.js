@@ -86,7 +86,7 @@ function renderResult(){
     const value=document.createElement('span');value.className='axis-value';value.textContent=axisResult.displayLabel;
     row.append(label,track,value);return row;
   }));
-  const text=`株クラ225性格診断で「${profile.company_label}・${profile.type_name}」でした！\n${profile.tagline}\n\nあなたはどのタイプ？`;
+  const text=`株225性格診断で「${profile.company_label}・${profile.type_name}」でした！\n${profile.tagline}\n\nあなたはどのタイプ？`;
   $('share-button').href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.origin+location.pathname)}`;
   save();
   show('result');
@@ -99,7 +99,7 @@ function restart(){
 
 async function init(){
   try{
-    const response=await fetch('./quiz-data.json?v=20261015a');
+    const response=await fetch('./quiz-data.json?v=20261016a');
     if(!response.ok)throw new Error(`診断データの取得に失敗しました（${response.status}）`);
     data=await response.json();
     const saved=loadSaved();

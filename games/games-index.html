@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ゲーム一覧 | にくねこスタジオ</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="にくねこスタジオのゲーム一覧。アクション、株ゲーム、AI画像クイズ、株の常識クイズ、株クラ性格診断をブラウザで遊べます。">
+  <link rel="canonical" href="https://nikunekostudio.github.io/games/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="にくねこスタジオ">
+  <meta property="og:title" content="ゲーム一覧 | にくねこスタジオ">
+  <meta property="og:description" content="にくねこスタジオのゲームを遊ぼう。">
+  <meta property="og:url" content="https://nikunekostudio.github.io/games/">
+  <meta property="og:image" content="https://nikunekostudio.github.io/assets/tobe-oniku-preview.png">
+  <meta property="og:image:alt" content="飛べ！おにく！のタイトル画面">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#100e26">
+  <style>
+    :root{color-scheme:dark}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;color:#f9f6ff;font-family:Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
+    body{background-color:#100e26;background-image:linear-gradient(180deg,rgba(9,8,30,.3),rgba(9,8,30,.57) 64%,rgba(9,8,30,.8)),url('../assets/arcade-bg.webp');background-position:center center;background-size:cover;background-attachment:fixed;background-repeat:no-repeat}
+    a{color:inherit}
+    a:focus-visible{outline:2px solid #77eaff;outline-offset:4px}
+    .page-header{position:relative;min-height:250px;padding:28px max(24px,calc((100vw - 1040px)/2))}
+    .topbar{display:flex;align-items:start;justify-content:space-between;gap:20px}
+    .brand{display:inline-block;width:150px;height:76px;overflow:hidden;border-radius:6px;background:#fbfaf5}
+    .brand img{display:block;width:150px;height:150px;transform:translateY(-37px)}
+    nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:clamp(10px,2vw,28px);font:600 13px/1.5 monospace;letter-spacing:.05em}
+    nav a{text-decoration:none;padding:5px 0;border-bottom:3px solid transparent}
+    nav a[aria-current="page"],nav a:hover{border-bottom-color:#ff79de}
+    .page-title{position:relative;z-index:1;margin:30px 0 0;font:800 clamp(46px,8vw,78px)/1 monospace;letter-spacing:.06em;text-shadow:3px 3px 0 #462b8a}
+    .page-title small{display:block;margin-top:12px;font:700 15px/1.5 Arial,sans-serif;letter-spacing:0;text-shadow:none}
+    main{max-width:1040px;margin:0 auto;padding:36px 24px 90px}
+    .section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:25px}
+    .section-heading h2{margin:0;font:700 21px/1.3 monospace;letter-spacing:.08em}
+    .section-heading p{margin:0;color:#d9d3e8;font-size:14px}
+    .game-list{display:grid;gap:30px}
+    .game-entry{overflow:hidden;border:1px solid #7d70ba;border-radius:12px;background:#15142ae8;box-shadow:0 16px 50px #06051b99,5px 5px 0 #a847af66}
+    .game-card{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(270px,.9fr);overflow:hidden}
+    .game-art{background:#125db7}
+    .game-art img{display:block;width:100%;height:100%;object-fit:contain;aspect-ratio:712/648}
+    .game-art.run{overflow:hidden;background:#62b9df}
+    .game-art.run img{width:100%;height:100%;object-fit:cover;aspect-ratio:215/139}
+    .game-art.quiz{background:#130b2b}
+    .game-art.quiz img{width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
+    .game-art.personality{background:#0d1a26}
+    .game-art.personality img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
+    .game-info{display:flex;flex-direction:column;align-items:start;justify-content:center;padding:36px}
+    .game-info .status{margin:0 0 12px;padding:5px 9px;border:1px solid #4994a5;background:#12313e;color:#a8f5ff;font:700 12px/1.4 monospace}
+    .game-info h3{margin:0 0 16px;font-size:clamp(25px,3vw,35px)}
+    .game-info p{margin:0 0 28px;line-height:1.9}
+    .button{display:inline-block;padding:12px 18px;border:1px solid #ffd35a;border-radius:5px;background:#ffe17e;color:#181424;text-decoration:none;font-weight:700;box-shadow:4px 4px 0 #9a4388}
+    .button:hover{background:#fff2b7}
+    .monthly{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:20px 28px;border-top:1px solid #5d5374;background:#0d1738cc}
+    .monthly h4{margin:0 0 6px;font-size:18px}.monthly p{margin:0;color:#bbb4cd;font-size:12px;line-height:1.6}
+    .monthly-board+.monthly-board{margin-top:16px;padding-top:16px;border-top:1px dashed #5d5374}
+    .monthly-board-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+    .monthly-board-title h5{margin:0;color:#d9d3e8;font-size:13px}.monthly-board-title p{margin:0;text-align:right}
+    .monthly ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style-position:inside}
+    .monthly li{min-width:0;padding:11px 12px;border:1px solid #5d5374;border-radius:7px;background:#15142a;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .monthly li::marker{color:#77eaff}.monthly li span{display:block;margin-top:5px;color:#ffe17e;font-size:13px}
+    .monthly li.empty{grid-column:1/-1;color:#8f88a3;font-weight:400;list-style:none;text-align:center}
+    .monthly-share{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:24px;padding:20px 24px;border:1px solid #5d5374;border-radius:10px;background:#11142f}
+    .monthly-share h3{margin:0 0 5px;font-size:17px}.monthly-share p{margin:0;color:#bbb4cd;font-size:12px;line-height:1.6}
+    .share-button{flex:none;border-color:#8c8c8c;background:#111;color:#fff;box-shadow:4px 4px 0 #6d467a;cursor:pointer;font:700 14px Arial,sans-serif}
+    .share-button:disabled{cursor:not-allowed;opacity:.45}
+    .more{display:flex;align-items:center;gap:14px;margin-top:48px;padding-top:28px;border-top:1px solid #81739a;color:#e0d9eb}
+    .more img{width:70px;height:70px;object-fit:contain;image-rendering:pixelated;border-radius:5px;background:#fff}
+    .more p{margin:0;line-height:1.7}
+    footer{padding:25px 24px 38px;text-align:center;font-size:13px}
+    @media(max-width:700px){
+      body{background-attachment:scroll;background-position:center top}
+      .page-header{min-height:245px;padding:18px 18px 30px}
+      .topbar{display:block}
+      .brand{width:125px;height:65px}
+      .brand img{width:125px;height:125px;transform:translateY(-30px)}
+      nav{justify-content:flex-start;gap:8px 16px;margin-top:10px;font-size:11px}
+      .page-title{margin-top:34px}
+      main{padding:28px 20px 70px}
+      .section-heading{display:block}
+      .section-heading p{margin-top:8px}
+      .game-card{grid-template-columns:1fr}
+      .game-info{padding:27px}
+      .monthly{grid-template-columns:1fr;padding:20px}.monthly ol{grid-template-columns:1fr}.monthly li span{display:inline;float:right;margin:0}
+      .monthly-board-title{display:block}.monthly-board-title p{margin-top:4px;text-align:left}
+      .monthly-share{display:block}.share-button{width:100%;margin-top:14px}
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <div class="topbar">
+      <a class="brand" href="../" aria-label="にくねこスタジオ ホーム"><img src="../assets/logo.png" alt="" width="1984" height="1984"></a>
+      <nav aria-label="メインメニュー">
+        <a href="../">HOME</a>
+        <a href="./" aria-current="page">GAMES</a>
+        <a href="../blog/">BLOG</a>
+        <a href="../gallery/">GALLERY</a>
+        <a href="https://suzuri.jp/nikuneko" target="_blank" rel="noopener noreferrer">SHOP</a>
+        <a href="https://www.youtube.com/@user-nikunekokikaku" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+        <a href="../#about">ABOUT</a>
+      </nav>
+    </div>
+    <h1 class="page-title">GAMES <small>にくねこスタジオのゲーム</small></h1>
+  </header>
+
+  <main>
+    <div class="section-heading">
+      <h2>公開中のゲーム</h2>
+      <p>作品が増えたらここに追加していきます。</p>
+    </div>
+    <div class="game-list">
+    <article class="game-entry">
+      <div class="game-card">
+        <div class="game-art personality"><img src="kabukura225/thumbnail.svg" alt="株225性格診断のタイトル画面" width="712" height="420"></div>
+        <div class="game-info">
+          <p class="status">NEW · 32 PERSONALITY TYPES</p>
+          <h3>株225<br>性格診断</h3>
+          <p>相場での考え方や過ごし方から、あなたに近い株クラタイプを全32タイプから診断します。</p>
+          <a class="button" href="kabukura225/" aria-label="株225性格診断をプレイ">診断してみる ↗</a>
+        </div>
+      </div>
+    </article>
+    <article class="game-entry" data-monthly-game="orega-utta">
+      <div class="game-card">
+        <div class="game-art" style="background:#10151b"><img src="orega-utta/mini/thumbnail.jpg" alt="俺が売ったら、あがった。の案内役の猫" width="730" height="590"></div>
+        <div class="game-info">
+          <p class="status">NEW · CR225 MINI GAME</p>
+          <h3>俺が売ったら、<br>あがった。</h3>
+          <p>下がる株価、増える含み損。ナンピンする？損切りする？売却後に相場の答え合わせができる、最大3分のブラウザ株ゲーム。</p>
+          <a class="button" href="orega-utta/" aria-label="俺が売ったら、あがった。をプレイ">ゲームで遊ぶ ↗</a>
+        </div>
+      </div>
+          <section class="monthly" aria-label="俺が売ったら、あがった。の月間利益ランキング">
+        <div><h4>今月の利益TOP 3</h4><p data-monthly-status role="status">ランキングを読み込み中です。</p></div>
+        <div>
+          <div class="monthly-board"><ol data-monthly-list></ol></div>
+          <div class="monthly-board">
+            <div class="monthly-board-title"><h5>先月の確定利益TOP 3</h5><p data-previous-status role="status">読み込み中…</p></div>
+            <ol data-previous-list></ol>
+          </div>
+        </div>
+      </section></article>
+    <article class="game-entry" data-monthly-game="tobe-oniku">
+      <div class="game-card">
+        <div class="game-art"><img src="../assets/tobe-oniku-preview.png" alt="飛べ！おにく！のタイトル画面" width="712" height="648"></div>
+        <div class="game-info">
+          <p class="status">PLAY IN BROWSER</p>
+          <h3>飛べ！おにく！</h3>
+          <p>おにくを飛ばして遊ぶ、ブラウザゲーム。</p>
+          <a class="button" href="tobe-oniku/" aria-label="飛べ！おにく！をプレイ">ゲームで遊ぶ ↗</a>
+        </div>
+      </div>
+      <section class="monthly" aria-label="飛べ！おにく！の月間ランキング">
+        <div><h4>今月のTOP 3</h4><p data-monthly-status role="status">ランキングを読み込み中です。</p></div>
+        <div>
+          <div class="monthly-board"><ol data-monthly-list></ol></div>
+          <div class="monthly-board">
+            <div class="monthly-board-title"><h5>先月の確定TOP 3</h5><p data-previous-status role="status">読み込み中…</p></div>
+            <ol data-previous-list></ol>
+          </div>
+        </div>
+      </section>
+    </article>
+    <article id="hashire-oniku-ranking" class="game-entry" data-monthly-game="hashire-oniku">
+      <div class="game-card">
+        <div class="game-art run"><img src="hashire-oniku/thumbnail.png" alt="走れ！おにく！のゲーム画面" width="215" height="139"></div>
+        <div class="game-info">
+          <p class="status">PLAY IN BROWSER</p>
+          <h3>走れ！おにく！</h3>
+          <p>ジャンプとしゃがみで障害物をよけて走る、ブラウザゲーム。</p>
+          <a class="button" href="hashire-oniku/" aria-label="走れ！おにく！をプレイ">ゲームで遊ぶ ↗</a>
+        </div>
+      </div>
+      <section class="monthly" aria-label="走れ！おにく！の月間ランキング">
+        <div><h4>今月のTOP 3</h4><p data-monthly-status role="status">ランキングを読み込み中です。</p></div>
+        <div>
+          <div class="monthly-board"><ol data-monthly-list></ol></div>
+          <div class="monthly-board">
+            <div class="monthly-board-title"><h5>先月の確定TOP 3</h5><p data-previous-status role="status">読み込み中…</p></div>
+            <ol data-previous-list></ol>
+          </div>
+        </div>
+      </section>
+    </article>
+    <article class="game-entry">
+      <div class="game-card">
+        <div class="game-art quiz"><img src="ai-or-not/thumbnail.svg" alt="AI or NOT?のタイトル画面" width="712" height="420"></div>
+        <div class="game-info">
+          <p class="status">PLAY IN BROWSER</p>
+          <h3>AI or NOT?</h3>
+          <p>画像を見て、AIで作られたものか見破る10問クイズ。</p>
+          <a class="button" href="ai-or-not/" aria-label="AI or NOT?をプレイ">ゲームで遊ぶ ↗</a>
+        </div>
+      </div>
+    </article>
+    <article class="game-entry">
+      <div class="game-card">
+        <div class="game-art quiz"><img src="quiz/thumbnail.svg" alt="株の常識クイズ 初級編のタイトル画面" width="712" height="420"></div>
+        <div class="game-info">
+          <p class="status">NEW · 10 RANDOM QUESTIONS</p>
+          <h3>株の常識クイズ<br>初級編</h3>
+          <p>倒産、配当、空売りなど、株式の基礎知識を楽しく学べる4択クイズ。全20問から毎回10問をランダム出題。</p>
+          <a class="button" href="quiz/" aria-label="株の常識クイズ 初級編をプレイ">ゲームで遊ぶ ↗</a>
+        </div>
+      </div>
+    </article>
+    </div>
+    <section class="monthly-share" aria-labelledby="monthly-share-title">
+      <div><h3 id="monthly-share-title">先月のランキングを公開</h3><p id="monthly-share-status" role="status">各ゲームの確定結果を読み込み中です。</p></div>
+      <button class="button share-button" id="share-previous-ranking" type="button" disabled>Xで先月の結果を共有 ↗</button>
+    </section>
+    <div class="more">
+      <img src="../assets/arukuneko.GIF" alt="" width="384" height="384" loading="lazy">
+      <p>次のゲームも準備中。ときどきのぞきに来てくださいね。</p>
+    </div>
+  </main>
+  <footer>© 2026 にくねこスタジオ · <a href="../">HOME</a> · <a href="https://www.youtube.com/@user-nikunekokikaku" target="_blank" rel="noopener noreferrer">公式YouTube</a> · <a href="../terms/">利用規約</a> · <a href="../privacy/">プライバシーポリシー</a></footer>
+  <script src="../assets/monthly-config.js"></script>
+  <script src="monthly-scores.js?v=profit-ranking-1" defer></script>
+  <script src="../i18n.js"></script>
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "b0ebae13abad4e738176a8c4336b03ff"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+</html>

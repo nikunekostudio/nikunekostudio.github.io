@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "data_version": "2026-10-15-short-v1",
-  "title": "株クラ225性格診断",
+  "title": "株225性格診断",
   "axes": [
     {
       "id": "risk",
@@ -80,10 +80,10 @@
     "seeded_randomization": true,
     "tie_policy": "followup_before_final; never_randomize_type",
     "boundary_policy": "mixed_contribution_signs_are_labeled_context_dependent",
-    "ui_intro": "まず10問。回答の傾向が分かれた場合のみ、最大5問追加します。",
+    "ui_intro": "",
     "ui_progress": "第{answered_plus_one}問（最大15問）",
     "ui_followup": "回答が分かれた傾向を、別の場面でもう少し確認します。",
-    "notice": "娯楽目的の性格分類です。投資能力・心理学的な確度を測るものではありません。"
+    "notice": ""
   },
   "questions": [
     {
