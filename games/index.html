@@ -46,8 +46,9 @@
     .game-art.run img{width:100%;height:100%;object-fit:cover;aspect-ratio:215/139}
     .game-art.quiz{background:#130b2b}
     .game-art.quiz img{width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
-    .game-art.personality{background:#0d1a26}
+    .game-art.personality{position:relative;overflow:hidden;background:#0d1a26}
     .game-art.personality img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
+    .game-art.personality .thumb-cat{position:absolute;left:7.5%;top:13%;width:28%;aspect-ratio:1;background:url('kabukura225/cat-sprites.png') 0 0/400% 300% no-repeat;image-rendering:pixelated;filter:drop-shadow(7px 7px 0 #0009)}
     .game-info{display:flex;flex-direction:column;align-items:start;justify-content:center;padding:36px}
     .game-info .status{margin:0 0 12px;padding:5px 9px;border:1px solid #4994a5;background:#12313e;color:#a8f5ff;font:700 12px/1.4 monospace}
     .game-info h3{margin:0 0 16px;font-size:clamp(25px,3vw,35px)}
@@ -115,12 +116,12 @@
     <div class="game-list">
     <article class="game-entry">
       <div class="game-card">
-        <div class="game-art personality"><img src="kabukura225/thumbnail.svg" alt="株クラ225性格診断のタイトル画面" width="712" height="420"></div>
+        <div class="game-art personality"><img src="kabukura225/thumbnail.svg?v=20261016c" alt="株225性格診断のタイトル画面" width="712" height="420"><span class="thumb-cat" aria-hidden="true"></span></div>
         <div class="game-info">
           <p class="status">NEW · 32 PERSONALITY TYPES</p>
-          <h3>株クラ225<br>性格診断</h3>
-          <p>相場での考え方や過ごし方から、あなたに近い株クラタイプを診断。まず10問、回答が分かれた傾向だけ最大5問追加します。</p>
-          <a class="button" href="kabukura225/" aria-label="株クラ225性格診断をプレイ">診断してみる ↗</a>
+          <h3>株225<br>性格診断</h3>
+          <p>相場での考え方や過ごし方から、あなたに近い株クラタイプを全32タイプから診断します。</p>
+          <a class="button" href="kabukura225/" aria-label="株225性格診断をプレイ">診断してみる ↗</a>
         </div>
       </div>
     </article>
@@ -199,12 +200,12 @@
     </article>
     <article class="game-entry">
       <div class="game-card">
-        <div class="game-art quiz"><img src="quiz/thumbnail.svg" alt="株の常識クイズ 初級編のタイトル画面" width="712" height="420"></div>
+        <div class="game-art quiz"><img src="quiz/thumbnail.svg?v=20261016a" alt="株の常識クイズのタイトル画面" width="712" height="420"></div>
         <div class="game-info">
           <p class="status">NEW · 10 RANDOM QUESTIONS</p>
-          <h3>株の常識クイズ<br>初級編</h3>
-          <p>倒産、配当、空売りなど、株式の基礎知識を楽しく学べる4択クイズ。全20問から毎回10問をランダム出題。</p>
-          <a class="button" href="quiz/" aria-label="株の常識クイズ 初級編をプレイ">ゲームで遊ぶ ↗</a>
+          <h3>株の常識クイズ</h3>
+          <p>株式の基本を学ぶ初級編と、指標・信用・先物を扱う中級編。各20問から毎回10問をランダム出題。</p>
+          <a class="button" href="quiz/" aria-label="株の常識クイズの難易度を選ぶ">難易度を選ぶ ↗</a>
         </div>
       </div>
     </article>

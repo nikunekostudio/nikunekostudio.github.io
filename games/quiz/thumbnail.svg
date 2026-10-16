@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 712 420" role="img" aria-labelledby="title desc">
-  <title id="title">株の常識クイズ 初級編</title>
-  <desc id="desc">上昇する株価チャートと四択ボタンを描いたクイズのサムネイル</desc>
+  <title id="title">株の常識クイズ</title>
+  <desc id="desc">初級編と中級編を選べる株式クイズのサムネイル</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#130b2b"/>
@@ -18,7 +18,7 @@
   <g filter="url(#shadow)">
     <rect x="42" y="40" width="405" height="119" rx="18" fill="#ffe46b"/>
     <text x="69" y="92" fill="#191329" font-family="Arial, 'Noto Sans JP', sans-serif" font-size="31" font-weight="900">株の常識クイズ</text>
-    <text x="69" y="137" fill="#5c2789" font-family="Arial, 'Noto Sans JP', sans-serif" font-size="30" font-weight="900">初級編</text>
+    <text x="69" y="137" fill="#5c2789" font-family="Arial, 'Noto Sans JP', sans-serif" font-size="30" font-weight="900">初級編・中級編</text>
   </g>
   <g font-family="Arial, sans-serif" font-weight="900" font-size="24" text-anchor="middle">
     <g><rect x="54" y="335" width="132" height="56" rx="12" fill="#ff79de"/><text x="120" y="371" fill="#25152f">A</text></g>

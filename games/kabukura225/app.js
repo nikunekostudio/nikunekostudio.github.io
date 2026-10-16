@@ -86,7 +86,7 @@ function renderResult(){
     const value=document.createElement('span');value.className='axis-value';value.textContent=axisResult.displayLabel;
     row.append(label,track,value);return row;
   }));
-  const text=`株225性格診断で「${profile.company_label}・${profile.type_name}」でした！\n${profile.tagline}\n\nあなたはどのタイプ？`;
+  const text=`株225性格診断で「${profile.company_label}・${profile.type_name}」でした！\n${profile.tagline}\n\nあなたはどのタイプ？\n#株225性格診断 #にくねこスタジオ`;
   $('share-button').href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.origin+location.pathname)}`;
   save();
   show('result');

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 712 420" role="img" aria-labelledby="title desc">
+  <title id="title">株の常識クイズ 中級編</title>
+  <desc id="desc">上昇する株価チャートと四択ボタンを描いたクイズのサムネイル</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#130b2b"/>
+      <stop offset="1" stop-color="#30206b"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="6" dy="7" stdDeviation="0" flood-color="#080414" flood-opacity=".8"/></filter>
+  </defs>
+  <rect width="712" height="420" fill="url(#bg)"/>
+  <g opacity=".12" stroke="#fff" stroke-width="1">
+    <path d="M0 70h712M0 140h712M0 210h712M0 280h712M0 350h712"/>
+    <path d="M90 0v420M180 0v420M270 0v420M360 0v420M450 0v420M540 0v420M630 0v420"/>
+  </g>
+  <path d="M56 308l78-54 64 24 78-105 65 44 91-116 74 35 110-89" fill="none" stroke="#79f2c0" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M581 48h64v64" fill="none" stroke="#79f2c0" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <g filter="url(#shadow)">
+    <rect x="42" y="40" width="405" height="119" rx="18" fill="#ffe46b"/>
+    <text x="69" y="92" fill="#191329" font-family="Arial, 'Noto Sans JP', sans-serif" font-size="31" font-weight="900">株の常識クイズ</text>
+    <text x="69" y="137" fill="#5c2789" font-family="Arial, 'Noto Sans JP', sans-serif" font-size="30" font-weight="900">中級編</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-weight="900" font-size="24" text-anchor="middle">
+    <g><rect x="54" y="335" width="132" height="56" rx="12" fill="#ff79de"/><text x="120" y="371" fill="#25152f">A</text></g>
+    <g><rect x="211" y="335" width="132" height="56" rx="12" fill="#77eaff"/><text x="277" y="371" fill="#10223d">B</text></g>
+    <g><rect x="368" y="335" width="132" height="56" rx="12" fill="#ffe46b"/><text x="434" y="371" fill="#332a0b">C</text></g>
+    <g><rect x="525" y="335" width="132" height="56" rx="12" fill="#79f2c0"/><text x="591" y="371" fill="#103527">D</text></g>
+  </g>
+</svg>
