@@ -6,6 +6,19 @@ const screens=['loading','start','quiz','result','error'];
 let data=null;
 let session=null;
 
+const RESULT_CHARACTERS={
+  commander:['type_01','type_04','type_17','type_18'],
+  creator:['type_08','type_13','type_14','type_15','type_27','type_28','type_32'],
+  calmCat:['type_23','type_29','type_31'],
+  coolCat:['type_07','type_19','type_20','type_24'],
+  steadyDog:['type_09','type_16','type_21'],
+  socialFrog:['type_02','type_05','type_06','type_10','type_22','type_25','type_26','type_30'],
+  boldRed:['type_03','type_11','type_12'],
+  quirkyMushroom:[]
+};
+const CHARACTER_FILES={commander:'commander.png',creator:'creator.png',calmCat:'calm-cat.png',coolCat:'cool-cat.png',steadyDog:'steady-dog.png',socialFrog:'social-frog.png',boldRed:'bold-red.png',quirkyMushroom:'quirky-mushroom.png'};
+function characterFor(typeId){return Object.entries(RESULT_CHARACTERS).find(([,ids])=>ids.includes(typeId))?.[0]||'quirkyMushroom'}
+
 function show(id){
   screens.forEach(name=>$(name).hidden=name!==id);
   window.scrollTo({top:0,behavior:'smooth'});
@@ -65,6 +78,9 @@ function renderResult(){
   const result=getResult(data,session);
   if(!result.complete)return renderQuestion();
   const profile=data.types.find(item=>item.id===result.typeId);
+  const character=characterFor(profile.id);
+  $('result-character').src=`result-characters/${CHARACTER_FILES[character]}`;
+  $('result-character').alt=`${profile.type_name}を表すキャラクター`;
   $('company-label').textContent=profile.company_label;
   $('type-name').textContent=profile.type_name;
   $('tagline').textContent=`「${profile.tagline}」`;
