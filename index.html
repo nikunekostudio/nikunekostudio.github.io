@@ -6,14 +6,14 @@
   <title>にくねこスタジオ | おにく氏デザインのゲームとショップ</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="description" content="にくねこスタジオの公式サイト。おにく氏がデザインするゲームやオリジナルアイテムを紹介します。ショップとお問い合わせ先はこちら。">
-  <link rel="canonical" href="https://nikunekostudio.github.io/">
+  <link rel="canonical" href="https://nikuneko.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="にくねこスタジオ">
   <meta property="og:title" content="にくねこスタジオ | おにく氏デザインのゲームとショップ">
   <meta property="og:description" content="おにく氏がデザインするゲームやオリジナルアイテムを公開していく、にくねこスタジオの公式サイト。">
-  <meta property="og:url" content="https://nikunekostudio.github.io/">
-  <meta property="og:image" content="https://nikunekostudio.github.io/assets/hero-bg.png">
+  <meta property="og:url" content="https://nikuneko.com/">
+  <meta property="og:image" content="https://nikuneko.com/assets/hero-bg.png">
   <meta property="og:image:alt" content="にくねこスタジオのドット絵の風景">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#fbfaf5">
@@ -23,8 +23,8 @@
       "@type": "Organization",
       "name": "にくねこスタジオ",
       "alternateName": "NIKUNEKO STUDIO",
-      "url": "https://nikunekostudio.github.io/",
-      "logo": "https://nikunekostudio.github.io/assets/logo.png",
+      "url": "https://nikuneko.com/",
+      "logo": "https://nikuneko.com/assets/logo.png",
       "description": "おにく氏デザインのゲームやオリジナルアイテムを公開するスタジオ。",
       "sameAs": [
         "https://x.com/nikunekokikaku",
@@ -76,6 +76,20 @@
   </style>
 </head>
 <body>
+  <aside id="site-move-notice" hidden style="padding:16px 20px;background:#fff0c2;color:#181817;text-align:center;font-size:14px;line-height:1.8">
+    <strong>公式サイトを移転しました。</strong> <a href="https://nikuneko.com/" style="color:inherit;font-weight:700;text-decoration:underline">nikuneko.com へ</a><br>
+    ゲームの端末内セーブは旧URL側に残ります。続きから遊ぶ場合は、これまでのゲームURLをお使いください。
+  </aside>
+  <script>
+    if (location.hostname === 'nikunekostudio.github.io') {
+      const notice = document.getElementById('site-move-notice');
+      if (new URLSearchParams(location.search).get('lang') === 'en') {
+        notice.innerHTML = '<strong>Our official website has moved.</strong> <a href="https://nikuneko.com/?lang=en" style="color:inherit;font-weight:700;text-decoration:underline">Visit nikuneko.com</a><br>Local game saves remain on the old URL. Use your original game links to continue your saved progress.';
+      }
+      notice.hidden = false;
+    }
+  </script>
+
   <header class="hero" id="home">
     <nav aria-label="メインメニュー">
       <a href="#home" aria-current="page">HOME</a>
