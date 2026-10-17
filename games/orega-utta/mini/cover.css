@@ -1,0 +1,10 @@
+.stock-cover{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:730/590;background:radial-gradient(ellipse at 45% 35%,#1b2730,#131b21);color:#f2efe5;text-align:center;container-type:inline-size}
+.stock-cover .stock-kicker{position:relative;z-index:1;margin:0 0 4%;font-size:1.7cqw;letter-spacing:.12em;color:#8da1aa}
+.stock-cover .stock-title{position:relative;z-index:1;margin:0;font-size:8.5cqw;line-height:1.45;font-weight:800;letter-spacing:-.03em}
+.stock-cover .stock-title span{display:block;color:#ff667e}
+.stock-cover .stock-line{position:relative;z-index:1;width:10%;margin:3% 0 0;border-top:4px solid #ff667e}
+.stock-cover .stock-cat{position:relative;z-index:1;width:26%;aspect-ratio:3/4;margin:-2% 0 -1%;background:url('cat-reference.png') 0 0/400% 300% no-repeat;image-rendering:pixelated}
+.stock-cover .stock-bubble{position:absolute;left:52%;top:51%;z-index:2;padding:1.5% 2%;border:1px solid #61707a;border-radius:5px;background:#27333c;font-size:1.7cqw;white-space:nowrap}
+.stock-cover .stock-description{position:relative;z-index:1;margin:0;font-size:2.1cqw;line-height:1.9;letter-spacing:.04em}
+.stock-cover .stock-description small{display:block;margin-top:1%;font-size:1.7cqw;color:#8da1aa}
+.stock-cover .stock-chart{position:absolute;inset:45% 0 8%;width:100%;height:47%;opacity:.6}
