@@ -1,0 +1,374 @@
+{
+  "version": "0.7",
+  "checkedOn": "2026-10-20",
+  "selection": {
+    "type": "answer_based",
+    "stock": "uniform_random_within_type",
+    "drawOncePerCompletedConsultation": true,
+    "persist": "session_memory",
+    "rerenderMustNotRedraw": true
+  },
+  "note": "企業との対応づけは創作上の比喩。株式の実際の評価・売買推奨ではない。",
+  "types": [
+    {
+      "id": "GROW",
+      "label": "じっくり成長株タイプ",
+      "stocks": [
+        {
+          "id": "GROW_01",
+          "companyName": "サンリオ",
+          "officialUrl": "https://corporate.sanrio.co.jp/",
+          "businessSummary": "キャラクターやライセンスなどの事業",
+          "analogy": "好きに触れる機会を重ねる",
+          "bridgeText": "企業にたとえるなら、サンリオ。キャラクターやライセンスなどの事業を手がける会社です。共通するイメージは「好きに触れる機会を重ねる」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "GROW_02",
+          "companyName": "バンダイナムコホールディングス",
+          "officialUrl": "https://www.bandainamco.co.jp/",
+          "businessSummary": "玩具やゲームなどのエンターテインメント事業",
+          "analogy": "一緒に楽しむ体験を重ねる",
+          "bridgeText": "企業にたとえるなら、バンダイナムコホールディングス。玩具やゲームなどのエンターテインメント事業を手がける会社です。共通するイメージは「一緒に楽しむ体験を重ねる」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "GROW_03",
+          "companyName": "タカラトミー",
+          "officialUrl": "https://www.takaratomy.co.jp/",
+          "businessSummary": "玩具などの企画・開発・販売",
+          "analogy": "遊び心を少しずつ共有する",
+          "bridgeText": "企業にたとえるなら、タカラトミー。玩具などの企画・開発・販売を手がける会社です。共通するイメージは「遊び心を少しずつ共有する」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "GROW_04",
+          "companyName": "学研ホールディングス",
+          "officialUrl": "https://www.gakken.co.jp/ja/about/company.html",
+          "businessSummary": "教育・学習などの事業",
+          "analogy": "知るほど関係を育てていく",
+          "bridgeText": "企業にたとえるなら、学研ホールディングス。教育・学習などの事業を手がける会社です。共通するイメージは「知るほど関係を育てていく」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "GROW_05",
+          "companyName": "セガサミーホールディングス",
+          "officialUrl": "https://www.segasammy.co.jp/ja/",
+          "businessSummary": "エンターテインメントなどの事業",
+          "analogy": "いろいろな楽しい時間を積み重ねる",
+          "bridgeText": "企業にたとえるなら、セガサミーホールディングス。エンターテインメントなどの事業を手がける会社です。共通するイメージは「いろいろな楽しい時間を積み重ねる」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "GROW_06",
+          "companyName": "ソニーグループ",
+          "officialUrl": "https://www.sony.com/ja/",
+          "businessSummary": "ゲーム・音楽・映画などの事業",
+          "analogy": "好きなものを通じて関係を広げる",
+          "bridgeText": "企業にたとえるなら、ソニーグループ。ゲーム・音楽・映画などの事業を手がける会社です。共通するイメージは「好きなものを通じて関係を広げる」。",
+          "checkedOn": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "COMFORT",
+      "label": "安心の配当株タイプ",
+      "stocks": [
+        {
+          "id": "COMFORT_01",
+          "companyName": "花王",
+          "officialUrl": "https://www.kao.com/jp/",
+          "businessSummary": "衛生や美容など暮らしに関わる事業",
+          "analogy": "日々の小さな心地よさ",
+          "bridgeText": "企業にたとえるなら、花王。衛生や美容など暮らしに関わる事業を手がける会社です。共通するイメージは「日々の小さな心地よさ」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "COMFORT_02",
+          "companyName": "ライオン",
+          "officialUrl": "https://www.lion.co.jp/ja/",
+          "businessSummary": "オーラルケアや日用品などの事業",
+          "analogy": "毎日のさりげない気遣い",
+          "bridgeText": "企業にたとえるなら、ライオン。オーラルケアや日用品などの事業を手がける会社です。共通するイメージは「毎日のさりげない気遣い」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "COMFORT_03",
+          "companyName": "ユニ・チャーム",
+          "officialUrl": "https://www.unicharm.co.jp/ja/home.html",
+          "businessSummary": "衛生用品などの事業",
+          "analogy": "暮らしの中で寄り添う気遣い",
+          "bridgeText": "企業にたとえるなら、ユニ・チャーム。衛生用品などの事業を手がける会社です。共通するイメージは「暮らしの中で寄り添う気遣い」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "COMFORT_04",
+          "companyName": "キッコーマン",
+          "officialUrl": "https://www.kikkoman.com/jp/",
+          "businessSummary": "しょうゆなどの食品事業",
+          "analogy": "いつもの時間を味わう親しさ",
+          "bridgeText": "企業にたとえるなら、キッコーマン。しょうゆなどの食品事業を手がける会社です。共通するイメージは「いつもの時間を味わう親しさ」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "COMFORT_05",
+          "companyName": "味の素",
+          "officialUrl": "https://www.ajinomoto.co.jp/",
+          "businessSummary": "食品やアミノサイエンスなどの事業",
+          "analogy": "小さなひと工夫で日常を豊かにする",
+          "bridgeText": "企業にたとえるなら、味の素。食品やアミノサイエンスなどの事業を手がける会社です。共通するイメージは「小さなひと工夫で日常を豊かにする」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "COMFORT_06",
+          "companyName": "ヤクルト本社",
+          "officialUrl": "https://www.yakult.co.jp/",
+          "businessSummary": "乳製品などの事業",
+          "analogy": "日々重ねる小さな習慣",
+          "bridgeText": "企業にたとえるなら、ヤクルト本社。乳製品などの事業を手がける会社です。共通するイメージは「日々重ねる小さな習慣」。",
+          "checkedOn": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "EXPECT",
+      "label": "期待先行のテーマ株タイプ",
+      "stocks": [
+        {
+          "id": "EXPECT_01",
+          "companyName": "任天堂",
+          "officialUrl": "https://www.nintendo.co.jp/",
+          "businessSummary": "ゲームを中心とした娯楽事業",
+          "analogy": "次の楽しさを想像する",
+          "bridgeText": "企業にたとえるなら、任天堂。ゲームを中心とした娯楽事業を手がける会社です。共通するイメージは「次の楽しさを想像する」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "EXPECT_02",
+          "companyName": "カプコン",
+          "officialUrl": "https://www.capcom.co.jp/",
+          "businessSummary": "ゲームなどの事業",
+          "analogy": "これからの展開を楽しみにする",
+          "bridgeText": "企業にたとえるなら、カプコン。ゲームなどの事業を手がける会社です。共通するイメージは「これからの展開を楽しみにする」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "EXPECT_03",
+          "companyName": "コナミグループ",
+          "officialUrl": "https://www.konami.com/ja/",
+          "businessSummary": "デジタルエンタテインメントなどの事業",
+          "analogy": "次にどんな体験があるか心が弾む",
+          "bridgeText": "企業にたとえるなら、コナミグループ。デジタルエンタテインメントなどの事業を手がける会社です。共通するイメージは「次にどんな体験があるか心が弾む」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "EXPECT_04",
+          "companyName": "スクウェア・エニックス・ホールディングス",
+          "officialUrl": "https://www.hd.square-enix.com/jpn/",
+          "businessSummary": "ゲームや出版などの事業",
+          "analogy": "まだ知らない物語の続きへの期待",
+          "bridgeText": "企業にたとえるなら、スクウェア・エニックス・ホールディングス。ゲームや出版などの事業を手がける会社です。共通するイメージは「まだ知らない物語の続きへの期待」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "EXPECT_05",
+          "companyName": "東映アニメーション",
+          "officialUrl": "https://corp.toei-anim.co.jp/ja/company/outline.html",
+          "businessSummary": "アニメーション制作などの事業",
+          "analogy": "続きが気になるわくわく",
+          "bridgeText": "企業にたとえるなら、東映アニメーション。アニメーション制作などの事業を手がける会社です。共通するイメージは「続きが気になるわくわく」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "EXPECT_06",
+          "companyName": "オリエンタルランド",
+          "officialUrl": "https://www.olc.co.jp/ja/",
+          "businessSummary": "テーマパークなどの事業",
+          "analogy": "一緒に過ごす特別な日への期待",
+          "bridgeText": "企業にたとえるなら、オリエンタルランド。テーマパークなどの事業を手がける会社です。共通するイメージは「一緒に過ごす特別な日への期待」。",
+          "checkedOn": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "OWN",
+      "label": "自分のペース株タイプ",
+      "stocks": [
+        {
+          "id": "OWN_01",
+          "companyName": "キーエンス",
+          "officialUrl": "https://www.keyence.co.jp/",
+          "businessSummary": "工場自動化用センサなどの事業",
+          "analogy": "自分たちに合うやり方を考える",
+          "bridgeText": "企業にたとえるなら、キーエンス。工場自動化用センサなどの事業を手がける会社です。共通するイメージは「自分たちに合うやり方を考える」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "OWN_02",
+          "companyName": "良品計画",
+          "officialUrl": "https://www.ryohin-keikaku.jp/",
+          "businessSummary": "無印良品などの事業",
+          "analogy": "無理に飾らず、心地よい形を選ぶ",
+          "bridgeText": "企業にたとえるなら、良品計画。無印良品などの事業を手がける会社です。共通するイメージは「無理に飾らず、心地よい形を選ぶ」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "OWN_03",
+          "companyName": "ワークマン",
+          "officialUrl": "https://www.workman.co.jp/",
+          "businessSummary": "作業服や機能性衣料などの販売",
+          "analogy": "見栄より自分に合う過ごし方",
+          "bridgeText": "企業にたとえるなら、ワークマン。作業服や機能性衣料などの販売を手がける会社です。共通するイメージは「見栄より自分に合う過ごし方」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "OWN_04",
+          "companyName": "しまむら",
+          "officialUrl": "https://www.shimamura.gr.jp/",
+          "businessSummary": "衣料品などの販売",
+          "analogy": "日常の自分になじむ距離",
+          "bridgeText": "企業にたとえるなら、しまむら。衣料品などの販売を手がける会社です。共通するイメージは「日常の自分になじむ距離」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "OWN_05",
+          "companyName": "スズキ",
+          "officialUrl": "https://www.suzuki.co.jp/",
+          "businessSummary": "四輪車・二輪車などの事業",
+          "analogy": "自分たちの暮らしに合うペース",
+          "bridgeText": "企業にたとえるなら、スズキ。四輪車・二輪車などの事業を手がける会社です。共通するイメージは「自分たちの暮らしに合うペース」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "OWN_06",
+          "companyName": "SUBARU",
+          "officialUrl": "https://www.subaru.co.jp/",
+          "businessSummary": "自動車や航空宇宙などの事業",
+          "analogy": "自分が大切にしたい感覚で選ぶ",
+          "bridgeText": "企業にたとえるなら、SUBARU。自動車や航空宇宙などの事業を手がける会社です。共通するイメージは「自分が大切にしたい感覚で選ぶ」。",
+          "checkedOn": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "DISCOVER",
+      "label": "隠れた魅力株タイプ",
+      "stocks": [
+        {
+          "id": "DISCOVER_01",
+          "companyName": "日東電工",
+          "officialUrl": "https://www.nitto.com/jp/ja/",
+          "businessSummary": "テープやフィルムなどの材料事業",
+          "analogy": "目立たないところにある役割",
+          "bridgeText": "企業にたとえるなら、日東電工。テープやフィルムなどの材料事業を手がける会社です。共通するイメージは「目立たないところにある役割」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "DISCOVER_02",
+          "companyName": "村田製作所",
+          "officialUrl": "https://corporate.murata.com/ja-jp/",
+          "businessSummary": "電子部品などの事業",
+          "analogy": "小さなところにある大きなよさ",
+          "bridgeText": "企業にたとえるなら、村田製作所。電子部品などの事業を手がける会社です。共通するイメージは「小さなところにある大きなよさ」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "DISCOVER_03",
+          "companyName": "TDK",
+          "officialUrl": "https://www.tdk.com/ja/",
+          "businessSummary": "電子部品などの事業",
+          "analogy": "表から見えにくいところの魅力",
+          "bridgeText": "企業にたとえるなら、TDK。電子部品などの事業を手がける会社です。共通するイメージは「表から見えにくいところの魅力」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "DISCOVER_04",
+          "companyName": "ニデック",
+          "officialUrl": "https://www.nidec.com/jp/",
+          "businessSummary": "モータなどの事業",
+          "analogy": "見えないところで動きを支える力",
+          "bridgeText": "企業にたとえるなら、ニデック。モータなどの事業を手がける会社です。共通するイメージは「見えないところで動きを支える力」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "DISCOVER_05",
+          "companyName": "浜松ホトニクス",
+          "officialUrl": "https://www.hamamatsu.com/jp/ja.html",
+          "businessSummary": "光関連の部品・機器などの事業",
+          "analogy": "よく見ると見つかる独自の強み",
+          "bridgeText": "企業にたとえるなら、浜松ホトニクス。光関連の部品・機器などの事業を手がける会社です。共通するイメージは「よく見ると見つかる独自の強み」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "DISCOVER_06",
+          "companyName": "HOYA",
+          "officialUrl": "https://www.hoya.com/",
+          "businessSummary": "光学・医療関連などの事業",
+          "analogy": "知るほど分かる得意なところ",
+          "bridgeText": "企業にたとえるなら、HOYA。光学・医療関連などの事業を手がける会社です。共通するイメージは「知るほど分かる得意なところ」。",
+          "checkedOn": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "id": "TURN",
+      "label": "分岐点の見極め株タイプ",
+      "stocks": [
+        {
+          "id": "TURN_01",
+          "companyName": "富士フイルムホールディングス",
+          "officialUrl": "https://holdings.fujifilm.com/ja",
+          "businessSummary": "ヘルスケアやイメージングなどの事業",
+          "analogy": "積み重ねを持ちながら次の形を考える",
+          "bridgeText": "企業にたとえるなら、富士フイルムホールディングス。ヘルスケアやイメージングなどの事業を手がける会社です。共通するイメージは「積み重ねを持ちながら次の形を考える」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "TURN_02",
+          "companyName": "キヤノン",
+          "officialUrl": "https://global.canon/ja/",
+          "businessSummary": "イメージングや医療などの事業",
+          "analogy": "一つの見方に限らず、別の面から眺める",
+          "bridgeText": "企業にたとえるなら、キヤノン。イメージングや医療などの事業を手がける会社です。共通するイメージは「一つの見方に限らず、別の面から眺める」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "TURN_03",
+          "companyName": "オリンパス",
+          "officialUrl": "https://www.olympus.co.jp/",
+          "businessSummary": "内視鏡などの医療関連事業",
+          "analogy": "これから大切にするものへ目を向ける",
+          "bridgeText": "企業にたとえるなら、オリンパス。内視鏡などの医療関連事業を手がける会社です。共通するイメージは「これから大切にするものへ目を向ける」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "TURN_04",
+          "companyName": "日立製作所",
+          "officialUrl": "https://www.hitachi.co.jp/",
+          "businessSummary": "デジタルや社会インフラなどの事業",
+          "analogy": "全体を見ながら次の形を組み立てる",
+          "bridgeText": "企業にたとえるなら、日立製作所。デジタルや社会インフラなどの事業を手がける会社です。共通するイメージは「全体を見ながら次の形を組み立てる」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "TURN_05",
+          "companyName": "パナソニック ホールディングス",
+          "officialUrl": "https://holdings.panasonic/jp/",
+          "businessSummary": "くらしや産業に関わる多様な事業",
+          "analogy": "自分の暮らしに合う形を考え直す",
+          "bridgeText": "企業にたとえるなら、パナソニック ホールディングス。くらしや産業に関わる多様な事業を手がける会社です。共通するイメージは「自分の暮らしに合う形を考え直す」。",
+          "checkedOn": "2026-10-20"
+        },
+        {
+          "id": "TURN_06",
+          "companyName": "リクルートホールディングス",
+          "officialUrl": "https://recruit-holdings.com/ja/",
+          "businessSummary": "人材やマッチングなどの事業",
+          "analogy": "これからの選択肢を見渡す",
+          "bridgeText": "企業にたとえるなら、リクルートホールディングス。人材やマッチングなどの事業を手がける会社です。共通するイメージは「これからの選択肢を見渡す」。",
+          "checkedOn": "2026-10-20"
+        }
+      ]
+    }
+  ]
+}
