@@ -46,6 +46,14 @@
     .game-art.run img{width:100%;height:100%;object-fit:cover;aspect-ratio:215/139}
     .game-art.quiz{background:#130b2b}
     .game-art.quiz img{width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
+    .sumomo-cover{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,43fr) minmax(0,57fr);align-items:center;gap:10px;padding:8%;width:100%;min-width:0;min-height:100%;aspect-ratio:712/420;overflow:hidden;background:#f7f0df;color:#29483f}
+    .sumomo-cover::before{content:"";position:absolute;inset:18px;z-index:-1;border:1px solid #c1c9ad;background:radial-gradient(ellipse at 16% 60%,#dce3ca 0 25%,transparent 25.3%)}
+    .sumomo-cover::after{content:"♥";position:absolute;right:8%;top:9%;color:#c88792;font-size:27px;transform:rotate(12deg)}
+    .sumomo-cover .sumomo-avatar{width:100%;aspect-ratio:1;background:url('sumomo-love/assets/sumomo-expressions.png') 33.333333% 0/400% 300% no-repeat;image-rendering:pixelated;transform:scaleX(-1);filter:drop-shadow(0 9px 0 #38513b16)}
+    .sumomo-cover .sumomo-cover-title{position:relative;margin:0;font:600 clamp(27px,3vw,38px)/1.4 "Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.03em}
+    .sumomo-cover-title small{display:block;margin-bottom:12px;font-size:.49em;letter-spacing:.08em;white-space:nowrap}
+    .sumomo-cover-title strong{display:block;color:#a64d62;font-weight:600;white-space:nowrap}
+    .sumomo-cover-title span{display:block}
     .game-art.personality{position:relative;overflow:hidden;background:#0d1a26}
     .game-art.personality img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:712/420}
     .game-art.personality .thumb-cat{position:absolute;left:7.5%;top:13%;width:28%;aspect-ratio:3/4;background:url('kabukura225/cat-sprites.png') 0 0/400% 300% no-repeat;image-rendering:pixelated;filter:drop-shadow(7px 7px 0 #0009)}
@@ -117,7 +125,7 @@
     <div class="game-list">
     <article class="game-entry">
       <div class="game-card">
-        <div class="game-art quiz"><img src="sumomo-love/preview.jpg" alt="すももちゃんの恋の気配値相談室" width="1265" height="712"></div>
+        <div class="game-art sumomo-cover" role="img" aria-label="すももちゃんの恋の気配値相談室"><div class="sumomo-avatar" aria-hidden="true"></div><p class="sumomo-cover-title" aria-hidden="true"><small>すももちゃんの</small><strong>恋の気配値</strong><span>相談室</span></p></div>
         <div class="game-info">
           <p class="status">NEW · LOVE CONSULTATION</p>
           <h3>すももちゃんの<br>恋の気配値相談室</h3>
