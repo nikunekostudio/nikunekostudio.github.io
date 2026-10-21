@@ -27,6 +27,23 @@ test('PLiCy uses the same leaderboard through exact-origin CORS, including prefl
  }finally{sqlite.close();}
 });
 
+test('itch CDN origins share official rankings without allowing wildcard or lookalike origins',async()=>{
+ const {sqlite,env}=database();try{
+  for(const origin of ['https://html-classic.itch.zone','https://html.itch.zone']){
+   const preflight=await worker.fetch(new Request('https://example.test/scores',{method:'OPTIONS',headers:{Origin:origin,'Access-Control-Request-Method':'POST'}}),env);
+   assert.equal(preflight.status,204);assert.equal(preflight.headers.get('Access-Control-Allow-Origin'),origin);
+   const post=await worker.fetch(new Request('https://example.test/scores',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body:JSON.stringify({game,name:'itch猫',playerId:origin,score:500})}),env);
+   assert.equal(post.status,200);assert.equal(post.headers.get('Access-Control-Allow-Origin'),origin);
+   const ranking=await worker.fetch(request(`?game=${game}&period=current`),env);
+   assert.equal((await ranking.json()).entries[0].name,'itch猫');
+  }
+  for(const origin of ['https://evil.itch.zone','https://html-classic.itch.zone.evil.example']){
+   const r=await worker.fetch(new Request('https://example.test/scores',{method:'OPTIONS',headers:{Origin:origin}}),env);
+   assert.notEqual(r.headers.get('Access-Control-Allow-Origin'),origin);assert.notEqual(r.headers.get('Access-Control-Allow-Origin'),'*');
+  }
+ }finally{sqlite.close();}
+});
+
 test('shared API accepts shooter records, keeps personal best, serves monthly and name-unique all-time ranks',async()=>{
   const {sqlite,env}=database();try{
     let r=await worker.fetch(request('',{game,name:'猫',playerId:'test-cat',score:1200}),env);assert.equal(r.status,200);assert((await r.json()).updated);assert.equal(r.headers.get('Access-Control-Allow-Origin'),'https://nikuneko.com');
