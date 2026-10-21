@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "values_status": "provisional",
+  "currency_persistence": "across_runs",
+  "items": [
+    {
+      "id": "coffee",
+      "path": "shop/items/coffee.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "name": "コーヒー",
+      "price": 100,
+      "max_per_run": 5,
+      "effect": {
+        "shield_charges": 1
+      }
+    },
+    {
+      "id": "tuna",
+      "path": "shop/items/tuna.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "name": "まぐろ",
+      "price": 120,
+      "max_per_run": 2,
+      "effect": {
+        "follower_count_per_purchase": 1,
+        "follower_sprites": ["player/neko_2.png", "player/Kani.png"]
+      }
+    },
+    {
+      "id": "shiitake",
+      "path": "shop/items/shiitake.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "name": "しいたけ",
+      "price": 80,
+      "max_per_run": 5,
+      "effect": {
+        "player_damage_bonus_per_level": 0.25,
+        "max_multiplier": 2.25
+      }
+    },
+    {
+      "id": "melon_bread",
+      "path": "shop/items/melon_bread.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "name": "メロンパン",
+      "price": 60,
+      "max_per_run": 5,
+      "effect": {
+        "move_speed_bonus_per_level": 0.2,
+        "max_multiplier": 2
+      }
+    },
+    {
+      "id": "bomb",
+      "path": "shop/items/bomb.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "name": "爆弾",
+      "price": 100,
+      "max_per_run": 5,
+      "effect": {
+        "bomb_charges": 1,
+        "damage": 35,
+        "clear_enemy_bullets": true,
+        "invulnerability_seconds": 1.8
+      }
+    }
+  ],
+  "shopkeeper": {
+    "id": "shopkeeper",
+    "path": "shop/shopkeeper.png",
+    "width": 256,
+    "height": 320,
+    "frames": 1
+  }
+}

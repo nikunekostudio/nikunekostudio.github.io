@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>シューティングスターおにく２ | にくねこスタジオ</title>
+  <meta name="description" content="おにく、増税に怒る。森・海岸・街を駆け抜ける、縦スクロールシューティング。">
+  <meta name="theme-color" content="#101329">
+  <link rel="icon" href="assets/player/oniku_3.png"><link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <header class="top"><a href="https://nikuneko.com/games/">← GAMES</a><a href="https://nikuneko.com/">NIKUNEKO STUDIO</a><button id="sound" aria-pressed="false">SOUND OFF</button></header>
+  <main>
+    <div class="cabinet">
+      <section class="play-column" aria-label="シューティングスターおにく２">
+        <div class="hud"><div><small>SCORE</small><strong id="score">0000000</strong></div><div><small>BEST</small><strong id="best">0000000</strong></div><button id="pause" disabled aria-label="一時停止">Ⅱ</button></div>
+        <div class="screen" id="screen">
+          <canvas id="game" width="512" height="768" tabindex="0" aria-label="おにくのシューティング。矢印キーまたはWASDで移動。自動射撃。Xキーで購入したボムを使用。Pキーで一時停止。"></canvas>
+          <div id="panel" class="panel" aria-live="polite"><div class="loading">素材を読み込み中…</div></div>
+          <div id="area-toast" class="area-toast" aria-hidden="true"></div>
+          <div id="live-hud" class="live-hud" hidden><div id="lives"></div><span id="timer">00:00</span><span id="gear"></span></div>
+        </div>
+        <div class="bottom-bar" hidden><span id="status" role="status"></span><button id="bomb" disabled>✦ BOMB <span id="bomb-count">0</span></button></div>
+      </section>
+      <aside class="side right"><div class="legend"><span>MOVE</span><p>↑ ↓ ← →<br>W A S D / ドラッグ</p><span>SHOT</span><p>自動で発射</p><span>BOMB</span><p>X / 画面下のボタン<br>ショップで購入</p><span>PAUSE</span><p>P / ESC</p><span>ENEMY BULLETS</span><p class="bullet-key"><span class="normal">● 水色：通常</span><br><span class="fast">▼ オレンジ：高速</span><br><span class="heavy">◆ ピンク：重弾 / HP−2</span></p></div></aside>
+    </div>
+    <p class="mobile-help">ドラッグで移動 · ショットは自動 · 指の近くに小さな当たり判定</p>
+    <p class="mobile-help bullet-key mobile-bullet-key"><span class="normal">● 通常</span> · <span class="fast">▼ 高速</span> · <span class="heavy">◆ 重弾 / HP−2</span></p>
+  </main>
+  <footer>© にくねこスタジオ <span>SHOOTING STAR ONIKU II</span><span>VOICEVOX:雨晴はう</span></footer>
+</body>
+</html>

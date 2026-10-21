@@ -9,7 +9,7 @@ const previousMonth = () => {
   return now.toISOString().slice(0, 7);
 };
 
-const games = new Set(['tobe-oniku', 'hashire-oniku', 'orega-utta']);
+const games = new Set(['tobe-oniku', 'hashire-oniku', 'orega-utta', 'shooting-star-oniku-2']);
 const allowed = new Set([
   'https://nikunekostudio.github.io',
   'https://nikuneko.pages.dev',
@@ -63,8 +63,16 @@ export default {
       const game = url.searchParams.get('game') || 'tobe-oniku';
       if (!games.has(game)) return reply({error: 'Invalid game'}, 400, origin);
       const period = url.searchParams.get('period') || 'current';
-      if (!['current', 'previous'].includes(period))
+      if (!['current', 'previous', 'all'].includes(period))
         return reply({error: 'Invalid period'}, 400, origin);
+      if (period === 'all') {
+        const {results} = await env.DB.prepare(`SELECT name, score FROM (
+          SELECT player_name AS name, score, updated_at,
+            ROW_NUMBER() OVER (PARTITION BY player_id ORDER BY score DESC, updated_at ASC) AS position
+          FROM scores_v2 WHERE game = ?
+        ) WHERE position = 1 ORDER BY score DESC, updated_at ASC LIMIT 10`).bind(game).all();
+        return reply({game, period, timezone: 'Asia/Tokyo', entries: results}, 200, origin);
+      }
       const month = period === 'previous' ? previousMonth() : currentMonth();
       const {results} = await env.DB.prepare(`SELECT player_name AS name, score
         FROM scores_v2 WHERE game = ? AND month = ?

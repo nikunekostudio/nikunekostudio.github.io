@@ -3,6 +3,7 @@ const games = {
   'tobe-oniku': '飛べ！おにく！',
   'hashire-oniku': '走れ！おにく！',
   'orega-utta': '俺が売ったら、あがった。',
+  'shooting-star-oniku-2': 'シューティングスターおにく２',
 };
 const previousResults = new Map();
 
@@ -35,7 +36,7 @@ function renderEntries(list, entries, game) {
 }
 
 async function loadRanking(game, period) {
-  const response = await fetch(`${base}/scores?game=${encodeURIComponent(game)}&period=${period}`);
+  const response = await fetch(`${base}/scores?game=${encodeURIComponent(game)}&period=${period}`, {signal: AbortSignal.timeout(8000)});
   if (!response.ok) throw new Error('Request failed');
   const data = await response.json();
   if (!validRanking(data)) throw new Error('Invalid response');
@@ -48,7 +49,7 @@ function enableShareWhenReady() {
   const status = document.querySelector('#monthly-share-status');
   const month = previousResults.values().next().value.month;
   button.disabled = false;
-  status.textContent = `${month.replace('-', '年')}月の3ゲーム分を、投稿文にまとめます。`;
+  status.textContent = `${month.replace('-', '年')}月の${Object.keys(games).length}ゲーム分を、投稿文にまとめます。`;
   button.addEventListener('click', () => {
     const lines = [`【${month.replace('-', '年')}月 月間ランキング】`];
     for (const [game, title] of Object.entries(games)) {
@@ -70,6 +71,11 @@ if (/^https:\/\/[^/]+$/.test(base || '')) {
     const game = section.dataset.monthlyGame;
     const currentStatus = section.querySelector('[data-monthly-status]');
     const previousStatus = section.querySelector('[data-previous-status]');
+    if (game === 'shooting-star-oniku-2' && ['localhost', '127.0.0.1'].includes(location.hostname)) {
+      currentStatus.textContent = '公開準備中（ランキングAPI更新待ち）';
+      previousStatus.textContent = '公開後に掲載します。';
+      return;
+    }
     try {
       const [current, previous] = await Promise.all([
         loadRanking(game, 'current'),

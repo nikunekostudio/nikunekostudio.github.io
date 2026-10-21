@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "orientation": "vertical",
+  "stage_count": 1,
+  "target_duration_seconds": 270,
+  "backgrounds": [
+    {
+      "id": "area01",
+      "path": "backgrounds/stage01_forest.png",
+      "width": 512,
+      "height": 1024,
+      "seamless": false,
+      "scroll": "bottom_to_top_then_stop"
+    },
+    {
+      "id": "area02",
+      "path": "backgrounds/stage02_coast.png",
+      "width": 512,
+      "height": 1024,
+      "seamless": false,
+      "scroll": "bottom_to_top_then_stop"
+    },
+    {
+      "id": "area03",
+      "path": "backgrounds/stage03_city.png",
+      "width": 512,
+      "height": 1024,
+      "seamless": false,
+      "scroll": "bottom_to_top_then_stop"
+    }
+  ],
+  "enemies": [
+    {
+      "id": "flame",
+      "path": "enemies/flame.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        15,
+        8,
+        113,
+        120
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        3
+      ]
+    },
+    {
+      "id": "spider",
+      "path": "enemies/spider.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        8,
+        32,
+        120,
+        95
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        1
+      ]
+    },
+    {
+      "id": "punk_pig",
+      "path": "enemies/punk_pig.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        15,
+        8,
+        112,
+        120
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        3
+      ]
+    },
+    {
+      "id": "hermit_crab",
+      "path": "enemies/hermit_crab.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        8,
+        13,
+        120,
+        114
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        2
+      ]
+    },
+    {
+      "id": "turnip",
+      "path": "enemies/turnip.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        18,
+        8,
+        109,
+        120
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        1
+      ]
+    },
+    {
+      "id": "bear",
+      "path": "enemies/bear.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        8,
+        18,
+        120,
+        109
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        1
+      ]
+    },
+    {
+      "id": "bird",
+      "path": "enemies/bird.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        8,
+        33,
+        120,
+        95
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "bomb",
+      "path": "enemies/bomb.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        16,
+        8,
+        112,
+        120
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        3
+      ]
+    },
+    {
+      "id": "suit_boss",
+      "path": "enemies/suit_boss.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        13,
+        8,
+        114,
+        120
+      ],
+      "suggested_display_size": 144,
+      "area_candidates": [
+        3
+      ]
+    },
+    {
+      "id": "ghost",
+      "path": "enemies/ghost.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        8,
+        18,
+        120,
+        109
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        2
+      ]
+    },
+    {
+      "id": "bull",
+      "path": "enemies/bull.png",
+      "width": 128,
+      "height": 128,
+      "frames": 1,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "visible_bbox": [
+        8,
+        12,
+        120,
+        115
+      ],
+      "suggested_display_size": 64,
+      "area_candidates": [
+        3
+      ]
+    }
+  ]
+}
