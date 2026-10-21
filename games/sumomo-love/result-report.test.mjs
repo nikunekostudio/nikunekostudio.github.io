@@ -10,7 +10,8 @@ test('all four readings and closing are retained in one letter, without category
   assert.deepEqual(reportParagraphs(result),['読み取り0。読み取り1。','読み取り2。読み取り3。','最後のひとこと。']);
   const html=renderResultReport(result,s=>s);
   assert.equal((html.match(/<section/g)||[]).length,1);
-  assert.ok(html.includes('すももちゃんのまとめ'));
+  assert.ok(html.includes('すももちゃんの思ったこと'));
+  assert.ok(!html.includes('すももちゃんのまとめ'));
   assert.ok(!/項目|metric|pip/.test(html));
   for(const metric of result.metrics)assert.ok(html.includes(metric.comment));
 });

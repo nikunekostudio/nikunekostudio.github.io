@@ -17,5 +17,5 @@ export function reportClues(result) {
 }
 
 export function renderResultReport(result, escape) {
-  return `<section class="closing" aria-labelledby="result-report-title"><h2 id="result-report-title">すももちゃんのまとめ</h2>${reportParagraphs(result).map(text => `<p>${escape(text)}</p>`).join('')}</section>`;
+  return `<section class="closing" aria-labelledby="result-report-title"><h2 id="result-report-title">すももちゃんの思ったこと</h2>${reportParagraphs(result).map(text => `<p>${escape(text)}</p>`).join('')}</section>`;
 }
