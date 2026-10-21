@@ -11,6 +11,22 @@ function database(){
 }
 const request=(suffix='',body)=>new Request(`https://example.test/scores${suffix}`,{method:body?'POST':'GET',headers:{Origin:'https://nikuneko.com','Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{})});
 
+test('PLiCy uses the same leaderboard through exact-origin CORS, including preflight',async()=>{
+ const {sqlite,env}=database();try{
+  const origin='https://html5.plicy.net';
+  const preflight=await worker.fetch(new Request('https://example.test/scores',{method:'OPTIONS',headers:{Origin:origin,'Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'content-type'}}),env);
+  assert.equal(preflight.status,204);assert.equal(preflight.headers.get('Access-Control-Allow-Origin'),origin);
+  const post=await worker.fetch(new Request('https://example.test/scores',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body:JSON.stringify({game,name:'PLiCy猫',playerId:'plicy-test',score:1234})}),env);
+  assert.equal(post.headers.get('Access-Control-Allow-Origin'),origin);assert.equal((await post.json()).updated,true);
+  const official=await worker.fetch(request(`?game=${game}&period=current`),env);
+  assert.equal((await official.json()).entries[0].name,'PLiCy猫');
+  const plicy=await worker.fetch(new Request(`https://example.test/scores?game=${game}&period=all`,{headers:{Origin:origin}}),env);
+  assert.equal(plicy.headers.get('Access-Control-Allow-Origin'),origin);assert.equal((await plicy.json()).entries[0].score,1234);
+  const untrusted=await worker.fetch(new Request('https://example.test/scores',{method:'OPTIONS',headers:{Origin:'https://html5.plicy.net.evil.example'}}),env);
+  assert.notEqual(untrusted.headers.get('Access-Control-Allow-Origin'),'https://html5.plicy.net.evil.example');
+ }finally{sqlite.close();}
+});
+
 test('shared API accepts shooter records, keeps personal best, serves monthly and name-unique all-time ranks',async()=>{
   const {sqlite,env}=database();try{
     let r=await worker.fetch(request('',{game,name:'猫',playerId:'test-cat',score:1200}),env);assert.equal(r.status,200);assert((await r.json()).updated);assert.equal(r.headers.get('Access-Control-Allow-Origin'),'https://nikuneko.com');

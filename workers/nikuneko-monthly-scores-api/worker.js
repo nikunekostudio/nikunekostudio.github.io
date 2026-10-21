@@ -15,6 +15,7 @@ const allowed = new Set([
   'https://nikuneko.pages.dev',
   'https://nikuneko.com',
   'https://www.nikuneko.com',
+  'https://html5.plicy.net',
   'http://127.0.0.1:4173',
   'http://localhost:4173',
 ]);
