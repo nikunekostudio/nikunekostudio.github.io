@@ -11,3 +11,4 @@ footer{max-width:1220px;margin:0 auto;padding:20px 30px 28px;display:flex;gap:14
 .character{transform:scaleX(-1)}
 .room > .stock-note{position:relative;margin:28px 28px 0}
 @media(max-width:680px){.room > .stock-note{margin:20px 20px 0}}
+.closing h2{margin:0 0 18px;font-size:18px;font-weight:600;line-height:1.7}.closing p{margin:0 0 1em}.closing p:last-child{margin-bottom:0}
