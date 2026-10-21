@@ -66,14 +66,25 @@ export default {
       if (!['current', 'previous', 'all'].includes(period))
         return reply({error: 'Invalid period'}, 400, origin);
       if (period === 'all') {
+        // Oniku 2 ranks public names, even across different browser/device IDs.
+        // Other games retain their existing per-player ranking semantics.
+        const identity = game === 'shooting-star-oniku-2' ? 'player_name' : 'player_id';
         const {results} = await env.DB.prepare(`SELECT name, score FROM (
           SELECT player_name AS name, score, updated_at,
-            ROW_NUMBER() OVER (PARTITION BY player_id ORDER BY score DESC, updated_at ASC) AS position
+            ROW_NUMBER() OVER (PARTITION BY ${identity} ORDER BY score DESC, updated_at ASC, player_id ASC) AS position
           FROM scores_v2 WHERE game = ?
         ) WHERE position = 1 ORDER BY score DESC, updated_at ASC LIMIT 10`).bind(game).all();
         return reply({game, period, timezone: 'Asia/Tokyo', entries: results}, 200, origin);
       }
       const month = period === 'previous' ? previousMonth() : currentMonth();
+      if (game === 'shooting-star-oniku-2') {
+        const {results} = await env.DB.prepare(`SELECT name, score FROM (
+          SELECT player_name AS name, score, updated_at,
+            ROW_NUMBER() OVER (PARTITION BY player_name ORDER BY score DESC, updated_at ASC, player_id ASC) AS position
+          FROM scores_v2 WHERE game = ? AND month = ?
+        ) WHERE position = 1 ORDER BY score DESC, updated_at ASC LIMIT 10`).bind(game, month).all();
+        return reply({game, month, timezone: 'Asia/Tokyo', entries: results}, 200, origin);
+      }
       const {results} = await env.DB.prepare(`SELECT player_name AS name, score
         FROM scores_v2 WHERE game = ? AND month = ?
         ORDER BY score DESC, updated_at ASC LIMIT 10`).bind(game, month).all();

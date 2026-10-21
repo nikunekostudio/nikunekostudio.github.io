@@ -23,3 +23,13 @@ test('score registration sends only explicit name, score and anonymous ID, and h
   await assert.rejects(submitScore(input,async()=>Response.json({ok:false})),/確認/);
   await assert.rejects(submitScore(input,async()=>Response.json({},{status:500})),/登録できません/);
 });
+
+test('ranking displays only the highest valid score for each public name before taking ten places',()=>{
+  const entries=[{name:'  おにく  ',score:19900},{name:'らっきーじゅん',score:38300},{name:'おにく',score:65500},{name:'らっきーじゅん',score:85000},{name:'おにく',score:-1}];
+  assert.deepEqual(validEntries({entries}),[{name:'らっきーじゅん',score:85000},{name:'おにく',score:65500}]);
+  const repeated=Array.from({length:12},(_,i)=>({name:'猫',score:100+i}));
+  const others=Array.from({length:12},(_,i)=>({name:`別の人${i}`,score:90-i}));
+  const ranked=validEntries({entries:[...repeated,...others]});
+  assert.equal(ranked.length,10);assert.equal(new Set(ranked.map(e=>e.name)).size,10);
+  assert.equal(ranked[0].score,111);assert.equal(ranked[9].name,'別の人8');
+});

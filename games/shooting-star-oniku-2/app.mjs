@@ -42,7 +42,7 @@ function scoreForm(){
 async function showRanking(){
   view='ranking';keys.clear();pointer=null;$('#live-hud').hidden=true;$('#pause').disabled=true;$('#bomb').disabled=true;$('#area-toast').classList.remove('show');hud();
   const request=++rankingRequest;
-  panel.innerHTML=`<div class="rankings"><h2>ハイスコアランキング</h2><p class="fine">月間は日本時間。1人につき最高記録を掲載。</p><section><h3>今月の TOP 10</h3><p id="rank-current-status" role="status">読み込み中…</p><ol id="rank-current"></ol></section><section><h3>歴代 TOP 10</h3><p id="rank-all-status" role="status">読み込み中…</p><ol id="rank-all"></ol></section>${button('戻る','ranking-back','quiet')}</div>`;
+  panel.innerHTML=`<div class="rankings"><h2>ハイスコアランキング</h2><p class="fine">月間は日本時間。同じ名前は最高スコアの1件だけ掲載。</p><section><h3>今月の TOP 10</h3><p id="rank-current-status" role="status">読み込み中…</p><ol id="rank-current"></ol></section><section><h3>歴代 TOP 10</h3><p id="rank-all-status" role="status">読み込み中…</p><ol id="rank-all"></ol></section>${button('戻る','ranking-back','quiet')}</div>`;
   panel.scrollTop=0;
   for(const period of ['current','all']){
     if(localPreview){$(`#rank-${period}-status`).textContent='公開準備中：本番APIへの接続は公開時に有効になります。';continue;}

@@ -12,7 +12,13 @@ export function shareUrl({score,status,time,totalTime=time,mode='normal',loop=0}
 }
 export function validEntries(data){
   if(!Array.isArray(data?.entries))throw Error('ランキングの形式が不正です。');
-  return data.entries.slice(0,10).map(e=>({name:cleanName(e.name)||'おにく',score:Number(e.score)})).filter(e=>Number.isSafeInteger(e.score)&&e.score>=0&&e.score<=10_000_000);
+  const bestByName=new Map();
+  for(const entry of data.entries){
+    const name=cleanName(entry.name)||'おにく',score=Number(entry.score);
+    if(!Number.isSafeInteger(score)||score<0||score>10_000_000)continue;
+    if(!bestByName.has(name)||score>bestByName.get(name).score)bestByName.set(name,{name,score});
+  }
+  return [...bestByName.values()].sort((a,b)=>b.score-a.score).slice(0,10);
 }
 export async function getRanking(period='current',fetcher=fetch,mode='normal'){
   if(!['current','all'].includes(period))throw Error('Invalid period');
