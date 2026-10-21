@@ -1,0 +1,10 @@
+# No long-lived immutable caching for unversioned game code or save-related data.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+/playtest-a2349665e2129b5d/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+/scripts/*
+  X-Robots-Tag: noindex
+/docs/*
+  X-Robots-Tag: noindex

@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://nikunekostudio.github.io/sitemap.xml
+
+Sitemap: https://nikuneko.com/sitemap.xml

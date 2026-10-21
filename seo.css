@@ -1,0 +1,11 @@
+/* Scoped, optional game introduction. Never selects canvas or game controls. */
+.game-info{box-sizing:border-box;display:block;clear:both;width:calc(100% - 32px);max-width:900px;margin:24px auto;padding:14px 18px;border:1px solid #8c8c8355;border-radius:8px;background:#fbfaf5;color:#222;font:14px/1.8 Arial,"Noto Sans JP",sans-serif;text-align:left;letter-spacing:normal}
+.game-info>summary{cursor:pointer;font-weight:700;list-style-position:inside}
+.game-info h1,.game-info h2{font:700 20px/1.5 Arial,sans-serif;letter-spacing:normal;margin:20px 0 10px;color:#222;text-shadow:none}
+.game-info h3{font:700 16px/1.6 Arial,sans-serif;margin:16px 0 6px;color:#222}
+.game-info p{font:inherit;margin:8px 0;color:#333}
+.game-info a{color:#254b67;text-decoration:underline;text-underline-offset:3px}
+.game-info ul{padding-left:24px;margin:8px 0}
+.game-info a:focus-visible,.game-info summary:focus-visible{outline:3px solid #be4155;outline-offset:4px}
+.game-info--fullscreen{position:fixed;z-index:1001;top:8px;left:8px;width:auto;max-width:min(390px,calc(100vw - 16px));max-height:60vh;overflow:auto;margin:0;padding:7px 12px;font-size:12px;opacity:.9}
+.game-info--fullscreen[open]{opacity:1}

@@ -2,12 +2,15 @@
   const params=new URLSearchParams(location.search);
   const lang=params.get('lang')==='en'?'en':'ja';
   document.documentElement.lang=lang;
-  const pageUrl=`${location.origin}${location.pathname}`;
-  const canonical=document.querySelector('link[rel="canonical"]');
-  if(canonical)canonical.href=lang==='en'?`${pageUrl}?lang=en`:pageUrl;
-  for(const code of ['ja','en']){const link=document.createElement('link');link.rel='alternate';link.hreflang=code;link.href=code==='en'?`${pageUrl}?lang=en`:pageUrl;document.head.append(link);}
+  // Keep the official static canonical. Current query-language views are only
+  // partially translated; do not advertise them as complete hreflang alternates.
 
   const dictionary={
+    'キミはAI画像を':'CAN YOU SPOT',
+    '見破れるか？':'THE AI IMAGE?',
+    'クイズ 中級編':'QUIZ — INTERMEDIATE',
+    '指標から先物まで、株の知識を3択でチェック！':'Test stock-market knowledge from ratios to derivatives!',
+    '← 難易度選択':'← CHOOSE A LEVEL',
     'おにく':'Oniku',
     'にくねこスタジオ | おにく氏デザインのゲームとショップ':'Nikuneko Studio | Games and Goods by Oniku',
     'ゲーム一覧 | にくねこスタジオ':'Games | Nikuneko Studio','ギャラリー | にくねこスタジオ':'Gallery | Nikuneko Studio','ブログ | にくねこスタジオ':'Blog | Nikuneko Studio','GOODS | にくねこスタジオ':'Goods | Nikuneko Studio','AI or NOT? | にくねこスタジオ':'AI or NOT? | Nikuneko Studio','走れ！おにく！ | にくねこスタジオ':'Run, Oniku! | Nikuneko Studio',
@@ -66,7 +69,7 @@
   function translate(root=document){
     const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
     const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
-    for(const node of nodes){const raw=node.nodeValue;const key=raw.trim();if(dictionary[key])node.nodeValue=raw.replace(key,dictionary[key]);}
+    for(const node of nodes){if(node.parentElement?.closest('script,style,[lang="ja"]'))continue;const raw=node.nodeValue;const key=raw.trim();if(dictionary[key])node.nodeValue=raw.replace(key,dictionary[key]);}
     document.querySelectorAll('[placeholder]').forEach(el=>{if(lang==='en'&&el.placeholder==='プレイヤー名')el.placeholder='Player name';});
   }
   if(lang==='en'){
