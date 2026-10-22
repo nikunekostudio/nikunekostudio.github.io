@@ -16,6 +16,7 @@
     'ゲーム一覧 | にくねこスタジオ':'Games | Nikuneko Studio','ギャラリー | にくねこスタジオ':'Gallery | Nikuneko Studio','ブログ | にくねこスタジオ':'Blog | Nikuneko Studio','GOODS | にくねこスタジオ':'Goods | Nikuneko Studio','AI or NOT? | にくねこスタジオ':'AI or NOT? | Nikuneko Studio','走れ！おにく！ | にくねこスタジオ':'Run, Oniku! | Nikuneko Studio',
     'ゲームを見る ↗':'VIEW GAMES ↗','ゲーム一覧を見る ↗':'VIEW ALL GAMES ↗','ショップを見る ↗':'VISIT SHOP ↗','ブログを見る ↗':'READ THE BLOG ↗','ギャラリーを見る ↗':'VIEW GALLERY ↗',
     'にくねこスタジオは、おにく氏デザインのゲームやオリジナルアイテムを公開していきます。':'Nikuneko Studio creates games and original goods designed by Oniku.',
+    '旧名：にくねこ企画':'Former name: にくねこ企画',
     '公開中のゲームはこちら。新しい作品も追加していきます。':'Play our browser games. More titles are on the way.',
     'にくねこスタジオのショップは SUZURI でご覧いただけます。':'Nikuneko Studio goods are available on SUZURI.','にくねこスタジオのおすすめグッズを、写真と一緒に紹介しています。':'Browse a visual selection of Nikuneko Studio goods.','グッズを見る ↗':'VIEW GOODS ↗',
     'ゲームづくりやキャラクターについての制作日記です。':'Development notes about our games and characters.',

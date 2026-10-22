@@ -15,9 +15,9 @@ function metadata(p, html) {
   return {...p,title:p.title||decode(html.match(/<title>([\s\S]*?)<\/title>/i)[1]),description:p.description||decode(attr(oldMeta(html,'description')||'','content')||p.enDescription),image:p.image||(attr(oldMeta(html,'og:image')||'','content')||'/assets/logo.png').replace('https://nikunekostudio.github.io','').replace(origin,''),url:origin+p.path};
 }
 function graph(m) {
-  const org={'@type':'Organization','@id':origin+'/#organization',name:'にくねこスタジオ',alternateName:'Nikuneko Studio',url:origin+'/',logo:origin+'/assets/logo.png',sameAs:['https://x.com/nikunekokikaku','https://suzuri.jp/nikuneko','https://www.youtube.com/@user-nikunekokikaku']};
-  const nodes=m.path==='/'?[org,{'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'Nikuneko Studio',alternateName:'にくねこスタジオ',publisher:{'@id':org['@id']}}]:[];
-  if(m.game&&!m.collection) nodes.push({'@type':'VideoGame','@id':m.url+'#game',name:m.name,alternateName:m.en,url:m.url,description:m.description,image:origin+m.image,genre:m.genre,gamePlatform:'Web browser',applicationCategory:'Game',isAccessibleForFree:true,playMode:'https://schema.org/SinglePlayer',publisher:{'@type':'Organization',name:'Nikuneko Studio',url:origin+'/'}});
+  const org={'@type':'Organization','@id':origin+'/#organization',name:'にくねこスタジオ',alternateName:['Nikuneko Studio','にくねこ企画'],url:origin+'/',logo:origin+'/assets/logo.png',sameAs:['https://x.com/nikunekokikaku','https://suzuri.jp/nikuneko','https://www.youtube.com/@user-nikunekokikaku']};
+  const nodes=m.path==='/'?[org,{'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'Nikuneko Studio',alternateName:['にくねこスタジオ','にくねこ企画'],publisher:{'@id':org['@id']}}]:[];
+  if(m.game&&!m.collection) nodes.push({'@type':'VideoGame','@id':m.url+'#game',name:m.name,alternateName:m.en,url:m.url,description:m.description,image:origin+m.image,genre:m.genre,gamePlatform:'Web browser',applicationCategory:'Game',isAccessibleForFree:true,playMode:'https://schema.org/SinglePlayer',publisher:{'@type':'Organization','@id':org['@id'],name:org.name,alternateName:org.alternateName,url:org.url}});
   if(m.path!=='/') {
     const crumbs=[{name:'Nikuneko Studio',item:origin+'/'}];
     if(m.path.startsWith('/games/')&&m.path!=='/games/') crumbs.push({name:'ゲーム一覧 / Games',item:origin+'/games/'});
