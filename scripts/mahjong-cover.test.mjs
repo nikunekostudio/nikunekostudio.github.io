@@ -5,7 +5,7 @@ import vm from 'node:vm';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 test('mahjong cover uses the supplied full image and original badges in character order',()=>{
  const html=read('games/index.html');
- const card=html.match(/<article class="game-entry" id="oniku-mahjong">([\s\S]*?)<\/article>/)[1];
+ const card=html.match(/<article class="game-entry" id="oniku-mahjong"[^>]*>([\s\S]*?)<\/article>/)[1];
  assert.ok(card.includes('assets/title-cover.webp'));assert.ok(card.includes('width="1672" height="941"'));
  const marks=[...card.matchAll(/assets\/cast\/(\w+)-mark.png/g)].map(m=>m[1]);
  assert.deepEqual(marks,['shiitake','sumomo','kani']);

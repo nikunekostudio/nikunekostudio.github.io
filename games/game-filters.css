@@ -1,0 +1,11 @@
+.game-filters{margin:0 0 26px;padding:18px;border:1px solid #665a8b;border-radius:12px;background:#15142ae8}
+.game-filter-categories,.game-filter-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.game-filter-meta{margin-top:14px;justify-content:space-between;color:#d9d3e8;font-size:13px}
+.game-filters button,.game-filter-empty button{padding:10px 15px;border:1px solid #81739a;border-radius:999px;background:#242039;color:#f9f6ff;font:600 14px/1.5 Arial,sans-serif;cursor:pointer}
+.game-filters button:hover,.game-filter-empty button:hover{border-color:#ff9ee7;background:#342744}
+.game-filters button[aria-pressed="true"]{border-color:#ffe17e;background:#ffe17e;color:#181424}
+.game-filters button:focus-visible,.game-filter-empty button:focus-visible{outline:2px solid #77eaff;outline-offset:4px}
+.game-filter-empty{padding:24px;border:1px dashed #81739a;border-radius:12px;line-height:1.8;background:#15142ae8}
+.game-filter-empty button{margin:8px 0 0}
+.game-filters[hidden],.game-entry[hidden],.game-filter-empty[hidden]{display:none}
+@media(max-width:700px){.game-filters{padding:14px}.game-filter-categories{gap:8px}.game-filters button{padding:9px 12px;font-size:13px}}
