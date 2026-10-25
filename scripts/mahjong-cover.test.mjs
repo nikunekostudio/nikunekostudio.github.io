@@ -18,7 +18,7 @@ test('mahjong cover uses the supplied full image and original badges in characte
 });
 test('selection header links to the games list without changing the existing title action',()=>{
  const source=read('games/oniku-mahjong/sanhime.js'),fn=source.match(/^function header\(\)\{.*\}$/m)[0];
- const render=screen=>vm.runInNewContext(fn+';header();',{screen,data:{albums:{}},GameMusic:{button:()=>'<button>BGM</button>'}});
+ const render=screen=>vm.runInNewContext(fn+';header();',{screen,sound:true,OnikuLocale:{language:'ja'},data:{albums:{}},GameMusic:{button:()=>'<button>BGM</button>'}});
  assert.ok(render('title').includes('href="../" aria-label="ゲーム一覧に戻る"'));
  assert.ok(render('title').includes('class="wordmark" data-act="home"'));
  for(const screen of ['game','album','reward','result'])assert.ok(!render(screen).includes('class="games-back"'));
