@@ -1,7 +1,7 @@
 // Stage 2: independent water levels and progress; rendering and collisions use the same platforms.
 const SEWER={fuelRate:1.5, low:430, high:300, moveSeconds:2,rimHeight:24,rimWidth:30};
 let stage=1,swRoom=0,waterY=SEWER.low,swFloating=false,safeX=70,swLevels=[],swMoving=false,rimHinted=false;
-for(const name of ['sewer-bg','sewer-platform','sewer-rock','ring','oniku-ring','sewer-valve','sewer-gate','sewer-gate-open','sewer-mushroom','sewer-note','sewer-bottle','sewer-wave','sewer-water','sumomo','basin-left','basin-right','basin-bottom','basin-portal','sewer-braced-ledge','sewer-crate','sewer-kumo1','sewer-yadokari1']){art[name]=new Image();art[name].src='assets/'+name+'.png'}
+for(const name of ['sewer-bg','sewer-platform','sewer-rock','ring','oniku-ring','sewer-valve','sewer-gate','sewer-gate-open','sewer-mushroom','sewer-note','sewer-bottle','sewer-wave','sewer-water','sumomo','basin-left','basin-right','basin-bottom','basin-portal','sewer-braced-ledge','sewer-crate','sewer-kumo1','sewer-yadokari1']){art[name]=new Image();art[name].src='assets/'+({ 'sewer-kumo1':'sewer-spider-pixel', 'sewer-yadokari1':'sewer-crab-pixel' }[name]||name)+'.png'}
 const sewerRooms=[
  {name:'地下水路の入口',water:[390,680],platforms:[[0,480,390],[680,480,280]],mushrooms:[[180,480],[710,480]],objects:[{type:'shortcut',x:115,y:450}]},
  {name:'古い資材置き場',water:[360,620],shallow:true,platforms:[[0,480,960],[300,390,150],[535,310,150]],mushrooms:[[175,480]],objects:[{type:'ring',x:600,y:280}]},
