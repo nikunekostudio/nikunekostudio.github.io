@@ -10,3 +10,5 @@
 #feedback-form label{display:block;text-align:left;margin:8px 0 4px;font-size:14px}#feedback-nickname{width:100%;padding:10px;font:inherit;font-size:16px;margin-bottom:8px}
 
 @media(max-width:700px),(pointer:coarse){#mobile-work-status,#mobile-cave-status{font-size:18px;line-height:1.5}.mobile-work p,.mobile-items,.mobile-hint,.mobile-message{font-size:16px;line-height:1.6;margin:8px 0}.mobile-items{color:#fff2d3}.mobile-hint,.mobile-message{padding:10px 12px;border-radius:7px;background:#2d2932;color:#fff4d5}.mobile-hint{border-left:4px solid #f4cd78}.mobile-message{border-left:4px solid #a7d7b9}.mobile-actions button{font-size:16px}.cave-actions button{font-size:16px}}
+
+.lane-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}.lane-buttons button{margin:0;min-height:56px;font-size:18px;touch-action:manipulation;background:#ffda78}
