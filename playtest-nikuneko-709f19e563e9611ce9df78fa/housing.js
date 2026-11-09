@@ -3,30 +3,30 @@ const HOUSING_TYPES={dorm:{name:'社員寮',icon:'🏢',price:150,upgradeBase:12
 // 先頭６種は旧家具と対応させ、保存済みの配置を引き継ぐ。
 const FURNITURE=[
  {name:'なし'},
- {name:'ベッド',src:'home/bed.png',width:30},
- {name:'ソファ',src:'home/sofa.png',width:27},
- {name:'ローテーブル',src:'home/low-table.png',width:25},
- {name:'観葉植物',src:'accessories/potted-plant.png',width:17},
- {name:'本棚',src:'home/bookcase.png',width:18},
- {name:'テレビ',src:'home/television.png',width:21},
- {name:'つめとぎ',src:'accessories/cat-scratching-post.png',width:17},
- {name:'座布団',src:'accessories/floor-cushion-zabuton.png',width:22},
- {name:'テレビ台',src:'accessories/low-tv-console.png',width:25},
- {name:'ミニ冷蔵庫',src:'accessories/mini-refrigerator.png',width:17},
- {name:'休憩ソファ',src:'office/break-room-sofa.png',width:27},
- {name:'デスク',src:'office/desk.png',width:27},
- {name:'パソコン',src:'office/desktop-computer.png',width:17},
- {name:'給水機',src:'office/hot-water-dispenser.png',width:16},
- {name:'オフィスチェア',src:'office/office-chair.png',width:17},
- {name:'金額縁の風景画',src:'luxury/gold-framed-painting.png',width:24,tier:'luxury'},
- {name:'金額縁ミラー',src:'luxury/ornate-mirror.png',width:18,tier:'luxury'},
- {name:'大理石の胸像',src:'luxury/marble-bust-pedestal.png',width:18,tier:'luxury'},
- {name:'振り子時計',src:'luxury/grandfather-clock.png',width:17,tier:'luxury'},
- {name:'高級ソファ',src:'luxury/luxury-sofa.png',width:30,tier:'luxury'},
- {name:'大型水槽',src:'luxury/luxury-aquarium.png',width:29,tier:'luxury'},
- {name:'シャンデリア',src:'luxury/chandelier.png',width:26,tier:'luxury'}
+ {name:'ベッド',src:'home/bed.webp',width:30},
+ {name:'ソファ',src:'home/sofa.webp',width:27},
+ {name:'ローテーブル',src:'home/low-table.webp',width:25},
+ {name:'観葉植物',src:'accessories/potted-plant.webp',width:17},
+ {name:'本棚',src:'home/bookcase.webp',width:18},
+ {name:'テレビ',src:'home/television.webp',width:21},
+ {name:'つめとぎ',src:'accessories/cat-scratching-post.webp',width:17},
+ {name:'座布団',src:'accessories/floor-cushion-zabuton.webp',width:22},
+ {name:'テレビ台',src:'accessories/low-tv-console.webp',width:25},
+ {name:'ミニ冷蔵庫',src:'accessories/mini-refrigerator.webp',width:17},
+ {name:'休憩ソファ',src:'office/break-room-sofa.webp',width:27},
+ {name:'デスク',src:'office/desk.webp',width:27},
+ {name:'パソコン',src:'office/desktop-computer.webp',width:17},
+ {name:'給水機',src:'office/hot-water-dispenser.webp',width:16},
+ {name:'オフィスチェア',src:'office/office-chair.webp',width:17},
+ {name:'金額縁の風景画',src:'luxury/gold-framed-painting.webp',width:24,tier:'luxury'},
+ {name:'金額縁ミラー',src:'luxury/ornate-mirror.webp',width:18,tier:'luxury'},
+ {name:'大理石の胸像',src:'luxury/marble-bust-pedestal.webp',width:18,tier:'luxury'},
+ {name:'振り子時計',src:'luxury/grandfather-clock.webp',width:17,tier:'luxury'},
+ {name:'高級ソファ',src:'luxury/luxury-sofa.webp',width:30,tier:'luxury'},
+ {name:'大型水槽',src:'luxury/luxury-aquarium.webp',width:29,tier:'luxury'},
+ {name:'シャンデリア',src:'luxury/chandelier.webp',width:26,tier:'luxury'}
 ];
-function furnitureArt(item){return item.src?`<img src="assets/furniture/${item.src}" alt="">`:'<span aria-hidden="true">＋</span>'}
+function furnitureArt(item){return item.src?`<img src="assets/furniture/${item.src}" alt="" loading="lazy" decoding="async">`:'<span aria-hidden="true">＋</span>'}
 
 const ROOM_LIMIT=8, MAX_HOME_LEVEL=10, HOME_TYPE_LIMIT=3;
 function homesOfType(type){return state.homes.filter(h=>h.type===type)}
@@ -63,7 +63,7 @@ const FURNITURE_DEFAULTS=[[28,46],[61,46],[39,68],[72,68],[22,70],[80,40]];
 function furniturePosition(home,slot){const pos=home.furniturePositions?.[slot];return pos&&Number.isFinite(pos.x)&&Number.isFinite(pos.y)?pos:{x:FURNITURE_DEFAULTS[slot][0],y:FURNITURE_DEFAULTS[slot][1]}}
 function saveFurniturePosition(home,slot,x,y){home.furniturePositions??=[];home.furniturePositions[slot]={x,y};save()}
 // 住まいは２グレードにつき１枚、全５段階の背景にする。
-function roomBackground(type,level){return `assets/${type==='dorm'?'dorm':'house'}/grade-${Math.min(5,Math.max(1,Math.ceil(level/2)))}.png`}
+function roomBackground(type,level){return `assets/${type==='dorm'?'dorm':'house'}/grade-${Math.min(5,Math.max(1,Math.ceil(level/2)))}.webp`}
 function upgradeDescription(home){
  const notes=[];
  if(roomSlots(home)<6)notes.push('家具を置ける場所が１つ増えます。');
