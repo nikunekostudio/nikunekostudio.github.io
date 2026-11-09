@@ -8,3 +8,6 @@
   X-Robots-Tag: noindex
 /docs/*
   X-Robots-Tag: noindex
+
+/playtest-nikuneko-709f19e563e9611ce9df78fa/*
+  X-Robots-Tag: noindex, nofollow, noarchive
