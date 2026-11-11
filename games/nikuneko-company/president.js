@@ -1,0 +1,14 @@
+// 代表取締役の写真は縮小して端末内の保存領域にのみ保存する。
+function presidentPicture(p){return `<div class="president-photo"><img src="${p.image}" alt="代表取締役" style="object-position:${p.x}% ${p.y}%;transform:translate(${(50-p.x)*0.5}%, ${(50-p.y)*0.5}%) scale(${p.scale})"></div>`}
+function renderPresident(){const box=$('#president-display');box.innerHTML=state.president?`<div class="president-in-office">${presidentPicture(state.president)}<span>代表取締役</span></div>`:''}
+function showPresidentEditor(){
+ let draft=state.president?{...state.president}:{image:'',scale:1,x:50,y:50};
+ showModal(`<h3>代表取締役を設定</h3><p>写真を選んで、表示する大きさと位置を調整できます。</p><div id="president-preview" class="president-preview"></div><label class="photo-pick" for="president-file">▣　写真を選ぶ</label><input type="file" id="president-file" accept="image/*" hidden><div class="president-controls"><label>大きさ <input id="president-scale" type="range" min="1" max="3" step="0.05" value="${draft.scale}"></label><label>左右の位置 <input id="president-x" type="range" min="0" max="100" value="${draft.x}"></label><label>上下の位置 <input id="president-y" type="range" min="0" max="100" value="${draft.y}"></label></div><p class="privacy">♢ 写真は端末内で処理・保存されます</p><button id="president-save" class="primary-button">この写真で設定する</button>${state.president?'<button id="president-remove" class="text-button">写真の設定を解除</button>':''}`);
+ function preview(){ $('#president-preview').innerHTML=draft.image?presidentPicture(draft):'<span>写真を選んでください</span>' }
+ preview();
+ for(const [id,key] of [['president-scale','scale'],['president-x','x'],['president-y','y']])$('#'+id).oninput=e=>{draft[key]=Number(e.target.value);preview()};
+ $('#president-file').onchange=async e=>{const file=e.target.files[0];if(!file)return;let url;try{url=URL.createObjectURL(file);const img=new Image();await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});const max=512,scale=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight)),canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);draft.image=canvas.toDataURL('image/jpeg',.85);preview()}catch(err){toast('写真を読み込めませんでした')}finally{if(url)URL.revokeObjectURL(url);e.target.value=''}};
+ $('#president-save').onclick=()=>{if(!draft.image){toast('写真を選んでください');return}const old=state.president;state.president={...draft};try{localStorage.setItem(key,JSON.stringify(state))}catch(err){state.president=old;toast('写真を保存できませんでした');return}renderPresident();closeModal();toast('代表取締役を設定しました！')};
+ const remove=$('#president-remove');if(remove)remove.onclick=()=>{delete state.president;save();renderPresident();closeModal();toast('写真の設定を解除しました')};
+}
+$('#president-open').onclick=showPresidentEditor;renderPresident();
