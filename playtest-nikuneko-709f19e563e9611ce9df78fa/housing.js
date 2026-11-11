@@ -24,7 +24,12 @@ const FURNITURE=[
  {name:'振り子時計',src:'luxury/grandfather-clock.webp',width:17,tier:'luxury'},
  {name:'高級ソファ',src:'luxury/luxury-sofa.webp',width:30,tier:'luxury'},
  {name:'大型水槽',src:'luxury/luxury-aquarium.webp',width:29,tier:'luxury'},
- {name:'シャンデリア',src:'luxury/chandelier.webp',width:26,tier:'luxury'}
+ {name:'シャンデリア',src:'luxury/chandelier.webp',width:26,tier:'luxury'},
+ {name:'白ごはん',src:'food/rice.webp',width:18,tier:'food'},
+ {name:'お味噌汁',src:'food/miso-soup.webp',width:18,tier:'food'},
+ {name:'目玉焼き',src:'food/fried-egg.webp',width:20,tier:'food'},
+ {name:'焼き魚',src:'food/grilled-fish.webp',width:22,tier:'food'},
+ {name:'カレーライス',src:'food/curry.webp',width:23,tier:'food'}
 ];
 function furnitureArt(item){return item.src?`<img src="assets/furniture/${item.src}" alt="" loading="lazy" decoding="async">`:'<span aria-hidden="true">＋</span>'}
 
@@ -37,11 +42,12 @@ if(!Number.isInteger(state.nextHomeId))state.nextHomeId=1;
 if(!Array.isArray(state.ownedFurniture)){
  state.ownedFurniture=[...new Set(state.homes.flatMap(h=>Array.isArray(h.furniture)?h.furniture:[]).filter(i=>Number.isInteger(i)&&i>0&&i<FURNITURE.length))];save();
 }
-const FURNITURE_BASE_PRICES=[0,120,140,100,80,160,180,90,70,110,150,170,150,180,140,120,12000,18000,22000,28000,35000,42000,50000];
+const FURNITURE_BASE_PRICES=[0,120,140,100,80,160,180,90,70,110,150,170,150,180,140,120,12000,18000,22000,28000,35000,42000,50000,2000,2500,3000,4000,5000];
 function furniturePrice(index){
- const isLuxury=FURNITURE[index]?.tier==='luxury';
- const growth=isLuxury?Math.pow(1.04,state.ownedFurniture.filter(i=>FURNITURE[i]?.tier==='luxury').length):Math.pow(1.35,state.ownedFurniture.length);
- return Math.min(isLuxury?50000:1000000000,Math.round(FURNITURE_BASE_PRICES[index]*growth/10)*10)
+ const tier=FURNITURE[index]?.tier,isSpecial=tier==='luxury'||tier==='food';
+ const growth=isSpecial?Math.pow(1.04,state.ownedFurniture.filter(i=>FURNITURE[i]?.tier===tier).length):Math.pow(1.35,state.ownedFurniture.length);
+ const limit=tier==='food'?5000:tier==='luxury'?50000:1000000000;
+ return Math.min(limit,Math.round(FURNITURE_BASE_PRICES[index]*growth/10)*10)
 }
 function furnitureOwned(index){return index===0||state.ownedFurniture.includes(index)}
 if(!Array.isArray(state.officeFurniture)){state.officeFurniture=Array(6).fill(0);save()}
@@ -60,6 +66,10 @@ function residentLabel(employee){return employeeName(employee)+(employee.executi
 function activatePage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('selected',b.dataset.page==='home'));window.scrollTo(0,0)}
 function roomSlots(home){return Math.min(6,home.level+1)}
 const FURNITURE_DEFAULTS=[[28,46],[61,46],[39,68],[72,68],[22,70],[80,40]];
+// 家具の重なりは奥・中・手前の３段階。社員のレイヤーより常に下に置く。
+function furnitureLayer(layers,slot){const value=layers?.[slot];return Number.isInteger(value)&&value>=1&&value<=3?value:2}
+function layerControl(attribute,slot,layer,extra=''){return `<label class="furniture-layer-control">重なり<select ${attribute}="${slot}" ${extra} aria-label="家具${slot+1}の重なり"><option value="1" ${layer===1?'selected':''}>奥</option><option value="2" ${layer===2?'selected':''}>中</option><option value="3" ${layer===3?'selected':''}>手前</option></select></label>`}
+
 function furniturePosition(home,slot){const pos=home.furniturePositions?.[slot];return pos&&Number.isFinite(pos.x)&&Number.isFinite(pos.y)?pos:{x:FURNITURE_DEFAULTS[slot][0],y:FURNITURE_DEFAULTS[slot][1]}}
 function saveFurniturePosition(home,slot,x,y){home.furniturePositions??=[];home.furniturePositions[slot]={x,y};save()}
 // 住まいは２グレードにつき１枚、全５段階の背景にする。
@@ -84,10 +94,10 @@ function drawHome(home){
  const type=HOUSING_TYPES[home.type], occupants=home.residents.map(key=>state.employees.find(c=>residentKey(c)===key)).filter(Boolean);
  const positions=[[8,10],[28,10],[48,10],[68,10],[8,42],[28,42],[48,42],[68,42]];
  const residents=state.employees.map(c=>{const key=residentKey(c),selected=home.residents.includes(key),other=state.homes.find(h=>h.id!==home.id&&h.residents.includes(key));return `<div class="resident-row">${employeeArt(c)}<span><b>${residentLabel(c)}</b><small>${other?'ほかの建物に入居中':c.executive?'役員':usesOriginal(c)?'オリジナル ・ レア':colorName(c)+'色'}</small></span><button data-action="resident" data-id="${home.id}" data-key="${key}" class="${selected?'active':''}" aria-pressed="${selected}">${selected?'入居中':'入居'}</button></div>`}).join('');
- const furniture=Array.from({length:roomSlots(home)},(_,i)=>{let n=home.furniture[i]||0;return `<button data-action="furniture" data-id="${home.id}" data-slot="${i}">${furnitureArt(FURNITURE[n])}<small>${FURNITURE[n].name}</small></button>`}).join('');
- const furnitureInRoom=Array.from({length:roomSlots(home)},(_,i)=>{const n=home.furniture[i]||0;if(!n||!FURNITURE[n])return '';const pos=furniturePosition(home,i);return `<button class="room-furniture" data-furniture-slot="${i}" data-home-id="${home.id}" style="left:${pos.x}%;top:${pos.y}%;width:${FURNITURE[n].width}%" aria-label="${FURNITURE[n].name} ${i+1}、ドラッグまたは矢印キーで移動">${furnitureArt(FURNITURE[n])}</button>`}).join('');
+ const furniture=Array.from({length:roomSlots(home)},(_,i)=>{let n=home.furniture[i]||0;return `<div class="furniture-slot"><button data-action="furniture" data-id="${home.id}" data-slot="${i}">${furnitureArt(FURNITURE[n])}<small>${FURNITURE[n].name}</small></button>${layerControl('data-furniture-layer-slot',i,furnitureLayer(home.furnitureLayers,i),`data-home-id="${home.id}"`)}</div>`}).join('');
+ const furnitureInRoom=Array.from({length:roomSlots(home)},(_,i)=>{const n=home.furniture[i]||0;if(!n||!FURNITURE[n])return '';const pos=furniturePosition(home,i);return `<button class="room-furniture" data-furniture-slot="${i}" data-home-id="${home.id}" style="left:${pos.x}%;top:${pos.y}%;width:${FURNITURE[n].width}%;z-index:${furnitureLayer(home.furnitureLayers,i)-1}" aria-label="${FURNITURE[n].name} ${i+1}、ドラッグまたは矢印キーで移動">${furnitureArt(FURNITURE[n])}</button>`}).join('');
  const upgrade=home.level<MAX_HOME_LEVEL?`<button class="primary-button housing-upgrade" data-action="upgrade" data-id="${home.id}">グレード ${home.level+1} にする　● ${money(upgradePrice(home))} G</button><p class="housing-note">${upgradeDescription(home)}<br>試作版ではお金だけでアップグレードできます。</p>`:'<p class="housing-note">✦ 最高グレードです</p>';
- const area=$('#housing-content');area.innerHTML=`${housingHeader()}<button class="back-button inner-back" data-action="list">‹　建物一覧へ</button><div class="room-heading"><span>${type.icon}</span><div><b>${homeLabel(home)}</b><small>グレード ${home.level}　・　入居 ${occupants.length} / ${ROOM_LIMIT} 人</small></div></div><div class="room-scene grade-${home.level} image-room" style="background-image:url('${roomBackground(home.type,home.level)}')"><div class="room-grade">✦ GRADE ${home.level}</div>${furnitureInRoom}${occupants.map((c,i)=>{const key=residentKey(c),saved=home.residentPositions?.[key],placement=saved&&Number.isFinite(saved.x)&&Number.isFinite(saved.y)?`left:${saved.x}%;top:${saved.y}%;bottom:auto;`:`left:${positions[i][0]}%;bottom:${positions[i][1]}%;`;return `<div class="room-resident" data-resident-key="${key}" data-home-id="${home.id}" tabindex="0" aria-label="${residentLabel(c)}、ドラッグまたは矢印キーで移動" style="${placement}animation-delay:-${i*.2}s" title="${residentLabel(c)}">${employeeArt(c)}</div>`}).join('')}${occupants.length?'':'<div class="room-empty">社員を入居させてみよう！</div>'}</div><div class="room-section"><b>家具をえらぶ <small>タップで一覧を表示</small></b><p>家具を選んで決定したら、部屋の中で指で動かせます。</p><div class="furniture-list">${furniture}</div></div><div class="room-section"><b>入居する社員 <small>${occupants.length} / ${ROOM_LIMIT} 人</small></b><p>社員は部屋の中でドラッグして動かせます。別の建物に入居中の社員を選ぶと、こちらに引っ越します。</p><div class="resident-list">${residents}</div></div>${upgrade}`;
+ const area=$('#housing-content');area.innerHTML=`${housingHeader()}<button class="back-button inner-back" data-action="list">‹　建物一覧へ</button><div class="room-heading"><span>${type.icon}</span><div><b>${homeLabel(home)}</b><small>グレード ${home.level}　・　入居 ${occupants.length} / ${ROOM_LIMIT} 人</small></div></div><div class="room-scene grade-${home.level} image-room" style="background-image:url('${roomBackground(home.type,home.level)}')"><div class="room-grade">✦ GRADE ${home.level}</div>${furnitureInRoom}${occupants.map((c,i)=>{const key=residentKey(c),saved=home.residentPositions?.[key],placement=saved&&Number.isFinite(saved.x)&&Number.isFinite(saved.y)?`left:${saved.x}%;top:${saved.y}%;bottom:auto;`:`left:${positions[i][0]}%;bottom:${positions[i][1]}%;`;return `<div class="room-resident" data-resident-key="${key}" data-home-id="${home.id}" tabindex="0" aria-label="${residentLabel(c)}、ドラッグまたは矢印キーで移動" style="${placement}animation-delay:-${i*.2}s" title="${residentLabel(c)}">${employeeArt(c)}</div>`}).join('')}${occupants.length?'':'<div class="room-empty">社員を入居させてみよう！</div>'}</div><div class="room-section"><b>家具をえらぶ <small>タップで一覧を表示</small></b><p>家具を選んで部屋で動かせます。重なりは奥・中・手前から選べます。</p><div class="furniture-list">${furniture}</div></div><div class="room-section"><b>入居する社員 <small>${occupants.length} / ${ROOM_LIMIT} 人</small></b><p>社員は部屋の中でドラッグして動かせます。別の建物に入居中の社員を選ぶと、こちらに引っ越します。</p><div class="resident-list">${residents}</div></div>${upgrade}`;
 }
 $('#housing-open').onclick=showHousing;$('#housing-back').onclick=()=>activatePage('home');
 $('#housing-content').onclick=e=>{const btn=e.target.closest('[data-action]');if(!btn)return;const action=btn.dataset.action,home=state.homes.find(h=>h.id===Number(btn.dataset.id));
@@ -107,6 +117,7 @@ function typeName(home){return HOUSING_TYPES[home.type].name}
 // Pointer Events でタッチ、マウス、ペンのいずれでも配置できる。
 let furnitureDrag=null;
 const housingArea=$('#housing-content');
+housingArea.addEventListener('change',event=>{const control=event.target.closest('[data-furniture-layer-slot]');if(!control)return;const home=state.homes.find(h=>h.id===Number(control.dataset.homeId)),slot=Number(control.dataset.furnitureLayerSlot),layer=Number(control.value);if(!home||!Number.isInteger(slot)||slot<0||slot>=roomSlots(home)||!Number.isInteger(layer)||layer<1||layer>3)return;home.furnitureLayers??=[];home.furnitureLayers[slot]=layer;save();const piece=housingArea.querySelector(`[data-furniture-slot="${slot}"][data-home-id="${home.id}"]`);if(piece)piece.style.zIndex=String(layer-1)});
 housingArea.addEventListener('pointerdown',event=>{
  const piece=event.target.closest('[data-furniture-slot]');if(!piece||event.button!==0)return;
  const home=state.homes.find(h=>h.id===Number(piece.dataset.homeId)),room=piece.closest('.room-scene'),slot=Number(piece.dataset.furnitureSlot);if(!home||!room)return;
@@ -143,11 +154,12 @@ housingArea.addEventListener('keydown',event=>{const piece=event.target.closest(
 // オフィスでも購入済み家具を選び、位置を自由に調整できる。
 function officeFurniturePosition(slot){const p=state.officeFurniturePositions?.[slot];return p&&Number.isFinite(p.x)&&Number.isFinite(p.y)?p:{x:FURNITURE_DEFAULTS[slot][0],y:FURNITURE_DEFAULTS[slot][1]}}
 function renderOfficeFurniture(){
- $('#office-furniture').innerHTML=state.officeFurniture.slice(0,6).map((n,i)=>{if(!n||!FURNITURE[n])return '';const p=officeFurniturePosition(i);return `<button class="room-furniture office-furniture-piece" data-office-furniture-slot="${i}" style="left:${p.x}%;top:${p.y}%;width:${FURNITURE[n].width}%" aria-label="${FURNITURE[n].name} ${i+1}、ドラッグまたは矢印キーで移動">${furnitureArt(FURNITURE[n])}</button>`}).join('');
+ $('#office-furniture').innerHTML=state.officeFurniture.slice(0,6).map((n,i)=>{if(!n||!FURNITURE[n])return '';const p=officeFurniturePosition(i);return `<button class="room-furniture office-furniture-piece" data-office-furniture-slot="${i}" style="left:${p.x}%;top:${p.y}%;width:${FURNITURE[n].width}%;z-index:${furnitureLayer(state.officeFurnitureLayers,i)-1}" aria-label="${FURNITURE[n].name} ${i+1}、ドラッグまたは矢印キーで移動">${furnitureArt(FURNITURE[n])}</button>`}).join('');
 }
 function showOfficeFurnitureSettings(){
- showModal(`<h3>オフィスの家具を設定</h3><p>枠を選び、家具を決めてからオフィス内で動かせます。</p><div class="office-furniture-slots">${Array.from({length:6},(_,i)=>{const item=FURNITURE[state.officeFurniture[i]||0];return `<button data-office-slot="${i}">${furnitureArt(item)}<small>${i+1}：${item.name}</small></button>`}).join('')}</div><button id="office-furniture-done" class="primary-button">おわり</button>`);
+ showModal(`<h3>オフィスの家具を設定</h3><p>家具を選んで動かせます。重なりは奥・中・手前から選べます。</p><div class="office-furniture-slots">${Array.from({length:6},(_,i)=>{const item=FURNITURE[state.officeFurniture[i]||0];return `<div class="furniture-slot"><button data-office-slot="${i}">${furnitureArt(item)}<small>${i+1}：${item.name}</small></button>${layerControl('data-office-layer-slot',i,furnitureLayer(state.officeFurnitureLayers,i))}</div>`}).join('')}</div><button id="office-furniture-done" class="primary-button">おわり</button>`);
  document.querySelectorAll('[data-office-slot]').forEach(button=>button.addEventListener('click',()=>{const slot=Number(button.dataset.officeSlot);showFurniturePicker(state.officeFurniture[slot],choice=>{state.officeFurniture[slot]=choice;renderOfficeFurniture()},showOfficeFurnitureSettings)}));
+ document.querySelectorAll('[data-office-layer-slot]').forEach(control=>control.addEventListener('change',()=>{const slot=Number(control.dataset.officeLayerSlot),layer=Number(control.value);if(!Number.isInteger(slot)||slot<0||slot>=6||!Number.isInteger(layer)||layer<1||layer>3)return;state.officeFurnitureLayers??=[];state.officeFurnitureLayers[slot]=layer;save();renderOfficeFurniture()}));
  $('#office-furniture-done').onclick=closeModal;
 }
 $('#office-furniture-open').onclick=showOfficeFurnitureSettings;renderOfficeFurniture();
