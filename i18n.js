@@ -6,6 +6,19 @@
   // partially translated; do not advertise them as complete hreflang alternates.
 
   const dictionary={
+"にくねこアニメ":"Nikuneko Animation",
+"にくねこアニメ | にくねこスタジオ":"Nikuneko Animation | Nikuneko Studio",
+"おにくとねこ、しいたけたちの、ちょっとおかしな毎日。":"A slightly unusual everyday life with Oniku, the cat and Shiitake.",
+"たのしい！にくねこの日常！":"The Fun Everyday Life of Nikuneko!",
+"しいたけにおごってもらっちゃった":"Shiitake Treated Us!",
+"刺身にたんぽぽをのせて、お給料をもらった猫とおにく。":"The cat and Oniku earn their wages placing dandelions on sashimi.",
+"テレビの演説を聞いて、今度は株式投資も始めてみたけれど……。":"After hearing a speech on TV, they try investing in stocks, but…",
+"働いて、投資して、最後は？":"Work, invest… and what happens in the end?",
+"YouTubeで見る・感想をコメントする ↗":"Watch and comment on YouTube ↗",
+"YouTubeでも、にくねこ。":"More Nikuneko on YouTube.",
+"ほかの動画やゲームの紹介も、公式チャンネルで。":"Find more videos and game previews on our official channel.",
+"公式チャンネルを見る ↗":"Visit our official channel ↗",
+"動画はYouTubeの埋め込みプレーヤーを使用しています。":"This video uses the embedded YouTube player.",
     'キミはAI画像を':'CAN YOU SPOT',
     '見破れるか？':'THE AI IMAGE?',
     'クイズ 中級編':'QUIZ — INTERMEDIATE',
