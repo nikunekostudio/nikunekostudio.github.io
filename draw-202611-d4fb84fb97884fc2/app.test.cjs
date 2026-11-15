@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),crypto=require('node:crypto');
+const elements={}; const ctx2=new Proxy({}, {get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
+function el(id){return elements[id]??=( {id,children:[],listeners:{},textContent:'',hidden:false,disabled:false,addEventListener(k,f){this.listeners[k]=f},replaceChildren(...x){this.children=x},append(x){this.children.push(x)},getContext(){return ctx2}})}
+let clock=0,frames=[];const sandbox={document:{getElementById:el,createElement:()=>el('new'+Math.random())},crypto:crypto.webcrypto,performance:{now:()=>clock},requestAnimationFrame:f=>frames.push(f),console,Uint32Array,Set,Math,Array,String,Error};vm.createContext(sandbox);vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),sandbox);
+assert.deepEqual(Array.from(vm.runInContext('categories.map(c=>participants.filter(p=>p.category===c.id).length)',sandbox)),[1,5,7,7]);
+assert.equal(vm.runInContext('mask("山田太郎")',sandbox),'山＊＊＊');
+assert.equal(vm.runInContext('parseCSV("名前,希望\\n\\\"山,田\\\",ドット絵 36×36")[1][0]',sandbox),'山,田');
+assert.equal(vm.runInContext('categoryFor("ドット絵 24×24")',sandbox),'dot24');
+el('spin').listeners.click(); assert.equal(vm.runInContext('phase',sandbox),'spinning'); clock=100;frames.shift()(clock); el('spin').listeners.click(); assert.equal(vm.runInContext('phase',sandbox),'stopping'); clock=5700; frames.shift()(clock); assert.equal(vm.runInContext('phase',sandbox),'idle'); assert.match(el('result').textContent,/＊＊＊ さん/);assert.equal(el('result-note').textContent.includes('#14'),true); el('remove').listeners.click(); assert.equal(vm.runInContext('active().length',sandbox),0);el('restore').listeners.click();assert.equal(vm.runInContext('active().length',sandbox),1);
+console.log('PASS: category counts, masking, CSV, spin, stop, removal and restore');
