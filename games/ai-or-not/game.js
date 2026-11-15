@@ -43,6 +43,7 @@ const questions = [
   {src:'images/q42.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q43.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q44.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
+  {src:'images/q45.jpg',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
 ];
 
 const startScreen=document.querySelector('#start-screen');
