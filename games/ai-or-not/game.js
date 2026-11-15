@@ -39,7 +39,6 @@ const questions = [
   {src:'images/q38.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q39.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q40.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
-  {src:'images/q41.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q42.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q43.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
   {src:'images/q44.png',ai:true,copy:'AI画像です。生成AIによって制作された画像です。'},
