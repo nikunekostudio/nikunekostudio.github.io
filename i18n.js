@@ -36,6 +36,7 @@
     'にくねこスタジオのキャラクターやイラストを集めました。':'A collection of Nikuneko Studio characters and illustrations.',
     'にくねこスタジオは、おにく氏がデザインするゲームやショップのアイテムを公開していきます。':'Nikuneko Studio publishes games and shop items designed by Oniku.',
     'にくねこスタジオが制作したオリジナルコンテンツの著作権は、にくねこスタジオに帰属します。ゲーム内の一部素材は各製作者様に帰属し、規約を遵守して使用しています。':'Original content created by Nikuneko Studio is owned by Nikuneko Studio. Some game assets belong to their respective creators and are used under their applicable terms.',
+    "おにく氏のデザイン及びイラストの著作権は、おにく氏に帰属します。にくねこスタジオは、おにく氏の許諾を受けてこれらを利用しています。":"Copyright in the designs and illustrations by Oniku belongs to Oniku. Nikuneko Studio uses them with Oniku’s permission.",
     'お問い合わせは':'Contact us via','までご連絡ください。':'.','公式 X（@nikunekokikaku）':'our official X account (@nikunekokikaku)',
     'にくねこスタジオのゲーム':'Nikuneko Studio Games','公開中のゲーム':'NOW PLAYING','作品が増えたらここに追加していきます。':'New titles will be added here.',
     '俺が売ったら、':'The Moment I Sell,','あがった。':'It Goes Up.','下がる株価、増える含み損。ナンピンする？損切りする？売却後に相場の答え合わせができる、最大3分のブラウザ株ゲーム。':'A three-minute browser stock game. Average down or cut your losses, then reveal what the market did after you sold.',
