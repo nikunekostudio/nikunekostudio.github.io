@@ -81,8 +81,6 @@ function render(p, input) {
     const anchor=html.includes('<footer')?'<footer':'</body>';
     html=html.replace(anchor,gameInfo(m,html)+anchor);
   }
-  // Fix a skipped heading level without changing the article's typography.
-  if(m.path==='/blog/nakano-broadway/') html=html.replaceAll('<h3>','<h2 class="article-subheading">').replaceAll('<h2 style="font-size:inherit">','<h2 class="article-subheading">').replaceAll('</h3>','</h2>');
   return html.replace(/[ \t]+$/gm,'').replace(/\n{3,}/g,'\n\n');
 }
 function patch(file, next) {
